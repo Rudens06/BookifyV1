@@ -17,7 +17,7 @@ defmodule Bookify.Book do
   def changeset(book, params \\ %{}) do
     book
     |> cast(params, [:name, :genere, :cover_pic_url, :anotation])
-    |> validate_required([:name, :genere, :author_id])
+    |> validate_required([:name, :genere, :author])
   end
 
 end

@@ -13,7 +13,8 @@ defmodule Bookify.Review do
   end
 
   def changeset(review, params \\ %{}) do
-    book
+    review
     |> cast(params, [:review, :rating])
     |> validate_required([:book, :user, :review, :rating])
+  end
 end
