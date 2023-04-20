@@ -14,5 +14,6 @@ defmodule Bookify.User do
       user
       |> cast(params, [:name, :surname, :email])
       |> validate_required([:name, :surname, :email])
+      |> unique_constraint([:email])
     end
 end
