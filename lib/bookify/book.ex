@@ -7,12 +7,10 @@ defmodule Bookify.Book do
   @foreign_key_type :integer
   schema "book" do
     field :name, :string
-    field :author_id, :integer
+    belongs_to :author, Author
     field :genere, :string
     field :cover_pic_url, :string
     field :anotation, :string
-
-    has_one Author
     has_many Review
   end
 
