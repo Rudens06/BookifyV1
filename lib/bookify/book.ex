@@ -11,7 +11,7 @@ defmodule Bookify.Book do
     field :genere, :string
     field :cover_pic_url, :string
     field :anotation, :string
-    has_many Review
+    has_many :reviews, Review
   end
 
   def changeset(book, params \\ %{}) do
