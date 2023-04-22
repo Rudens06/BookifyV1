@@ -5,7 +5,7 @@ defmodule Bookify.BooksInLists do
   alias Bookify.List
 
   @foreign_key_type :integer
-  schema "book_in_list" do
+  schema "books_in_lists" do
     belongs_to :book, Book
     belongs_to :list, List
     timestamps(updated_at: false)

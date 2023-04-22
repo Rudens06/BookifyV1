@@ -17,7 +17,16 @@ defmodule BookifyWeb.Router do
   scope "/", BookifyWeb do
     pipe_through :browser
 
-    get "/", PageController, :home
+    get "/", BookController, :index
+    get "/books/new", BookController, :new
+    post "/books", BookController, :create
+    get "/books/:id/edit", BookController, :edit
+    put "/books/:id", BookController, :update
+    delete "/books/:id/delete", BookController, :delete
+    get "/books/:id", BookController, :show
+
+    resources "/authors", AuthorController
+
   end
 
   # Other scopes may use custom stacks.

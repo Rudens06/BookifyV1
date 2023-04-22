@@ -1,0 +1,16 @@
+<%= form_for @changeset, Routes.author_path(@conn, :update, @author.id), fn f -> %>
+  <div class="form-group">
+    <%= text_input f, :name, placeholder: "Name", class: "form-control" %>
+    <%= error_tag f, :name %>
+    <%= number_input f, :birth_year, placeholder: "Birth_year", class: "form-control" %>
+    <%= error_tag f, :birth_year %>
+    <%= text_input f, :bio, placeholder: "Biography", class: "form-control" %>
+    <%= error_tag f, :bio %>
+    <%= text_input f, :author_pic_url, placeholder: "Author picture url", class: "form-control" %>
+    <%= error_tag f, :author_pic_url %>
+    <%= text_input f, :wikipedia_url, placeholder: "Wikipedia url", class: "form-control" %>
+    <%= error_tag f, :wikipedia_url %>
+  </div>
+
+  <%= submit "Save Author", class: "btn btn-primary" %>
+<% end %>

@@ -1,0 +1,14 @@
+<%= form_for @changeset, Routes.book_path(@conn, :update, @book.id), fn f -> %>
+  <div class="form-group">
+    <%= text_input f, :title, placeholder: "Title", class: "form-control" %>
+    <%= error_tag f, :title %>
+    <%= text_input f, :genere, placeholder: "Genere", class: "form-control" %>
+    <%= error_tag f, :genere %>
+    <%= text_input f, :cover_pic_url, placeholder: "cover_pic_url", class: "form-control" %>
+    <%= error_tag f, :cover_pic_url %>
+    <%= text_input f, :anotation, placeholder: "anotation", class: "form-control" %>
+    <%= error_tag f, :anotation %>
+  </div>
+
+  <%= submit "Save Book", class: "btn btn-primary" %>
+<% end %>

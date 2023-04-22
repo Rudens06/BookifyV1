@@ -1,0 +1,18 @@
+<h4>Books</h4>
+
+<ul class="collection">
+  <%= for book <- @books do %>
+    <li class="collection-item">
+      <%= link book.title, to: Routes.book_path(@conn, :show, book.id) %>
+      <div class="right">
+        <%= link "Edit", to: Routes.book_path(@conn, :edit, book.id) %>
+        <%= link "Delete", to: Routes.book_path(@conn, :delete, book.id), method: :delete %>
+      </div>
+    </li>
+  <% end %>
+</ul>
+
+<div class="right">
+  <%= link "Add book", to: Routes.book_path(@conn, :new), class: "btn" %>
+</div>
+

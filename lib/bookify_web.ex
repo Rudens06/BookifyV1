@@ -21,7 +21,7 @@ defmodule BookifyWeb do
 
   def router do
     quote do
-      use Phoenix.Router, helpers: false
+      use Phoenix.Router, helpers: true
 
       # Import common connection and controller functions to use in pipelines
       import Plug.Conn
@@ -44,6 +44,7 @@ defmodule BookifyWeb do
 
       import Plug.Conn
       import BookifyWeb.Gettext
+      alias BookifyWeb.Router.Helpers, as: Routes
 
       unquote(verified_routes())
     end
@@ -75,6 +76,7 @@ defmodule BookifyWeb do
         only: [get_csrf_token: 0, view_module: 1, view_template: 1]
 
       # Include general helpers for rendering HTML
+      alias BookifyWeb.Router.Helpers, as: Routes
       unquote(html_helpers())
     end
   end

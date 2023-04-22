@@ -5,7 +5,7 @@ defmodule Bookify.Review do
   alias Bookify.User
 
   @foreign_key_type :integer
-  schema "review" do
+  schema "reviews" do
     belongs_to :book, Book
     belongs_to :user, User
     field :review, :string

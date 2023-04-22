@@ -4,7 +4,7 @@ defmodule Bookify.List do
   alias Bookify.User
 
   @foreign_key_type :integer
-  schema "list" do
+  schema "lists" do
     belongs_to :user, User
     field :type, :string
   end

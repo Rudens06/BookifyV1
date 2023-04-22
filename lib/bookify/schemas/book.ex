@@ -5,8 +5,8 @@ defmodule Bookify.Book do
   alias Bookify.Review
 
   @foreign_key_type :integer
-  schema "book" do
-    field :name, :string
+  schema "books" do
+    field :title, :string
     belongs_to :author, Author
     field :genere, :string
     field :cover_pic_url, :string
@@ -16,8 +16,8 @@ defmodule Bookify.Book do
 
   def changeset(book, params \\ %{}) do
     book
-    |> cast(params, [:name, :genere, :cover_pic_url, :anotation])
-    |> validate_required([:name, :genere, :author])
+    |> cast(params, [:title, :author_id,  :genere, :cover_pic_url, :anotation])
+    |> validate_required([:title, :genere])
   end
 
 end
