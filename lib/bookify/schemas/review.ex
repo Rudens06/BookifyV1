@@ -4,6 +4,7 @@ defmodule Bookify.Review do
   alias Bookify.Book
   alias Bookify.User
 
+  @primary_key {:id, :string, autogenerate: false}
   @foreign_key_type :integer
   schema "reviews" do
     belongs_to :book, Book

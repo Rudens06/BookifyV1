@@ -3,6 +3,7 @@ defmodule Bookify.Author do
   use Ecto.Schema
   import Ecto.Changeset
 
+  @primary_key {:id, :string, autogenerate: false}
   schema "authors" do
     field :name, :string
     field :birth_year, :integer

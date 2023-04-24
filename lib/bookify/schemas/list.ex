@@ -3,6 +3,7 @@ defmodule Bookify.List do
   import Ecto.Changeset
   alias Bookify.User
 
+  @primary_key {:id, :string, autogenerate: false}
   @foreign_key_type :integer
   schema "lists" do
     belongs_to :user, User
