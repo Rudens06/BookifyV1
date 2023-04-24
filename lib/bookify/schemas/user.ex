@@ -1,6 +1,7 @@
 defmodule Bookify.User do
   use Ecto.Schema
   import Ecto.Changeset
+  alias Bookify.GenId
 
   schema "users" do
     field :name, :string
@@ -76,5 +77,9 @@ defmodule Bookify.User do
       max: 160,
       message: "should be at most 160 characters long"
     )
+  end
+
+  def new() do
+    %__MODULE__{id: GenId.generate()}
   end
 end

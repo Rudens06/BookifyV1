@@ -52,7 +52,8 @@ defmodule Bookify.MixProject do
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
       {:bcrypt_elixir, "~> 3.0"},
-      {:password_validator, "~> 0.4.1"}
+      {:password_validator, "~> 0.4.1"},
+      {:puid, "~> 2.0"}
     ]
   end
 

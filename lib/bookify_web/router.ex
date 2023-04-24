@@ -33,6 +33,7 @@ defmodule BookifyWeb.Router do
     post "/signin", AuthController, :signin
     delete "/signout", AuthController, :signout
 
+    get "/account", AccountController, :index
   end
 
   # Other scopes may use custom stacks.

@@ -8,7 +8,7 @@ defmodule Bookify.Book do
   schema "books" do
     field :title, :string
     belongs_to :author, Author
-    field :genere, :string
+    field :genre, {:array, :string}
     field :cover_pic_url, :string
     field :anotation, :string
     has_many :reviews, Review
@@ -16,8 +16,8 @@ defmodule Bookify.Book do
 
   def changeset(book, params \\ %{}) do
     book
-    |> cast(params, [:title, :author_id,  :genere, :cover_pic_url, :anotation])
-    |> validate_required([:title, :genere])
+    |> cast(params, [:title, :author_id,  :genre, :cover_pic_url, :anotation])
+    |> validate_required([:title, :genre])
   end
 
 end

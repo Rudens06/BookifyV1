@@ -15,7 +15,7 @@
       </li>
       <%= if @conn.assigns[:current_user] do %>
         <li>
-          <%= link("My Account", to: Routes.book_path(@conn, :index)) %>
+          <%= link("My Account", to: Routes.account_path(@conn, :index)) %>
         </li>
         <li>
           <%= link("Sign Out", to: Routes.auth_path(@conn, :signout), method: :delete) %>

@@ -1,0 +1,28 @@
+defmodule BookifyWeb.ReviewController do
+  use BookifyWeb, :controller
+
+  alias Bookify.Repo
+  alias Bookify.Accounts
+  alias Bookify.Review
+  alias Bookify.Reviews
+
+  plug BookifyWeb.Plugs.RequireAuth when action in [:new, :create, :edit, :update, :delete]
+  plug :check_review_owner when action in [:update, :edit, :delete]
+
+  def index(conn, _params) do
+    render(conn, :index)
+  end
+
+  def check_review_owner(conn, _params) do
+    %{params: %{"id" => review_id}} = conn
+
+    if Reviews.get_review_by_id!(review_id).user_id == conn.assigns.current_user.id do
+      conn
+    else
+      conn
+      |> put_flash(:error, "Not Allowed")
+      |> redirect(to: Routes.book_path(conn, :index))
+      |> halt()
+    end
+  end
+end

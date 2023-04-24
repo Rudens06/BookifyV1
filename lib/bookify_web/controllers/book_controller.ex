@@ -11,6 +11,10 @@ defmodule BookifyWeb.BookController do
   # plug :check_topic_owner when action in [:update, :edit, :delete]
 
 
+  def init(conn, _params) do
+    conn
+  end
+
   def index(conn, _params) do
     books = Books.list_all
     conn

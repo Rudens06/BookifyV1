@@ -1,7 +1,6 @@
 defmodule BookifyWeb.AuthController do
   use BookifyWeb, :controller
   alias Bookify.Accounts
-  alias Bookify.User
 
   def new(conn, _params) do
     render(conn, :new)

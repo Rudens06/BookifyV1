@@ -5,8 +5,11 @@
       <%= error_tag f, :title %>
     </div>
     <div class="input-field">
-      <%= text_input f, :genere, placeholder: "Genere", class: "form-control" %>
-      <%= error_tag f, :genere %>
+      <%= select f, :author_id, Enum.map(@authors, &{&1.name, &1.id}), class: "form-select" %>
+    </div>
+    <div class="input-field">
+      <%= text_input f, :genre, placeholder: "Genre", class: "form-control" %>
+      <%= error_tag f, :genre %>
     </div>
     <div class="input-field">
       <%= text_input f, :cover_pic_url, placeholder: "cover_pic_url", class: "form-control" %>
