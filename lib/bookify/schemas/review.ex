@@ -10,6 +10,7 @@ defmodule Bookify.Review do
     belongs_to :user, User
     field :review, :string
     field :rating, :integer
+    timestamps()
   end
 
   def changeset(review, params \\ %{}) do

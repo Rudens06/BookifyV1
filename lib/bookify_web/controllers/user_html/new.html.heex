@@ -1,0 +1,23 @@
+<h2>Register</h2>
+
+<div class="form-group"> 
+    <%= form_for @changeset, Routes.user_path(@conn, :create), fn f -> %>
+        <div class="input-field">
+            <%= text_input f, :name, placeholder: "Name", class: "form-control" %>
+            <%= error_tag f, :name %>
+        </div>
+        <div class="input-field">
+            <%= text_input f, :email, placeholder: "Email", class: "form-control" %>
+            <%= error_tag f, :email %>
+        </div>
+        <div class="input-field">
+            <%= password_input f, :password, placeholder: "Password", class: "form-control" %>
+            <%= error_tag f, :password %>
+        </div>
+        <div class="input-field">
+            <%= password_input f, :password_confirmation, placeholder: "Confirm password", class: "form-control" %>
+            <%= error_tag f, :password_confirmation %>
+        </div>
+        <%= submit "Register", class: "btn btn-primary" %>
+    <% end %>
+</div>

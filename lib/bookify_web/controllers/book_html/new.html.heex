@@ -1,14 +1,22 @@
 <%= form_for @changeset, Routes.book_path(@conn, :create), fn f -> %>
-    <%= text_input f, :title, placeholder: "Title", class: "form-control" %>
-    <%= error_tag f, :title %>
-    <%= select f, :author_id, Enum.map(@authors, &{&1.name, &1.id}), class: "form-select" %>
-    <%= text_input f, :genere, placeholder: "Genere", class: "form-control" %>
-    <%= error_tag f, :genere %>
-    <%= text_input f, :cover_pic_url, placeholder: "Cover picture url", class: "form-control" %>
-    <%= error_tag f, :cover_pic_url %>
-    <%= text_input f, :anotation, placeholder: "Anotation", class: "form-control" %>
-    <%= error_tag f, :anotation %>
+  <div class="form-group">
+    <div class="input-field">
+      <%= text_input f, :title, placeholder: "Title", class: "form-control" %>
+      <%= error_tag f, :title %>
+    </div>
+    <div class="input-field">
+      <%= text_input f, :genere, placeholder: "Genere", class: "form-control" %>
+      <%= error_tag f, :genere %>
+    </div>
+    <div class="input-field">
+      <%= text_input f, :cover_pic_url, placeholder: "cover_pic_url", class: "form-control" %>
+      <%= error_tag f, :cover_pic_url %>
+    </div>
+    <div class="input-field">
+      <%= text_input f, :anotation, placeholder: "anotation", class: "form-control" %>
+      <%= error_tag f, :anotation %>
+    </div>
+  </div>
 
   <%= submit "Save Book", class: "btn btn-primary" %>
-  
 <% end %>

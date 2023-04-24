@@ -8,6 +8,7 @@ defmodule BookifyWeb.Router do
     plug :put_root_layout, {BookifyWeb.Layouts, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug BookifyWeb.Plugs.SetUser
   end
 
   pipeline :api do
@@ -26,6 +27,11 @@ defmodule BookifyWeb.Router do
     get "/books/:id", BookController, :show
 
     resources "/authors", AuthorController
+    resources "/registrations", UserController, only: [:new, :create]
+
+    get "/signin", AuthController, :new
+    post "/signin", AuthController, :signin
+    delete "/signout", AuthController, :signout
 
   end
 
