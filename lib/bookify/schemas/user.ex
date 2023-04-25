@@ -2,7 +2,7 @@ defmodule Bookify.User do
   use Ecto.Schema
   import Ecto.Changeset
   alias Bookify.GenId
-  
+
   @primary_key {:id, :string, autogenerate: false}
   schema "users" do
     field :name, :string

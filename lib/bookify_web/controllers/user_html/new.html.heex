@@ -3,7 +3,7 @@
 <div class="form-group"> 
     <%= form_for @changeset, Routes.user_path(@conn, :create), fn f -> %>
         <div class="input-field">
-            <%= text_input f, :name, placeholder: "Name", class: "form-control" %>
+            <%= text_input f, :name, placeholder: "Name", class: "white gray-text" %>
             <%= error_tag f, :name %>
         </div>
         <div class="input-field">

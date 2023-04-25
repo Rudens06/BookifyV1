@@ -3,12 +3,15 @@ defmodule Bookify.Book do
   import Ecto.Changeset
   alias Bookify.Author
   alias Bookify.Review
+  alias Bookify.GenId
 
   @primary_key {:id, :string, autogenerate: false}
-  @foreign_key_type :integer
+  @foreign_key_type :string
   schema "books" do
     field :title, :string
     belongs_to :author, Author
+    field :publish_year, :integer
+    field :page_count, :integer
     field :genre, {:array, :string}
     field :cover_pic_url, :string
     field :anotation, :string
@@ -17,8 +20,11 @@ defmodule Bookify.Book do
 
   def changeset(book, params \\ %{}) do
     book
-    |> cast(params, [:title, :author_id,  :genre, :cover_pic_url, :anotation])
-    |> validate_required([:title, :genre])
+    |> cast(params, [:title, :author_id, :publish_year, :page_count, :genre, :cover_pic_url, :anotation])
+    |> validate_required([:title, :author_id, :publish_year, :page_count, :genre, :cover_pic_url, :anotation])
   end
 
+  def new() do
+    %__MODULE__{id: GenId.generate()}
+  end
 end

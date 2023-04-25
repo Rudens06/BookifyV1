@@ -6,17 +6,14 @@ defmodule BookifyWeb.BookController do
   alias Bookify.Books
   alias Bookify.Authors
 
-
-  # plug BookifyWeb.Plugs.RequireAuth when action in [:new, :create, :edit, :update, :delete]
-  # plug :check_topic_owner when action in [:update, :edit, :delete]
-
+  plug BookifyWeb.Plugs.RequireAdmin when action in [:new, :create, :edit, :update, :delete]
 
   def init(conn, _params) do
     conn
   end
 
   def index(conn, _params) do
-    books = Books.list_all
+    books = Books.list_all_w_authors()
     conn
     |>assign(:books, books)
     |>render(:index)
@@ -32,17 +29,19 @@ defmodule BookifyWeb.BookController do
 
   def new(conn, _params) do
     authors = Authors.list_all
-    changeset = Book.changeset(%Book{}, %{})
+    changeset = Book.changeset(%Book{})
 
-      conn
-      |> assign(:changeset, changeset)
-      |> assign(:authors, authors)
-      |> render(:new)
+    conn
+    |> assign(:changeset, changeset)
+    |> assign(:authors, authors)
+    |> render(:new)
   end
 
-  def create(conn, %{"book" => book}) do
+  def create(conn, %{"book" => book_params}) do
+    changeset =
+      Book.new()
+      |> Book.changeset(book_params)
 
-    changeset = Book.changeset(%Book{}, book)
     case Books.insert(changeset) do
       {:ok, _topic} ->
         conn
@@ -87,19 +86,4 @@ defmodule BookifyWeb.BookController do
     |> put_flash(:info, "Deleted Successfully")
     |> redirect(to: Routes.book_path(conn, :index))
   end
-
-  # def check_topic_owner(conn, _params) do
-  #   %{params: %{"id" => book_id}} = conn
-
-
-  #   if Repo.get(book, book_id).user_id == conn.assigns.user.id do
-  #     conn
-  #   else
-  #     conn
-  #     |> put_flash(:error, "Not Allowed")
-  #     |> redirect(to: Routes.book_path(conn, :index))
-  #     |> halt()
-  #   end
-  # end
-
 end

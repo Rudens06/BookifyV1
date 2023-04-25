@@ -6,17 +6,26 @@
     </div>
     <div class="input-field">
       <%= select f, :author_id, Enum.map(@authors, &{&1.name, &1.id}), class: "form-select" %>
+      <%= error_tag f, :author_id %>
+    </div>
+    <div class="input-field">
+      <%= number_input f, :publish_year, placeholder: "Year Published", class: "form-control" %>
+      <%= error_tag f, :publish_year %>
+    </div>
+    <div class="input-field">
+      <%= number_input f, :page_count, placeholder: "Page Count", class: "form-control" %>
+      <%= error_tag f, :page_count %>
     </div>
     <div class="input-field">
       <%= text_input f, :genre, placeholder: "Genre", class: "form-control" %>
       <%= error_tag f, :genre %>
     </div>
     <div class="input-field">
-      <%= text_input f, :cover_pic_url, placeholder: "cover_pic_url", class: "form-control" %>
+      <%= text_input f, :cover_pic_url, placeholder: "Cover picture URL", class: "form-control" %>
       <%= error_tag f, :cover_pic_url %>
     </div>
     <div class="input-field">
-      <%= text_input f, :anotation, placeholder: "anotation", class: "form-control" %>
+      <%= text_input f, :anotation, placeholder: "Anotation", class: "form-control" %>
       <%= error_tag f, :anotation %>
     </div>
   </div>

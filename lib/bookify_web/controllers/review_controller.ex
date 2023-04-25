@@ -9,6 +9,22 @@ defmodule BookifyWeb.ReviewController do
   plug BookifyWeb.Plugs.RequireAuth when action in [:new, :create, :edit, :update, :delete]
   plug :check_review_owner when action in [:update, :edit, :delete]
 
+
+  def new(conn, _params) do
+    changeset = Review.changeset(%Review{})
+
+    conn
+    |> assign(:changeset, changeset)
+    |> render(:new)
+  end
+
+  def create(conn, %{"review" => review_params}) do
+    changeset =
+      Review.new()
+      |> Review.changeset(review_params)
+      ## More stuff needed
+  end
+
   def index(conn, _params) do
     render(conn, :index)
   end

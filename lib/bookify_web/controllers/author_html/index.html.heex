@@ -4,15 +4,19 @@
   <%= for author <- @authors do %>
     <li class="collection-item">
       <%= link author.name, to: Routes.author_path(@conn, :show, author.id) %>
-      <div class="right">
-        <%= link "Edit", to: Routes.author_path(@conn, :edit, author.id) %>
-        <%= link "Delete", to: Routes.author_path(@conn, :delete, author.id), method: :delete %>
-      </div>
+      <%= if RequireAdmin.user_is_admin?(@conn.assigns.current_user) do %>
+        <div class="right">
+          <%= link "Edit", to: Routes.author_path(@conn, :edit, author.id) %>
+          <%= link "Delete", to: Routes.author_path(@conn, :delete, author.id), method: :delete %>
+        </div>
+      <% end %>
     </li>
   <% end %>
 </ul>
 
-<div class="right">
+<%= if RequireAdmin.user_is_admin?(@conn.assigns.current_user) do %>
+  <div class="right">
   <%= link "Add author", to: Routes.author_path(@conn, :new), class: "btn" %>
-</div>
+  </div>
+<% end %>
 

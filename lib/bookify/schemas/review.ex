@@ -3,9 +3,10 @@ defmodule Bookify.Review do
   import Ecto.Changeset
   alias Bookify.Book
   alias Bookify.User
+  alias Bookify.GenId
 
   @primary_key {:id, :string, autogenerate: false}
-  @foreign_key_type :integer
+  @foreign_key_type :string
   schema "reviews" do
     belongs_to :book, Book
     belongs_to :user, User
@@ -18,5 +19,9 @@ defmodule Bookify.Review do
     review
     |> cast(params, [:review, :rating])
     |> validate_required([:book, :user, :review, :rating])
+  end
+
+  def new() do
+    %__MODULE__{id: GenId.generate()}
   end
 end

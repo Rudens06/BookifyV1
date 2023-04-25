@@ -1,4 +1,4 @@
-defmodule BookifyWeb.BookHTML do
+defmodule BookifyWeb.ReviewHTML do
   use BookifyWeb, :html
   import Phoenix.HTML.Form
   import Phoenix.HTML.Link
@@ -6,5 +6,5 @@ defmodule BookifyWeb.BookHTML do
   alias BookifyWeb.Plugs.RequireAdmin
 
 
-  embed_templates "book_html/*"
+  embed_templates "reveiw_html/*"
 end

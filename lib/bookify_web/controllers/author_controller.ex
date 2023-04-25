@@ -4,9 +4,7 @@ defmodule BookifyWeb.AuthorController do
   alias Bookify.Repo
   alias Bookify.Author
 
-  # plug BookifyWeb.Plugs.RequireAuth when action in [:new, :create, :edit, :update, :delete]
-  # plug :check_topic_owner when action in [:update, :edit, :delete]
-
+  plug BookifyWeb.Plugs.RequireAdmin when action in [:new, :create, :edit, :update, :delete]
 
   def index(conn, _params) do
     authors = Repo.all(Author)
@@ -24,15 +22,18 @@ defmodule BookifyWeb.AuthorController do
   end
 
   def new(conn, _params) do
-    changeset = Author.changeset(%Author{}, %{})
+    changeset = Author.changeset(%Author{})
 
       conn
       |> assign(:changeset, changeset)
       |> render(:new)
   end
 
-  def create(conn, %{"author" => author}) do
-    changeset = Author.changeset(%Author{}, author)
+  def create(conn, %{"author" => author_params}) do
+    changeset =
+      Author.new()
+      |> Author.changeset(author_params)
+
     case Repo.insert(changeset) do
       {:ok, _topic} ->
         conn
@@ -77,19 +78,4 @@ defmodule BookifyWeb.AuthorController do
     |> put_flash(:info, "Deleted Successfully")
     |> redirect(to: Routes.author_path(conn, :index))
   end
-
-  # def check_topic_owner(conn, _params) do
-  #   %{params: %{"id" => author_id}} = conn
-
-
-  #   if Repo.get(author, author_id).user_id == conn.assigns.user.id do
-  #     conn
-  #   else
-  #     conn
-  #     |> put_flash(:error, "Not Allowed")
-  #     |> redirect(to: Routes.author_path(conn, :index))
-  #     |> halt()
-  #   end
-  # end
-
 end

@@ -1,12 +1,17 @@
 defmodule BookifyWeb.AuthController do
   use BookifyWeb, :controller
   alias Bookify.Accounts
+  alias Bookify.User
 
   def new(conn, _params) do
-    render(conn, :new)
+    changeset = User.sign_in_changeset(%User{})
+    conn
+    |> assign(:changeset, changeset)
+    |> render(:new)
   end
 
   def signin(conn, %{"session" => auth_params}) do
+    changeset = User.sign_in_changeset(%User{})
     user = Accounts.get_user_by_email(auth_params["email"])
 
     case Bcrypt.check_pass(user, auth_params["password"], [hash_key: :hashed_password]) do
@@ -17,6 +22,7 @@ defmodule BookifyWeb.AuthController do
         |> redirect(to: Routes.book_path(conn, :index))
       {:error, _} ->
         conn
+        |> assign(:changeset, changeset)
         |> put_flash(:error, "There was a problem with your email/password")
         |> render(:new)
     end

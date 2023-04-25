@@ -6,6 +6,11 @@ defmodule Bookify.Books do
     Repo.all(Book)
   end
 
+  def list_all_w_authors() do
+    Repo.all(Book)
+    |> Repo.preload(:author)
+  end
+
   def get_by_id!(book_id) do
     Repo.get!(Book, book_id)
   end
