@@ -1,9 +1,8 @@
-<%= @author.name %>
-<br>
-<%= @author.birth_year %>
-<br>
+<img src={@author.author_pic_url}>
+<h4><%= @author.name %></h4>
+<h5><%= @author.birth_year %></h5>
+<h6>Biography: </h6>
 <%= @author.bio %>
 <br>
-
-<img src={@author.author_pic_url}>
+<br>
 <a href={@author.wikipedia_url}>Wikipedia Page</a>

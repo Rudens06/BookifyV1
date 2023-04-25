@@ -13,6 +13,7 @@ defmodule Bookify.Books do
 
   def get_by_id!(book_id) do
     Repo.get!(Book, book_id)
+    |> Repo.preload(:author)
   end
 
   def insert(book) do
