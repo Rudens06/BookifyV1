@@ -7,6 +7,12 @@
       <span>
         <%= link book.title, to: Routes.book_path(@conn, :show, book.id), class: "title" %>
       </span>
+      <%= if RequireAdmin.user_is_admin?(@conn.assigns.current_user) do %>
+        <div class="right">
+          <%= link "Edit", to: Routes.book_path(@conn, :edit, book.id) %>
+          <%= link "Delete", to: Routes.book_path(@conn, :delete, book.id), method: :delete %>
+        </div>
+      <% end %>
       <p>
         <%= book.author.name %>
       </p>
@@ -16,12 +22,6 @@
       <p>
         Published: <%= book.publish_year %>
       </p>
-      <%= if RequireAdmin.user_is_admin?(@conn.assigns.current_user) do %>
-        <div class="right">
-          <%= link "Edit", to: Routes.book_path(@conn, :edit, book.id) %>
-          <%= link "Delete", to: Routes.book_path(@conn, :delete, book.id), method: :delete %>
-        </div>
-      <% end %>
     </li>
   <% end %>
 </ul>
