@@ -2,8 +2,14 @@
 
 <ul class="collection">
   <%= for author <- @authors do %>
-    <li class="collection-item">
-      <%= link author.name, to: Routes.author_path(@conn, :show, author.id) %>
+    <li class="collection-item avatar">
+      <img src={author.author_pic_url} alt={author.name <> " picture"} class="circle">
+      <span>
+        <%= link author.name, to: Routes.author_path(@conn, :show, author.id), class: "title" %>
+      </span>
+      <p>
+        <%= author.birth_year %>
+      </p>
       <%= if RequireAdmin.user_is_admin?(@conn.assigns.current_user) do %>
         <div class="right">
           <%= link "Edit", to: Routes.author_path(@conn, :edit, author.id) %>

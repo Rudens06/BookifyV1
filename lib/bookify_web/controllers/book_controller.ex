@@ -53,11 +53,13 @@ defmodule BookifyWeb.BookController do
   end
 
   def edit(conn, %{"id" => book_id}) do
+    authors = Authors.list_all
     book = Books.get_by_id!(book_id)
     changeset = Book.changeset(book)
     conn
     |> assign(:changeset, changeset)
     |> assign(:book, book)
+    |> assign(:authors, authors)
     |> render(:edit)
   end
 
