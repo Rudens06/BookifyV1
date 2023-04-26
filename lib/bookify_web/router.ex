@@ -27,6 +27,7 @@ defmodule BookifyWeb.Router do
     get "/books/:id", BookController, :show
 
     resources "/authors", AuthorController
+
     resources "/registrations", UserController, only: [:new, :create]
 
     get "/signin", AuthController, :new
@@ -34,6 +35,10 @@ defmodule BookifyWeb.Router do
     delete "/signout", AuthController, :signout
 
     get "/account", AccountController, :index
+    get "/account/profile/edit", AccountController, :edit_profile
+    put "/account/profile", AccountController, :update_profile
+    get "/account/password/edit", AccountController, :edit_password
+    put "/account/password", AccountController, :update_password
   end
 
   # Other scopes may use custom stacks.

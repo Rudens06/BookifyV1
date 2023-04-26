@@ -1,0 +1,15 @@
+<h2>Edit Profile</h2>
+
+<div class="form-group"> 
+    <%= form_for @changeset, Routes.account_path(@conn, :update_profile), fn f -> %>
+        <div class="input-field">
+            <%= text_input f, :name, placeholder: "Name", class: "white gray-text" %>
+            <%= error_tag f, :name %>
+        </div>
+        <div class="input-field">
+            <%= text_input f, :email, placeholder: "Email", class: "form-control" %>
+            <%= error_tag f, :email %>
+        </div>
+        <%= submit "Save Changes", class: "btn btn-primary" %>
+    <% end %>
+</div>

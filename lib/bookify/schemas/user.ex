@@ -9,6 +9,7 @@ defmodule Bookify.User do
     field :email, :string
     field :password, :string, virtual: true, redact: true
     field :password_confirmation, :string, virtual: true, redact: true
+    field :current_password, :string, virtual: true, redact: true
     field :hashed_password, :string, redact: true
     field :roles, {:array, :string}
 
@@ -18,6 +19,22 @@ defmodule Bookify.User do
   def changeset(user, params \\ %{}) do
     user
     |> cast(params, [:name, :email, :password, :password_confirmation])
+  end
+
+  def edit_profile_changeset(user, params \\ %{}) do
+    user
+    |> cast(params, [:name, :email])
+    |> validate_required([:name, :email])
+    |> unique_constraint([:email])
+  end
+
+  def edit_password_changeset(user, params \\ %{}) do
+    user
+    |> cast(params, [:password, :password_confirmation, :current_password])
+    |> validate_required([:password, :password_confirmation, :current_password])
+    |> validate_password()
+    |> validate_confirmation(:password, message: "Passwords do not match")
+    |> hash_password()
   end
 
   def sign_in_changeset(user, params \\ %{}) do

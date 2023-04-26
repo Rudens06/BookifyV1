@@ -1,2 +1,6 @@
-<h4>Hi, <%= @current_user.name %></h4>
-
+<%= if @conn.assigns[:current_user] do %>
+  <h4>Hi, <%= @current_user.name %></h4>
+  <%= link "Edit Profile", to: Routes.account_path(@conn, :edit_profile) %>
+  <br>
+  <%= link "Change Password", to: Routes.account_path(@conn, :edit_password) %>
+<% end %>
