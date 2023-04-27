@@ -2,19 +2,21 @@ defmodule Bookify.List do
   use Ecto.Schema
   import Ecto.Changeset
   alias Bookify.User
+  alias Bookify.Book
   alias Bookify.GenId
+  alias Bookify.BooksInLists
 
   @primary_key {:id, :string, autogenerate: false}
   @foreign_key_type :string
   schema "lists" do
     belongs_to :user, User
     field :type, :string
+    many_to_many :books, Book, join_through: BooksInLists
   end
 
   def changeset(list, params \\ %{}) do
     list
     |> cast(params, [])
-    |> validate_required([])
   end
 
   def new() do

@@ -39,6 +39,8 @@ defmodule BookifyWeb.Router do
     put "/account/profile", AccountController, :update_profile
     get "/account/password/edit", AccountController, :edit_password
     put "/account/password", AccountController, :update_password
+
+    get "/lists", ListController, :index
   end
 
   # Other scopes may use custom stacks.

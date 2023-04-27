@@ -3,6 +3,8 @@ defmodule Bookify.Book do
   import Ecto.Changeset
   alias Bookify.Author
   alias Bookify.Review
+  alias Bookify.BooksInLists
+  alias Bookify.List
   alias Bookify.GenId
 
   @primary_key {:id, :string, autogenerate: false}
@@ -16,6 +18,7 @@ defmodule Bookify.Book do
     field :cover_pic_url, :string
     field :anotation, :string
     has_many :reviews, Review
+    many_to_many :lists, List, join_through: Bookify.BooksInLists
   end
 
   def changeset(book, params \\ %{}) do

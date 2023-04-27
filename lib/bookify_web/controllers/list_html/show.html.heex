@@ -1,0 +1,17 @@
+<img src={@book.cover_pic_url}>
+<%= @book.title %>
+<br>
+Author: <%= link @book.author.name, to: Routes.author_path(@conn, :show, @book.author.id) %>
+<br>
+Year: <%= @book.publish_year %>
+<br>
+Pages: <%= @book.page_count %>
+<br>
+Genres:
+<%= if @book.genre == nil, do: '', else: Enum.join(@book.genre, ", ") %>
+<br>
+<h5>
+Description:
+</h5>
+<p> <%= @book.anotation %> </p>
+

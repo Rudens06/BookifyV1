@@ -12,8 +12,8 @@ defmodule Bookify.BooksInLists do
     timestamps(updated_at: false)
   end
 
-  def changeset(review, params \\ %{}) do
-    review
+  def changeset(books_in_lists, params \\ %{}) do
+    books_in_lists
     |> cast(params, [])
     |> validate_required([:book, :list])
   end

@@ -1,0 +1,33 @@
+<h4>My Lists</h4>
+
+<%= for list <- @lists do %>
+
+  <%= if list.type == "want_to_read" do %>
+    <ul class="collection with-header">
+      <li class="collection-header">Want To Read</li>
+      <%= for book <- list.books do %>
+        <li class="collection-item"> <%= book.title %> </li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <%= if list.type == "reading" do %>
+    <ul class="collection with-header">
+      <li class="collection-header">Reading</li>
+      <%= for book <- list.books do %>
+        <li class="collection-item"> <%= book.title %> </li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <%= if list.type == "has_read" do %>
+    <ul class="collection with-header">
+      <li class="collection-header">Have Read</li>
+      <%= for book <- list.books do %>
+        <li class="collection-item"> <%= book.title %> </li>
+      <% end %>
+    </ul>
+  <% end %>
+
+<% end %>
+
