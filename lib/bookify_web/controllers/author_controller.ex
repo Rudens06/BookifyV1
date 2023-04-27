@@ -9,13 +9,15 @@ defmodule BookifyWeb.AuthorController do
   def index(conn, _params) do
     authors = Repo.all(Author)
     conn
-    |>assign(:authors, authors)
-    |>render(:index)
+    |> assign(:page_title, "Authors")
+    |> assign(:authors, authors)
+    |> render(:index)
   end
 
   def show(conn, %{"id" => author_id}) do
     author = Repo.get!(Author, author_id)
     conn
+    |> assign(:page_title, "Authors")
     |> assign(:author, author)
     |> render(:show)
 
@@ -25,6 +27,7 @@ defmodule BookifyWeb.AuthorController do
     changeset = Author.changeset(%Author{})
 
       conn
+      |> assign(:page_title, "Add Author")
       |> assign(:changeset, changeset)
       |> render(:new)
   end
@@ -48,6 +51,7 @@ defmodule BookifyWeb.AuthorController do
     author = Repo.get(Author, author_id)
     changeset = Author.changeset(author)
     conn
+    |> assign(:page_title, "Edit Author")
     |> assign(:changeset, changeset)
     |> assign(:author, author)
     |> render(:edit)

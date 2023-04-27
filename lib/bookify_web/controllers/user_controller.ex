@@ -8,6 +8,7 @@ defmodule BookifyWeb.UserController do
     changeset = User.changeset(%User{})
 
     conn
+    |> assign(:page_title, "Register")
     |> assign(:changeset, changeset)
     |> render(:new)
   end

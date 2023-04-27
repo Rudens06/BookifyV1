@@ -15,13 +15,15 @@ defmodule BookifyWeb.BookController do
   def index(conn, _params) do
     books = Books.list_all_w_authors()
     conn
-    |>assign(:books, books)
-    |>render(:index)
+    |> assign(:page_title, "Books")
+    |> assign(:books, books)
+    |> render(:index)
   end
 
   def show(conn, %{"id" => book_id}) do
     book = Books.get_by_id!(book_id)
     conn
+    |> assign(:page_title, "Books")
     |> assign(:book, book)
     |> render(:show)
 
@@ -32,6 +34,7 @@ defmodule BookifyWeb.BookController do
     changeset = Book.changeset(%Book{})
 
     conn
+    |> assign(:page_title, "Add Book")
     |> assign(:changeset, changeset)
     |> assign(:authors, authors)
     |> render(:new)
@@ -62,6 +65,7 @@ defmodule BookifyWeb.BookController do
     book = Books.get_by_id!(book_id)
     changeset = Book.changeset(book)
     conn
+    |> assign(:page_title, "Edit Book")
     |> assign(:changeset, changeset)
     |> assign(:book, book)
     |> assign(:authors, authors)

@@ -6,6 +6,7 @@ defmodule BookifyWeb.AuthController do
   def new(conn, _params) do
     changeset = User.sign_in_changeset(%User{})
     conn
+    |> assign(:page_title, "Sign In")
     |> assign(:changeset, changeset)
     |> render(:new)
   end

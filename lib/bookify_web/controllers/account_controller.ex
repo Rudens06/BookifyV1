@@ -8,6 +8,7 @@ defmodule BookifyWeb.AccountController do
   plug BookifyWeb.Plugs.RequireAuth when action in [:index, :update_name, :update_password, :edit_name, :edit_password]
 
   def index(conn, _params) do
+    assign(conn, :page_title, "Register")
     case get_session(conn, :current_user_id) do
       nil ->
         redirect(conn, to: Routes.user_path(conn, :new))
@@ -19,6 +20,7 @@ defmodule BookifyWeb.AccountController do
   def edit_profile(conn, _params) do
     changeset = User.edit_profile_changeset(conn.assigns.current_user)
     conn
+    |> assign(:page_title, "Edit Profile")
     |> assign(:changeset, changeset)
     |> render(:edit_profile)
   end
@@ -27,6 +29,7 @@ defmodule BookifyWeb.AccountController do
     changeset = User.changeset(conn.assigns.current_user)
 
     conn
+    |> assign(:page_title, "Change Password")
     |> assign(:changeset, changeset)
     |> render(:edit_password)
     |> dbg
