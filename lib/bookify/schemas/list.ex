@@ -14,7 +14,7 @@ defmodule Bookify.List do
   def changeset(list, params \\ %{}) do
     list
     |> cast(params, [])
-    |> validate_required([:user])
+    |> validate_required([])
   end
 
   def new() do

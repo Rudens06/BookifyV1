@@ -1,8 +1,11 @@
 defmodule BookifyWeb.UserController do
   use BookifyWeb, :controller
 
+  alias Ecto.Multi
+  alias Bookify.Repo
   alias Bookify.User
   alias Bookify.Accounts
+  alias Bookify.List
 
   def new(conn, _params) do
     changeset = User.changeset(%User{})
@@ -14,18 +17,33 @@ defmodule BookifyWeb.UserController do
   end
 
   def create(conn, %{"user" => user_params}) do
-    changeset =
-      User.new()
-      |> User.registration_changeset(user_params)
+    multi =
+      Multi.new()
+      |> Multi.insert(:user, User.registration_changeset(User.new(), user_params))
+      |> Multi.run(:reading_list, fn repo, %{user: user} ->
+        List.changeset(List.new())
+        |> Ecto.Changeset.change(user: user, type: "reading")
+        |> repo.insert()
+      end)
+      |> Multi.run(:want_to_read_list, fn repo, %{user: user} ->
+        List.changeset(List.new())
+        |> Ecto.Changeset.change(user: user, type: "want_to_read")
+        |> repo.insert()
+      end)
+      |> Multi.run(:has_read_list, fn repo, %{user: user} ->
+        List.changeset(List.new())
+        |> Ecto.Changeset.change(user: user, type: "has_read")
+        |> repo.insert()
+      end)
 
-    case Accounts.insert(changeset) do
-      {:ok, user} ->
+    case Repo.transaction(multi) do
+      {:ok, transaction} ->
         conn
-        |> put_session(:current_user_id, user.id)
+        |> put_session(:current_user_id, transaction.user.id)
         |> put_flash(:info, "Signed up successfully")
         |> redirect(to: Routes.book_path(conn, :index))
 
-      {:error, changeset} ->
+      {:error, :user, changeset, _} ->
         conn
         |> assign(:changeset, changeset)
         |> render(:new)

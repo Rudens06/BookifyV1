@@ -32,7 +32,6 @@ defmodule BookifyWeb.AccountController do
     |> assign(:page_title, "Change Password")
     |> assign(:changeset, changeset)
     |> render(:edit_password)
-    |> dbg
   end
 
   def update_profile(conn, %{"user" => user_params}) do
