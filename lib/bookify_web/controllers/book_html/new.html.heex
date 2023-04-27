@@ -17,7 +17,8 @@
       <%= error_tag f, :page_count %>
     </div>
     <div class="input-field">
-      <%= text_input f, :genre, placeholder: "Genre", class: "form-control" %>
+      <%= array_input f, :genre %>
+      <%= array_add_button f, :genre %>
       <%= error_tag f, :genre %>
     </div>
     <div class="input-field">

@@ -38,6 +38,7 @@ defmodule BookifyWeb.BookController do
   end
 
   def create(conn, %{"book" => book_params}) do
+    authors = Authors.list_all
     changeset =
       Book.new()
       |> Book.changeset(book_params)
@@ -48,7 +49,10 @@ defmodule BookifyWeb.BookController do
         |> put_flash(:info, "Book Created")
         |> redirect(to: Routes.book_path(conn, :index))
       {:error, changeset} ->
-        render(conn, :new, changeset: changeset)
+        conn
+        |> assign(:changeset, changeset)
+        |> assign(:authors, authors)
+        |> render(:new)
     end
   end
 
