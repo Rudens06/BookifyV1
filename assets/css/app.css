@@ -7,17 +7,11 @@
 .help-block {
   color: red;
   text-transform: capitalize;
-  position: absolute;
   left: 0;
   top: 47px;
 }
 
-.input-field {
-  position: relative;
-}
-
 .form-group {
-  position: relative;
   margin-bottom: 25px;
 }
 

@@ -10,10 +10,10 @@
       <li>
         <%= link("Authors", to: Routes.author_path(@conn, :index)) %>
       </li>
-      <li>
-        <%= link("Lists", to: Routes.book_path(@conn, :index)) %>
-      </li>
       <%= if @conn.assigns[:current_user] do %>
+        <li>
+          <%= link("Lists", to: Routes.book_path(@conn, :index)) %>
+        </li>
         <li>
           <%= link("My Account", to: Routes.account_path(@conn, :index)) %>
         </li>

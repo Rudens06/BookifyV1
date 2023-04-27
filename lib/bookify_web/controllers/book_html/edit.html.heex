@@ -19,6 +19,9 @@
     <div class="input-field">
       <%= text_input f, :genre, placeholder: "Genre", class: "form-control" %>
       <%= error_tag f, :genre %>
+      <span class="helper-text">
+        Format: Detective, Drama, Crime, ...
+      </span>
     </div>
     <div class="input-field">
       <%= text_input f, :cover_pic_url, placeholder: "Cover picture URL", class: "form-control" %>

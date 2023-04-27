@@ -38,6 +38,8 @@ defmodule BookifyWeb.BookController do
   end
 
   def create(conn, %{"book" => book_params}) do
+    book_params = genres_to_list(book_params)
+    authors = Authors.list_all
     changeset =
       Book.new()
       |> Book.changeset(book_params)
@@ -48,7 +50,10 @@ defmodule BookifyWeb.BookController do
         |> put_flash(:info, "Book Created")
         |> redirect(to: Routes.book_path(conn, :index))
       {:error, changeset} ->
-        render(conn, :new, changeset: changeset)
+        conn
+        |> assign(:changeset, changeset)
+        |> assign(:authors, authors)
+        |> render(:new)
     end
   end
 
@@ -64,7 +69,10 @@ defmodule BookifyWeb.BookController do
   end
 
   def update(conn, %{"book" => book_params, "id" => book_id}) do
+    book_params = genres_to_list(book_params)
+    authors = Authors.list_all
     book = Books.get_by_id!(book_id)
+
     changeset = Book.changeset(book, book_params)
 
     case Books.update(changeset) do
@@ -74,9 +82,10 @@ defmodule BookifyWeb.BookController do
         |> redirect(to: Routes.book_path(conn, :index))
       {:error, changeset} ->
         conn
-        |> assign(:book, book)
         |> assign(:changeset, changeset)
-        |> render(:edit)
+        |> assign(:book, book)
+        |> assign(:authors, authors)
+        |> render(:new)
     end
   end
 
@@ -87,5 +96,12 @@ defmodule BookifyWeb.BookController do
     conn
     |> put_flash(:info, "Deleted Successfully")
     |> redirect(to: Routes.book_path(conn, :index))
+  end
+
+  defp genres_to_list(%{"genre" => ""} = book_params), do: book_params
+
+  defp genres_to_list(%{"genre" => genres} = book_params) do
+    genres = String.split(genres, ", ")
+    Map.put(book_params, "genre", genres)
   end
 end
