@@ -1,9 +1,8 @@
 defmodule BookifyWeb.ListController do
   use BookifyWeb, :controller
 
-  alias Bookify.Repo
-  alias Bookify.List
   alias Bookify.Lists
+  alias Bookify.Books
 
   plug BookifyWeb.Plugs.RequireAuth when action in [:index, :show]
 

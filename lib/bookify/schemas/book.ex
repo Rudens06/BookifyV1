@@ -18,7 +18,7 @@ defmodule Bookify.Book do
     field :cover_pic_url, :string
     field :anotation, :string
     has_many :reviews, Review
-    many_to_many :lists, List, join_through: Bookify.BooksInLists
+    many_to_many :lists, List, join_through: BooksInLists
   end
 
   def changeset(book, params \\ %{}) do

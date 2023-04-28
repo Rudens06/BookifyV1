@@ -1,7 +1,6 @@
 defmodule BookifyWeb.AccountController do
   use BookifyWeb, :controller
 
-  import Ecto.Changeset
   alias Bookify.User
   alias Bookify.Accounts
 

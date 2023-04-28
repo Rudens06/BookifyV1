@@ -17,5 +17,4 @@ defmodule BookifyWeb.Plugs.RequireAuth do
       |> halt()
     end
   end
-
 end

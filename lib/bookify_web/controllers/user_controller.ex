@@ -4,7 +4,6 @@ defmodule BookifyWeb.UserController do
   alias Ecto.Multi
   alias Bookify.Repo
   alias Bookify.User
-  alias Bookify.Accounts
   alias Bookify.List
 
   def new(conn, _params) do
