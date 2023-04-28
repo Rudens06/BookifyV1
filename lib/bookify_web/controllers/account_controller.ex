@@ -19,7 +19,7 @@ defmodule BookifyWeb.AccountController do
   end
 
   def edit_profile(conn, _params) do
-    changeset = User.edit_profile_changeset(conn.assigns.current_user)
+    changeset = User.edit_profile_changeset(current_user(conn))
     conn
     |> assign(:page_title, "Edit Profile")
     |> assign(:changeset, changeset)
@@ -27,7 +27,7 @@ defmodule BookifyWeb.AccountController do
   end
 
   def edit_password(conn, _params) do
-    changeset = User.changeset(conn.assigns.current_user)
+    changeset = User.changeset(current_user(conn))
 
     conn
     |> assign(:page_title, "Change Password")
@@ -36,7 +36,7 @@ defmodule BookifyWeb.AccountController do
   end
 
   def update_profile(conn, %{"user" => user_params}) do
-    changeset = User.edit_profile_changeset(conn.assigns.current_user, user_params)
+    changeset = User.edit_profile_changeset(current_user(conn), user_params)
 
     case Accounts.update(changeset) do
       {:ok, _topic} ->
@@ -51,9 +51,9 @@ defmodule BookifyWeb.AccountController do
   end
 
   def update_password(conn, %{"user" => user_params}) do
-    changeset = User.edit_password_changeset(conn.assigns.current_user, user_params)
+    changeset = User.edit_password_changeset(current_user(conn), user_params)
 
-    case Bcrypt.check_pass(conn.assigns.current_user, user_params["current_password"], [hash_key: :hashed_password]) do
+    case Bcrypt.check_pass(current_user(conn), user_params["current_password"], [hash_key: :hashed_password]) do
       {:ok, _user} ->
         case Accounts.update(changeset) do
           {:ok, _user} ->
