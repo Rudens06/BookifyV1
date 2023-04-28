@@ -3,6 +3,7 @@ defmodule BookifyWeb.BookHTML do
   import Phoenix.HTML.Form
   import Phoenix.HTML.Link
   import Bookify.ErrorHelpers
+  import Bookify.UserHelpers
   alias BookifyWeb.Plugs.RequireAdmin
 
 

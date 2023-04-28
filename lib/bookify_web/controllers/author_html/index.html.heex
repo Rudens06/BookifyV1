@@ -5,7 +5,7 @@
     <li class="collection-item avatar">
       <img src={author.author_pic_url} alt={author.name <> " picture"} class="circle">
       <span>
-      <%= if RequireAdmin.user_is_admin?(@conn.assigns.current_user) do %>
+      <%= if RequireAdmin.user_is_admin?(current_user(@conn)) do %>
         <div class="right">
           <%= link "Edit", to: Routes.author_path(@conn, :edit, author.id) %>
           <%= link "Delete", to: Routes.author_path(@conn, :delete, author.id),
@@ -22,7 +22,7 @@
   <% end %>
 </ul>
 
-<%= if RequireAdmin.user_is_admin?(@conn.assigns.current_user) do %>
+<%= if RequireAdmin.user_is_admin?(current_user(@conn)) do %>
   <div class="right">
   <%= link "Add author", to: Routes.author_path(@conn, :new), class: "btn" %>
   </div>

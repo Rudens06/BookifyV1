@@ -1,6 +1,8 @@
 defmodule BookifyWeb.ListController do
   use BookifyWeb, :controller
 
+  import Bookify.UserHelpers
+
   alias Bookify.Lists
   alias Bookify.Books
 
@@ -11,7 +13,7 @@ defmodule BookifyWeb.ListController do
   end
 
   def index(conn, _params) do
-    lists = Lists.get_lists_by_user_id(conn.assigns.current_user.id)
+    lists = Lists.get_lists_by_user_id(current_user(conn).id)
 
     conn
     |> assign(:lists, lists)

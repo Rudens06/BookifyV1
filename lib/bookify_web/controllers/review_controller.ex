@@ -1,6 +1,8 @@
 defmodule BookifyWeb.ReviewController do
   use BookifyWeb, :controller
 
+  import Bookify.UserHelpers
+
   alias Bookify.Repo
   alias Bookify.Accounts
   alias Bookify.Review
@@ -32,7 +34,7 @@ defmodule BookifyWeb.ReviewController do
   def check_review_owner(conn, _params) do
     %{params: %{"id" => review_id}} = conn
 
-    if Reviews.get_review_by_id!(review_id).user_id == conn.assigns.current_user.id do
+    if Reviews.get_review_by_id!(review_id).user_id == current_user(conn).id.id do
       conn
     else
       conn

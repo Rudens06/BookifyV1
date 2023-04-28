@@ -1,6 +1,7 @@
 defmodule BookifyWeb.Plugs.RequireAdmin do
   import Plug.Conn
   import Phoenix.Controller
+  import Bookify.UserHelpers
 
   alias BookifyWeb.Router.Helpers
 
@@ -8,7 +9,7 @@ defmodule BookifyWeb.Plugs.RequireAdmin do
   end
 
   def call(conn, _params) do
-    if user_is_admin?(conn.assigns.current_user) do
+    if user_is_admin?(current_user(conn)) do
       conn
     else
       conn
