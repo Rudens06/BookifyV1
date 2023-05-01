@@ -44,7 +44,7 @@ defmodule BookifyWeb.ListController do
       {:ok, _BooksInLists} ->
         conn
         |> put_flash(:info, "Book added to " <> convert_to_readable(list_type))
-        |> redirect(to: Routes.book_path(conn, :show, book_id))
+        |> redirect(to: Routes.list_path(conn, :index))
       {:error, _changeset} ->
         conn
         |> redirect(to: Routes.book_path(conn, :show, book_id))
@@ -61,7 +61,7 @@ defmodule BookifyWeb.ListController do
       {:ok, _BooksInLists} ->
         conn
         |> put_flash(:info, "Book deleted from " <> convert_to_readable(list_type))
-        |> redirect(to: Routes.book_path(conn, :show, book_id))
+        |> redirect(to: Routes.list_path(conn, :index))
       {:error, _changeset} ->
         conn
         |> put_flash(:error, "Something went wrong")

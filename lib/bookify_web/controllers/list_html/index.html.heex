@@ -6,7 +6,15 @@
     <ul class="collection with-header">
       <li class="collection-header">Want To Read</li>
       <%= for book <- list.books do %>
-        <li class="collection-item"> <%= book.title %> </li>
+        <li class="collection-item"> 
+          <span>
+            <%= link book.title, to: Routes.book_path(@conn, :show, book.id), class: "title" %>
+          </span>
+          <div class="right">
+            <%= link "Delete", to: Routes.list_path(@conn, :remove_book_from_list, want_to_read_list_type(), book.id),
+            data: [confirm: "Are you sure?"] %>
+          </div>
+        </li>
       <% end %>
     </ul>
   <% end %>
@@ -15,7 +23,15 @@
     <ul class="collection with-header">
       <li class="collection-header">Reading</li>
       <%= for book <- list.books do %>
-        <li class="collection-item"> <%= book.title %> </li>
+        <li class="collection-item">
+          <span>
+            <%= link book.title, to: Routes.book_path(@conn, :show, book.id), class: "title" %>
+          </span>
+          <div class="right">
+            <%= link "Delete", to: Routes.list_path(@conn, :remove_book_from_list, reading_list_type(), book.id),
+            data: [confirm: "Are you sure?"] %>
+          </div>
+        </li>
       <% end %>
     </ul>
   <% end %>
@@ -24,7 +40,15 @@
     <ul class="collection with-header">
       <li class="collection-header">Have Read</li>
       <%= for book <- list.books do %>
-        <li class="collection-item"> <%= book.title %> </li>
+        <li class="collection-item">
+          <span>
+            <%= link book.title, to: Routes.book_path(@conn, :show, book.id), class: "title" %>
+          </span>
+          <div class="right">
+            <%= link "Delete", to: Routes.list_path(@conn, :remove_book_from_list, has_read_list_type(), book.id),
+            data: [confirm: "Are you sure?"] %>
+          </div>
+        </li>
       <% end %>
     </ul>
   <% end %>
