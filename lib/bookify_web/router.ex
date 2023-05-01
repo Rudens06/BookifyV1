@@ -41,6 +41,8 @@ defmodule BookifyWeb.Router do
     put "/account/password", AccountController, :update_password
 
     get "/lists", ListController, :index
+    get "/lists/add/:type/:id", ListController, :add_book_to_list
+    get "/lists/remove/:type/:id", ListController, :remove_book_from_list
   end
 
   # Other scopes may use custom stacks.

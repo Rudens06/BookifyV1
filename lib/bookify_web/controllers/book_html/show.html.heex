@@ -15,3 +15,23 @@ Description:
 </h5>
 <p> <%= @book.anotation %> </p>
 
+<%= if Lists.book_in_list?(
+  current_user(@conn).id, 
+  want_to_read_list_type,
+  @book.id
+  ) do %>
+
+  <%= link "Remove from wishlist",
+  to: Routes.list_path(@conn, :remove_book_from_list, want_to_read_list_type(), @book.id),
+  class: "btn" %>
+
+<% else %>
+
+  <%= link "Want to Read",
+  to: Routes.list_path(@conn, :add_book_to_list, want_to_read_list_type(), @book.id),
+  class: "btn" %>
+
+<% end %>
+
+
+

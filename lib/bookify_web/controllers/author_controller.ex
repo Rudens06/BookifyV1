@@ -38,7 +38,7 @@ defmodule BookifyWeb.AuthorController do
       |> Author.changeset(author_params)
 
     case Repo.insert(changeset) do
-      {:ok, _topic} ->
+      {:ok, _author} ->
         conn
         |> put_flash(:info, "Author Created")
         |> redirect(to: Routes.author_path(conn, :index))
@@ -62,7 +62,7 @@ defmodule BookifyWeb.AuthorController do
     changeset = Author.changeset(author, author_params)
 
     case Repo.update(changeset) do
-      {:ok, _topic} ->
+      {:ok, _author} ->
         conn
         |> put_flash(:info, "Author Updated Successfully")
         |> redirect(to: Routes.author_path(conn, :index))

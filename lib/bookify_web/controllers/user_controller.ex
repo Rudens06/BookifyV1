@@ -1,6 +1,8 @@
 defmodule BookifyWeb.UserController do
   use BookifyWeb, :controller
 
+  import BookifyWeb.Helpers.List
+
   alias Ecto.Multi
   alias Bookify.Repo
   alias Bookify.User
@@ -21,17 +23,17 @@ defmodule BookifyWeb.UserController do
       |> Multi.insert(:user, User.registration_changeset(User.new(), user_params))
       |> Multi.run(:reading_list, fn repo, %{user: user} ->
         List.changeset(List.new())
-        |> Ecto.Changeset.change(user: user, type: "reading")
+        |> Ecto.Changeset.change(user: user, type: reading_list_type())
         |> repo.insert()
       end)
       |> Multi.run(:want_to_read_list, fn repo, %{user: user} ->
         List.changeset(List.new())
-        |> Ecto.Changeset.change(user: user, type: "want_to_read")
+        |> Ecto.Changeset.change(user: user, type: want_to_read_list_type())
         |> repo.insert()
       end)
       |> Multi.run(:has_read_list, fn repo, %{user: user} ->
         List.changeset(List.new())
-        |> Ecto.Changeset.change(user: user, type: "has_read")
+        |> Ecto.Changeset.change(user: user, type: has_read_list_type())
         |> repo.insert()
       end)
 

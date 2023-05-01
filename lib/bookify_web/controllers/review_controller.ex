@@ -1,7 +1,7 @@
 defmodule BookifyWeb.ReviewController do
   use BookifyWeb, :controller
 
-  import Bookify.UserHelpers
+  import BookifyWeb.Helpers.User
 
   alias Bookify.Repo
   alias Bookify.Accounts

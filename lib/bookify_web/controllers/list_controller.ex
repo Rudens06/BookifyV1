@@ -1,10 +1,15 @@
 defmodule BookifyWeb.ListController do
   use BookifyWeb, :controller
 
-  import Bookify.UserHelpers
+  import BookifyWeb.Helpers.User
+  import BookifyWeb.Helpers.List
+  import Ecto.Changeset
 
+  alias Bookify.Lists.ListQuery
+  alias Bookify.Repo
   alias Bookify.Lists
   alias Bookify.Books
+  alias Bookify.BooksInLists
 
   plug BookifyWeb.Plugs.RequireAuth when action in [:index, :show]
 
@@ -26,6 +31,42 @@ defmodule BookifyWeb.ListController do
     |> assign(:page_title, "Books")
     |> assign(:book, book)
     |> render(:show)
+  end
+
+  def add_book_to_list(conn, %{"type" => list_type, "id" => book_id}) do
+
+    list = Repo.one(ListQuery.list_by_user_id_and_type(current_user(conn).id, list_type))
+
+    changeset = BooksInLists.changeset(%BooksInLists{})
+    |> change(book_id: book_id, list_id: list.id)
+
+    case Repo.insert(changeset) do
+      {:ok, _BooksInLists} ->
+        conn
+        |> put_flash(:info, "Book added to " <> convert_to_readable(list_type))
+        |> redirect(to: Routes.book_path(conn, :show, book_id))
+      {:error, _changeset} ->
+        conn
+        |> redirect(to: Routes.book_path(conn, :show, book_id))
+        |> put_flash(:error, "Something went wrong")
+    end
+  end
+
+  def remove_book_from_list(conn, %{"type" => list_type, "id" => book_id}) do
+
+    list = Repo.one(ListQuery.list_by_user_id_and_type(current_user(conn).id, list_type))
+    book_in_list = Repo.one(ListQuery.book_in_list_query(list.id, book_id))
+
+    case Repo.delete(book_in_list) do
+      {:ok, _BooksInLists} ->
+        conn
+        |> put_flash(:info, "Book deleted from " <> convert_to_readable(list_type))
+        |> redirect(to: Routes.book_path(conn, :show, book_id))
+      {:error, _changeset} ->
+        conn
+        |> put_flash(:error, "Something went wrong")
+        |> redirect(to: Routes.book_path(conn, :show, book_id))
+    end
   end
 
 end

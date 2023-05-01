@@ -1,7 +1,7 @@
 defmodule BookifyWeb.AccountController do
   use BookifyWeb, :controller
 
-  import Bookify.UserHelpers
+  import BookifyWeb.Helpers.User
 
   alias Bookify.User
   alias Bookify.Accounts

@@ -2,7 +2,7 @@
 
 <%= for list <- @lists do %>
 
-  <%= if list.type == "want_to_read" do %>
+  <%= if list.type == want_to_read_list_type() do %>
     <ul class="collection with-header">
       <li class="collection-header">Want To Read</li>
       <%= for book <- list.books do %>
@@ -11,7 +11,7 @@
     </ul>
   <% end %>
 
-  <%= if list.type == "reading" do %>
+  <%= if list.type == reading_list_type() do %>
     <ul class="collection with-header">
       <li class="collection-header">Reading</li>
       <%= for book <- list.books do %>
@@ -20,7 +20,7 @@
     </ul>
   <% end %>
 
-  <%= if list.type == "has_read" do %>
+  <%= if list.type == has_read_list_type() do %>
     <ul class="collection with-header">
       <li class="collection-header">Have Read</li>
       <%= for book <- list.books do %>

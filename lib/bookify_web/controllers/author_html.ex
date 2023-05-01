@@ -4,7 +4,7 @@ defmodule BookifyWeb.AuthorHTML do
   import Phoenix.HTML.Link
   import Bookify.ErrorHelpers
   alias BookifyWeb.Plugs.RequireAdmin
-  import Bookify.UserHelpers
+  import BookifyWeb.Helpers.User
 
 
   embed_templates "author_html/*"

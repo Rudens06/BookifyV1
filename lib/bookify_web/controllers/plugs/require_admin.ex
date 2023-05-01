@@ -1,7 +1,7 @@
 defmodule BookifyWeb.Plugs.RequireAdmin do
   import Plug.Conn
   import Phoenix.Controller
-  import Bookify.UserHelpers
+  import BookifyWeb.Helpers.User
 
   alias BookifyWeb.Router.Helpers
 
