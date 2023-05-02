@@ -77,6 +77,7 @@ defmodule BookifyWeb do
 
       # Include general helpers for rendering HTML
       alias BookifyWeb.Router.Helpers, as: Routes
+      import BookifyWeb.Helpers.Component
       unquote(html_helpers())
     end
   end

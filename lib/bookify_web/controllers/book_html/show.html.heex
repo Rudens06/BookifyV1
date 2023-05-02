@@ -15,21 +15,49 @@ Description:
 </h5>
 <p> <%= @book.anotation %> </p>
 
-<%= if Lists.book_in_list?(
-  current_user(@conn).id, 
-  want_to_read_list_type,
-  @book.id
-  ) do %>
+<%= if @conn.assigns[:current_user] do %>
+  <%= if Lists.book_in_list?(
+    current_user(@conn).id, 
+    want_to_read_list_type,
+    @book.id
+    ) do %>
+    <%= link "Remove from wishlist",
+    to: Routes.list_path(@conn, :remove_book_from_list, want_to_read_list_type(), @book.id),
+    class: cancel_btn %>
+  <% else %>
+    <%= link "Want to Read",
+    to: Routes.list_path(@conn, :add_book_to_list, want_to_read_list_type(), @book.id),
+    class: default_btn %>
+  <% end %>
 
-  <%= link "Remove from wishlist",
-  to: Routes.list_path(@conn, :remove_book_from_list, want_to_read_list_type(), @book.id),
-  class: "btn" %>
 
-<% else %>
+  <%= if Lists.book_in_list?(
+    current_user(@conn).id, 
+    reading_list_type,
+    @book.id
+    ) do %>
+    <%= link "Remove from Reading",
+    to: Routes.list_path(@conn, :remove_book_from_list, reading_list_type(), @book.id),
+    class: cancel_btn %>
+  <% else %>
+    <%= link "Reading",
+    to: Routes.list_path(@conn, :add_book_to_list, reading_list_type(), @book.id),
+    class: default_btn %>
+  <% end %>
 
-  <%= link "Want to Read",
-  to: Routes.list_path(@conn, :add_book_to_list, want_to_read_list_type(), @book.id),
-  class: "btn" %>
+  <%= if Lists.book_in_list?(
+    current_user(@conn).id, 
+    has_read_list_type,
+    @book.id
+    ) do %>
+    <%= link "Remove from Have Read",
+    to: Routes.list_path(@conn, :remove_book_from_list, has_read_list_type(), @book.id),
+    class: cancel_btn %>
+  <% else %>
+    <%= link "Have Read",
+    to: Routes.list_path(@conn, :add_book_to_list, has_read_list_type(), @book.id),
+    class: default_btn %>
+  <% end %>
 
 <% end %>
 

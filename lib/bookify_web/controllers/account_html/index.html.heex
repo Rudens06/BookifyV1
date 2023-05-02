@@ -1,6 +1,12 @@
 <%= if @conn.assigns[:current_user] do %>
   <h4>Hi, <%= @current_user.name %></h4>
-  <%= link "Edit Profile", to: Routes.account_path(@conn, :edit_profile) %>
-  <br>
-  <%= link "Change Password", to: Routes.account_path(@conn, :edit_password) %>
+  <%= if @current_user.avatar do %>
+  <div class="row">
+    <div class="col s3">
+      <img class="circle" src={@current_user_pic}>
+    </div>
+  </div>
+<% end %>
+  <%= link "Edit Profile", to: Routes.account_path(@conn, :edit_profile), class: default_btn %>
+  <%= link "Change Password", to: Routes.account_path(@conn, :edit_password), class: default_btn %>
 <% end %>

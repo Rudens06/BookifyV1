@@ -30,7 +30,7 @@
 
 <%= if RequireAdmin.user_is_admin?(current_user(@conn)) do %>
   <div class="right">
-    <%= link "Add book", to: Routes.book_path(@conn, :new), class: "btn" %>
+    <%= link "Add book", to: Routes.book_path(@conn, :new), class: default_btn %>
   </div>
 <% end %>
 

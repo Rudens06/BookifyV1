@@ -3,7 +3,7 @@
 <%= if @current_user.avatar do %>
   <div class="row">
     <div class="col s3">
-      <img class="circle right" src={Bookify.Avatar.url({@current_user.avatar, @current_user}, signed: true)}>
+      <img class="circle" src={@current_user_pic}>
     </div>
   </div>
 <% end %>
@@ -18,7 +18,7 @@
             <%= text_input f, :email, placeholder: "Email", class: "form-control" %>
             <%= error_tag f, :email %>
         </div>
-        <%= submit "Save Changes", class: "btn btn-primary" %>
+        <%= submit "Save Changes", class: default_btn %>
     <% end %>
 </div>
 
@@ -37,6 +37,8 @@
   </div>
 
   <div>
-    <%= submit "Upload avatar", class: "btn btn-primary" %>
+    <%= submit "Upload avatar", class: default_btn %>
   </div>
 <% end %>
+<br>
+<%= link "Cancel", to: Routes.account_path(@conn, :index), class: cancel_btn %>

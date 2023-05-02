@@ -12,7 +12,10 @@ defmodule BookifyWeb.Plugs.SetUser do
 
     cond do
       user = user_id && Repo.get(User, user_id) ->
-        assign(conn, :current_user, user)
+        user_pic = Bookify.Avatar.url({user.avatar, user}, signed: true)
+        conn
+        |> assign(:current_user, user)
+        |> assign(:current_user_pic, user_pic)
 
       true ->
         assign(conn, :current_user, nil)

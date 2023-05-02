@@ -63,4 +63,12 @@ config :phoenix, :json_library, Jason
 # of this file so it overrides the configuration defined above.
 import_config "#{config_env()}.exs"
 
-import_config "config.secret.exs"
+config :waffle,
+  storage: Waffle.Storage.S3,
+  bucket: System.get_env("AWS_BUCKET_NAME")
+
+config :ex_aws,
+  json_codec: Jason,
+  access_key_id: System.get_env("AWS_ACCESS_KEY_ID"),
+  secret_access_key: System.get_env("AWS_SECRET_ACCESS_KEY"),
+  region: System.get_env("AWS_REGION")
