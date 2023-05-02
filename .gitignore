@@ -35,3 +35,6 @@ bookify-*.tar
 npm-debug.log
 /assets/node_modules/
 
+# Ignore secrets
+
+**/*.secret.exs

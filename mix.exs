@@ -53,7 +53,13 @@ defmodule Bookify.MixProject do
       {:plug_cowboy, "~> 2.5"},
       {:bcrypt_elixir, "~> 3.0"},
       {:password_validator, "~> 0.4.1"},
-      {:puid, "~> 2.0"}
+      {:puid, "~> 2.0"},
+      {:waffle, "~> 1.1"},
+      {:waffle_ecto, "~> 0.0"},
+      {:ex_aws, "~> 2.1.2"},
+      {:ex_aws_s3, "~> 2.0"},
+      {:hackney, "~> 1.9"},
+      {:sweet_xml, "~> 0.6"}
     ]
   end
 

@@ -20,8 +20,10 @@ defmodule BookifyWeb.AccountController do
 
   def edit_profile(conn, _params) do
     changeset = User.edit_profile_changeset(current_user(conn))
+    avatar_changeset = User.avatar_changeset(current_user(conn))
     conn
     |> assign(:page_title, "Edit Profile")
+    |> assign(:avatar_changeset, avatar_changeset)
     |> assign(:changeset, changeset)
     |> render(:edit_profile)
   end
@@ -73,4 +75,22 @@ defmodule BookifyWeb.AccountController do
         |> render(:edit_password)
     end
   end
+
+  def update_avatar(conn, %{"user" => user_params}) do
+    changeset = User.edit_profile_changeset(current_user(conn), user_params)
+
+    case Accounts.update_user_avatar(current_user(conn), user_params) do
+      {:ok, _user} ->
+        conn
+        |> put_flash(:info, "Avatar updated successfully.")
+        |> redirect(to: Routes.account_path(conn, :index))
+
+      {:error, changeset} ->
+        conn
+        |> assign(:changeset, changeset)
+        |> assign(:avatar_changeset, changeset)
+        |> render(:edit_profile)
+    end
+  end
+
 end

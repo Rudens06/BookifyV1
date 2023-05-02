@@ -26,4 +26,14 @@ defmodule Bookify.Accounts do
   def get_user_by_email(email) do
     Repo.get_by(User, email: email)
   end
+
+  def update_user_avatar(%User{} = user, attrs) do
+    user
+    |> User.avatar_changeset(attrs)
+    |> Repo.update()
+  end
+
+  def change_user_avatar(%User{} = user) do
+    User.avatar_changeset(user, %{})
+  end
 end

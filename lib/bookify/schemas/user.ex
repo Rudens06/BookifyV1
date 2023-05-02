@@ -1,7 +1,11 @@
 defmodule Bookify.User do
   use Ecto.Schema
+  use Waffle.Ecto.Schema
+
   import Ecto.Changeset
+
   alias Bookify.GenId
+  alias Bookify.Avatar
 
   @primary_key {:id, :string, autogenerate: false}
   schema "users" do
@@ -12,8 +16,15 @@ defmodule Bookify.User do
     field :current_password, :string, virtual: true, redact: true
     field :hashed_password, :string, redact: true
     field :roles, {:array, :string}
+    field :avatar, Avatar.Type
 
     timestamps()
+  end
+
+  def avatar_changeset(user, params \\ %{}) do
+    user
+    |> cast(params, [])
+    |> cast_attachments(params, [:avatar])
   end
 
   def changeset(user, params \\ %{}) do
