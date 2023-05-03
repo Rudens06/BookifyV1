@@ -30,7 +30,6 @@ Description:
     class: default_btn %>
   <% end %>
 
-
   <%= if Lists.book_in_list?(
     current_user(@conn).id, 
     reading_list_type,
@@ -59,7 +58,114 @@ Description:
     class: default_btn %>
   <% end %>
 
+
+  <%!-- WRITE REVIEW MODAL --%>
+  <!-- Modal Trigger -->
+  <a class={"modal-trigger " <> review_btn } href="#write-review">Write a Review</a>
+
+  <div id="write-review" class="modal">
+    <div class="modal-content">
+      <h4>
+        Review for <%= @book.title %>
+      </h4>
+      <div class="form-group"> 
+        <%= form_for @review_changeset, Routes.review_path(@conn, :create, @book.id), fn f -> %>
+          <div class="input-field">
+            <%= text_input f, :title, placeholder: "Title", class: "white gray-text" %>
+            <%= error_tag f, :title %>
+          </div>
+          <div class="input-field">
+            <%= text_input f, :review, placeholder: "Review", class: "white gray-text" %>
+            <%= error_tag f, :review %>
+          </div>
+          <div class="input-field">
+            <%= number_input f, :rating, placeholder: "Rating", class: "white gray-text" %>
+            <%= error_tag f, :rating %>
+          </div>
+          <span class="helper-text">
+            Rating format: 1 - 10
+          </span>
+            <%= submit "Post Review", class: default_btn <> " right" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
+    </div>
+  </div>
+
+
+<% else %>
+  <%!-- NOT LOGGED IN MODAL FOR LOGIN --%>
+  <!-- Modal Trigger -->
+  <a class={"modal-trigger " <> review_btn } href="#sign-in">Write a Review</a>
+
+  <!-- Modal Structure -->
+  <div id="sign-in" class="modal">
+    <div class="modal-content">
+      <h4>
+      You have to be signed in to write a review      
+      </h4>
+      <%= link "Sign In",
+      to: Routes.auth_path(@conn, :new),
+      class: default_btn %>
+
+      <%= link "Register",
+      to: Routes.user_path(@conn, :new),
+      class: default_btn %>
+
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat right">Close</a>
+    </div>
+  </div>
+
 <% end %>
+
+<%!-- Reviews --%>
+
+<h4>
+  Reviews
+</h4>
+
+<%= if @book.reviews == [] do %>
+  <p>No reviews yet</p>
+<% end %>
+
+<ul class="collection">
+  <%= for review <- @book.reviews do %>
+    <li class="collection-item avatar">
+      <img src={Bookify.Avatar.url({review.user.avatar, review.user}, signed: true)} alt={review.user.name <> " profile picture"} class="circle">
+      <%= if @conn.assigns[:current_user] do %>
+        <%= if current_user(@conn).id == review.user_id do %>
+          <div class="right">
+            <%= link "Delete", to: Routes.review_path(@conn, :delete, @book.id, review.id), 
+            method: :delete, 
+            data: [confirm: "Are you sure?"] %>
+          </div>
+        <% end %>
+      <% end %>
+      <h6>
+        <%= review.user.name %>
+      </h6>
+      <h6>
+        <%= review.title %>
+      </h6>
+      <p>
+        <%= review.review %>
+      </p>
+      <p>
+        <%= review.rating %>/10
+      </p>
+    </li>
+  <% end %>
+</ul>
+
+<%!-- Reviews End --%>
+
+
+
+
+ 
+  
 
 
 

@@ -5,6 +5,7 @@ defmodule BookifyWeb.BookController do
   alias Bookify.Book
   alias Bookify.Books
   alias Bookify.Authors
+  alias Bookify.Review
 
   plug BookifyWeb.Plugs.RequireAdmin when action in [:new, :create, :edit, :update, :delete]
 
@@ -13,7 +14,7 @@ defmodule BookifyWeb.BookController do
   end
 
   def index(conn, _params) do
-    books = Books.list_all_w_authors()
+    books = Books.list_all_w_author()
     conn
     |> assign(:page_title, "Books")
     |> assign(:books, books)
@@ -22,7 +23,10 @@ defmodule BookifyWeb.BookController do
 
   def show(conn, %{"id" => book_id}) do
     book = Books.get_by_id!(book_id)
+    review_changeset = Review.changeset(%Review{})
+
     conn
+    |> assign(:review_changeset, review_changeset)
     |> assign(:page_title, "Books")
     |> assign(:book, book)
     |> render(:show)

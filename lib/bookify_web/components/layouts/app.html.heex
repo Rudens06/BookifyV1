@@ -1,40 +1,6 @@
-<%!-- <nav class="orange darken-2">
-  <div class="nav wrapper container">
-    <a href="/" class="brand-logo">
-      Bookify
-    </a>
-    <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li>
-        <%= link("Books", to: Routes.book_path(@conn, :index)) %>
-      </li>
-      <li>
-        <%= link("Authors", to: Routes.author_path(@conn, :index)) %>
-      </li>
-      <%= if @conn.assigns[:current_user] do %>
-        <li>
-          <%= link("Lists", to: Routes.list_path(@conn, :index)) %>
-        </li>
-        <li>
-          <%= link("My Account", to: Routes.account_path(@conn, :index)) %>
-        </li>
-        <li>
-          <%= link("Sign Out", to: Routes.auth_path(@conn, :signout), method: :delete) %>
-        </li>
-      <% else %>
-        <li>
-          <%= link("Sign In", to: Routes.auth_path(@conn, :new)) %>
-        </li>
-        <li>
-          <%= link("Register", to: Routes.user_path(@conn, :new)) %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
-</nav> --%>
-
 <nav class="orange darken-2">
   <div class="nav wrapper container">
-    <a href="/" class="brand-logo">Logo</a>
+    <a href="/" class="brand-logo">Bookify</a>
     <a href="#" class="sidenav-trigger" data-target="mobile-nav">
 			<i class="material-icons">menu</i>
 		</a>

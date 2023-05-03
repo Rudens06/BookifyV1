@@ -7,6 +7,7 @@ defmodule BookifyWeb.BookHTML do
   import BookifyWeb.Helpers.List
   alias Bookify.Lists
   alias BookifyWeb.Plugs.RequireAdmin
+  alias Bookify.Reviews
 
 
   embed_templates "book_html/*"

@@ -6,6 +6,7 @@ defmodule Bookify.User do
 
   alias Bookify.GenId
   alias Bookify.Avatar
+  alias Bookify.Review
 
   @primary_key {:id, :string, autogenerate: false}
   schema "users" do
@@ -17,6 +18,7 @@ defmodule Bookify.User do
     field :hashed_password, :string, redact: true
     field :roles, {:array, :string}
     field :avatar, Avatar.Type
+    has_many :reviews, Review
 
     timestamps()
   end

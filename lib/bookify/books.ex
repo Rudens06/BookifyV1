@@ -6,7 +6,7 @@ defmodule Bookify.Books do
     Repo.all(Book)
   end
 
-  def list_all_w_authors() do
+  def list_all_w_author() do
     Repo.all(Book)
     |> Repo.preload(:author)
   end
@@ -14,6 +14,7 @@ defmodule Bookify.Books do
   def get_by_id!(book_id) do
     Repo.get!(Book, book_id)
     |> Repo.preload(:author)
+    |> Repo.preload(reviews: [:user])
   end
 
   def insert(book) do

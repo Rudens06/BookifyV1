@@ -10,6 +10,7 @@ defmodule Bookify.Review do
   schema "reviews" do
     belongs_to :book, Book
     belongs_to :user, User
+    field :title, :string
     field :review, :string
     field :rating, :integer
     timestamps()
@@ -17,8 +18,9 @@ defmodule Bookify.Review do
 
   def changeset(review, params \\ %{}) do
     review
-    |> cast(params, [:review, :rating])
-    |> validate_required([:book, :user, :review, :rating])
+    |> cast(params, [:title, :review, :rating])
+    |> validate_required([:title, :review, :rating])
+    |> validate_inclusion(:rating, 1..10, message: "Rating must be between 1 and 10")
   end
 
   def new() do

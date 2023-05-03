@@ -13,6 +13,16 @@
         <div class="input-field">
             <%= password_input f, :password, placeholder: "Password", class: "form-control" %>
             <%= error_tag f, :password %>
+            <span class="helper-text">
+            Password format:
+            <ul>
+            <li>At least 8 characters long</li>
+            <li>At least one lower case character</li>
+            <li>At least one UPPER case character</li>
+            <li>At least one number</li>
+            <li>At least one symbol <%= safe_to_string({:safe, "(*.!@#$%^&(){}[:;<>,.?)"}) %></li>
+            </ul>
+        </span>
         </div>
         <div class="input-field">
             <%= password_input f, :password_confirmation, placeholder: "Confirm password", class: "form-control" %>

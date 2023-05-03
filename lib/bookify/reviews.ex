@@ -6,7 +6,7 @@ defmodule Bookify.Reviews do
     Repo.all(Review)
   end
 
-  def get_review_by_id!(user_id) do
+  def get_by_id!(user_id) do
     Repo.get!(Review, user_id)
   end
 

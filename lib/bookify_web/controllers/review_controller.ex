@@ -2,39 +2,58 @@ defmodule BookifyWeb.ReviewController do
   use BookifyWeb, :controller
 
   import BookifyWeb.Helpers.User
+  import Ecto.Changeset
 
   alias Bookify.Repo
   alias Bookify.Accounts
   alias Bookify.Review
   alias Bookify.Reviews
+  alias Bookify.Books
 
   plug BookifyWeb.Plugs.RequireAuth when action in [:new, :create, :edit, :update, :delete]
   plug :check_review_owner when action in [:update, :edit, :delete]
 
-
-  def new(conn, _params) do
-    changeset = Review.changeset(%Review{})
-
-    conn
-    |> assign(:changeset, changeset)
-    |> render(:new)
-  end
-
-  def create(conn, %{"review" => review_params}) do
-    changeset =
+  def create(conn, %{"review" => review_params, "book_id" => book_id}) do
+    book = Books.get_by_id!(book_id)
+    review_changeset =
       Review.new()
       |> Review.changeset(review_params)
-      ## More stuff needed
+      |> put_assoc(:user, current_user(conn))
+      |> put_assoc(:book, book)
+
+
+    case Reviews.insert(review_changeset) do
+      {:ok, _review} ->
+        conn
+        |> put_flash(:info, "Review posted successfully")
+        |> redirect(to: Routes.book_path(conn, :show, book.id))
+      {:error, review_changeset} ->
+        conn
+        |> put_flash(:error, "Error occured")
+        |> put_view(BookifyWeb.BookHTML)
+        |> assign(:book, book)
+        |> assign(:review_changeset, review_changeset)
+        |> render(:show)
+    end
   end
 
   def index(conn, _params) do
     render(conn, :index)
   end
 
-  def check_review_owner(conn, _params) do
-    %{params: %{"id" => review_id}} = conn
+  def delete(conn, %{"review_id" => review_id, "book_id" => book_id}) do
+    Reviews.delete_review_by_id!(review_id)
 
-    if Reviews.get_review_by_id!(review_id).user_id == current_user(conn).id.id do
+    conn
+    |> put_flash(:info, "Deleted Successfully")
+    |> redirect(to: Routes.book_path(conn, :show, book_id))
+  end
+
+  def check_review_owner(conn, _params) do
+    %{params: %{"review_id" => review_id}} = conn
+    review = Reviews.get_by_id!(review_id)
+
+    if review.user_id == current_user(conn).id do
       conn
     else
       conn

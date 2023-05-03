@@ -6,4 +6,8 @@ defmodule BookifyWeb.Helpers.Component do
   def cancel_btn() do
     "btn red"
   end
+
+  def review_btn() do
+    "btn green"
+  end
 end

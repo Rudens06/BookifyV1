@@ -41,6 +41,7 @@ window.liveSocket = liveSocket
 
 $(document).ready(function(){
   $('.sidenav').sidenav();
+  $('.modal').modal();
 });
 
 document.addEventListener('DOMContentLoaded', function() {

@@ -45,6 +45,8 @@ defmodule BookifyWeb.Router do
     get "/lists/add/:type/:id", ListController, :add_book_to_list
     get "/lists/remove/:type/:id", ListController, :remove_book_from_list
 
+    post "/review/:book_id", ReviewController, :create
+    delete "/review/:book_id/:review_id/delete", ReviewController, :delete
 
   end
 
