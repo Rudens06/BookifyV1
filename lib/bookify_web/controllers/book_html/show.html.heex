@@ -151,11 +151,10 @@ Description:
       </p>
       <%= if @conn.assigns[:current_user] do %>
         <%= if current_user(@conn).id == review.user_id do %>
-          <div class="right">
-            <%= link "Delete", to: Routes.review_path(@conn, :delete, @book.id, review.id), 
-            method: :delete, 
-            data: [confirm: "Are you sure?"] %>
-          </div>
+          <%= link "Delete", to: Routes.review_path(@conn, :delete, @book.id, review.id), 
+          method: :delete, 
+          data: [confirm: "Are you sure?"], class: "right" %>
+          <br>
         <% end %>
       <% end %>
     </li>
