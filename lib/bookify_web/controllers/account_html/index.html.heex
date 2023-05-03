@@ -7,6 +7,6 @@
     </div>
   </div>
 <% end %>
-  <%= link "Edit Profile", to: Routes.account_path(@conn, :edit_profile), class: default_btn %>
-  <%= link "Change Password", to: Routes.account_path(@conn, :edit_password), class: default_btn %>
+  <%= link "Edit Profile", to: Routes.account_path(@conn, :edit_profile), class: default_btn() %>
+  <%= link "Change Password", to: Routes.account_path(@conn, :edit_password), class: default_btn() %>
 <% end %>

@@ -4,8 +4,6 @@ defmodule BookifyWeb.ReviewController do
   import BookifyWeb.Helpers.User
   import Ecto.Changeset
 
-  alias Bookify.Repo
-  alias Bookify.Accounts
   alias Bookify.Review
   alias Bookify.Reviews
   alias Bookify.Books

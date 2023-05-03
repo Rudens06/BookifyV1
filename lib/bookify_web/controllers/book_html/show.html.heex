@@ -18,50 +18,50 @@ Description:
 <%= if @conn.assigns[:current_user] do %>
   <%= if Lists.book_in_list?(
     current_user(@conn).id, 
-    want_to_read_list_type,
+    want_to_read_list_type(),
     @book.id
     ) do %>
     <%= link "Remove from wishlist",
     to: Routes.list_path(@conn, :remove_book_from_list, want_to_read_list_type(), @book.id),
-    class: cancel_btn %>
+    class: cancel_btn() %>
   <% else %>
     <%= link "Want to Read",
     to: Routes.list_path(@conn, :add_book_to_list, want_to_read_list_type(), @book.id),
-    class: default_btn %>
+    class: default_btn() %>
   <% end %>
 
   <%= if Lists.book_in_list?(
     current_user(@conn).id, 
-    reading_list_type,
+    reading_list_type(),
     @book.id
     ) do %>
     <%= link "Remove from Reading",
     to: Routes.list_path(@conn, :remove_book_from_list, reading_list_type(), @book.id),
-    class: cancel_btn %>
+    class: cancel_btn() %>
   <% else %>
     <%= link "Reading",
     to: Routes.list_path(@conn, :add_book_to_list, reading_list_type(), @book.id),
-    class: default_btn %>
+    class: default_btn() %>
   <% end %>
 
   <%= if Lists.book_in_list?(
     current_user(@conn).id, 
-    has_read_list_type,
+    has_read_list_type(),
     @book.id
     ) do %>
     <%= link "Remove from Have Read",
     to: Routes.list_path(@conn, :remove_book_from_list, has_read_list_type(), @book.id),
-    class: cancel_btn %>
+    class: cancel_btn() %>
   <% else %>
     <%= link "Have Read",
     to: Routes.list_path(@conn, :add_book_to_list, has_read_list_type(), @book.id),
-    class: default_btn %>
+    class: default_btn() %>
   <% end %>
 
 
   <%!-- WRITE REVIEW MODAL --%>
   <!-- Modal Trigger -->
-  <a class={"modal-trigger " <> review_btn } href="#write-review">Write a Review</a>
+  <a class={"modal-trigger " <> review_btn() } href="#write-review">Write a Review</a>
 
   <div id="write-review" class="modal">
     <div class="modal-content">
@@ -85,7 +85,7 @@ Description:
           <span class="helper-text">
             Rating format: 1 - 10
           </span>
-            <%= submit "Post Review", class: default_btn <> " right" %>
+            <%= submit "Post Review", class: default_btn() <> " right" %>
         <% end %>
       </div>
     </div>
@@ -98,7 +98,7 @@ Description:
 <% else %>
   <%!-- NOT LOGGED IN MODAL FOR LOGIN --%>
   <!-- Modal Trigger -->
-  <a class={"modal-trigger " <> review_btn } href="#sign-in">Write a Review</a>
+  <a class={"modal-trigger " <> review_btn() } href="#sign-in">Write a Review</a>
 
   <!-- Modal Structure -->
   <div id="sign-in" class="modal">
@@ -108,11 +108,11 @@ Description:
       </h4>
       <%= link "Sign In",
       to: Routes.auth_path(@conn, :new),
-      class: default_btn %>
+      class: default_btn() %>
 
       <%= link "Register",
       to: Routes.user_path(@conn, :new),
-      class: default_btn %>
+      class: default_btn() %>
 
       <a href="#!" class="modal-close waves-effect waves-green btn-flat right">Close</a>
     </div>
@@ -134,15 +134,9 @@ Description:
   <%= for review <- @book.reviews do %>
     <li class="collection-item avatar">
       <img src={Bookify.Avatar.url({review.user.avatar, review.user}, signed: true)} alt={review.user.name <> " profile picture"} class="circle">
-      <%= if @conn.assigns[:current_user] do %>
-        <%= if current_user(@conn).id == review.user_id do %>
-          <div class="right">
-            <%= link "Delete", to: Routes.review_path(@conn, :delete, @book.id, review.id), 
-            method: :delete, 
-            data: [confirm: "Are you sure?"] %>
-          </div>
-        <% end %>
-      <% end %>
+      <p class="right">
+        <%= review.inserted_at %>
+      </p>
       <h6>
         <%= review.user.name %>
       </h6>
@@ -155,6 +149,15 @@ Description:
       <p>
         <%= review.rating %>/10
       </p>
+      <%= if @conn.assigns[:current_user] do %>
+        <%= if current_user(@conn).id == review.user_id do %>
+          <div class="right">
+            <%= link "Delete", to: Routes.review_path(@conn, :delete, @book.id, review.id), 
+            method: :delete, 
+            data: [confirm: "Are you sure?"] %>
+          </div>
+        <% end %>
+      <% end %>
     </li>
   <% end %>
 </ul>

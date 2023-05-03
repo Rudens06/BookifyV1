@@ -5,9 +5,9 @@ defmodule BookifyWeb.BookHTML do
   import Bookify.ErrorHelpers
   import BookifyWeb.Helpers.User
   import BookifyWeb.Helpers.List
+  import BookifyWeb.Helpers.Component
   alias Bookify.Lists
   alias BookifyWeb.Plugs.RequireAdmin
-  alias Bookify.Reviews
 
 
   embed_templates "book_html/*"

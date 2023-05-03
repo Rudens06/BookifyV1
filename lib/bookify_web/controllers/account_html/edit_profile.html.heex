@@ -18,7 +18,7 @@
             <%= text_input f, :email, placeholder: "Email", class: "form-control" %>
             <%= error_tag f, :email %>
         </div>
-        <%= submit "Save Changes", class: default_btn %>
+        <%= submit "Save Changes", class: default_btn() %>
     <% end %>
 </div>
 
@@ -37,8 +37,8 @@
   </div>
 
   <div>
-    <%= submit "Upload avatar", class: default_btn %>
+    <%= submit "Upload avatar", class: default_btn() %>
   </div>
 <% end %>
 <br>
-<%= link "Cancel", to: Routes.account_path(@conn, :index), class: cancel_btn %>
+<%= link "Cancel", to: Routes.account_path(@conn, :index), class: cancel_btn() %>

@@ -10,7 +10,7 @@
       <%= password_input f, :password, placeholder: "Password", class: "form-control" %>
       <%= error_tag f, :password %>
     </div>
-    <%= submit "Sign In", class: default_btn %>
+    <%= submit "Sign In", class: default_btn() %>
   </div>
 <% end %>
 <%= link "Register an Account", to: Routes.user_path(@conn, :new) %>

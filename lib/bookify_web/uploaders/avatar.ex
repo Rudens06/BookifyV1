@@ -30,7 +30,7 @@ defmodule Bookify.Avatar do
     version
   end
 
-  def storage_dir(_, {file, user}) do
+  def storage_dir(_, {_file, user}) do
     "uploads/avatars/#{user.id}"
   end
 

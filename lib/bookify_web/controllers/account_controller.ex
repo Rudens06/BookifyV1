@@ -85,12 +85,22 @@ defmodule BookifyWeb.AccountController do
         |> put_flash(:info, "Avatar updated successfully.")
         |> redirect(to: Routes.account_path(conn, :index))
 
-      {:error, changeset} ->
+      {:error, avatar_changeset} ->
         conn
         |> assign(:changeset, changeset)
-        |> assign(:avatar_changeset, changeset)
+        |> assign(:avatar_changeset, avatar_changeset)
         |> render(:edit_profile)
     end
   end
 
+  def update_avatar(conn, _params) do
+    changeset = User.edit_profile_changeset(current_user(conn))
+    avatar_changeset = User.avatar_changeset(current_user(conn))
+    conn
+    |> put_flash(:error, "Something went wrong")
+    |> assign(:page_title, "Edit Profile")
+    |> assign(:avatar_changeset, avatar_changeset)
+    |> assign(:changeset, changeset)
+    |> render(:edit_profile)
+  end
 end
