@@ -58,6 +58,14 @@ defmodule Bookify.User do
     |> validate_email()
   end
 
+  def last_login_changeset(user) do
+    now = DateTime.utc_now() |> DateTime.truncate(:second)
+
+    user
+    |> change(last_login: now)
+  end
+
+
   def registration_changeset(user, params \\ %{}) do
     user
     |> cast(params, [:name, :email, :password, :password_confirmation])
