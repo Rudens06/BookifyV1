@@ -17,6 +17,7 @@ defmodule Bookify.User do
     field :current_password, :string, virtual: true, redact: true
     field :hashed_password, :string, redact: true
     field :roles, {:array, :string}
+    field :last_login, :utc_datetime
     field :avatar, Avatar.Type
     has_many :reviews, Review
 
