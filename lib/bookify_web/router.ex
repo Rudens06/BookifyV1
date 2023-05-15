@@ -48,6 +48,8 @@ defmodule BookifyWeb.Router do
     post "/review/:book_id", ReviewController, :create
     delete "/review/:book_id/:review_id/delete", ReviewController, :delete
 
+    get "/admin", AdminController, :index
+
   end
 
   # Other scopes may use custom stacks.

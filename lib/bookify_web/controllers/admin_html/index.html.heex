@@ -1,0 +1,25 @@
+<h4>Admin Panel</h4>
+
+<div class="row">
+
+  <div class="col s12 m4 l3">
+    <ul>
+      <li>
+        <%= link("Books", to: Routes.book_path(@conn, :index)) %>
+      </li>
+      <li>
+        <%= link("Authors", to: Routes.author_path(@conn, :index)) %>
+      </li>
+      <li>
+        <%= link("Accounts", to: Routes.admin_path(@conn, :index)) %>
+      </li>
+    </ul>
+  </div>
+
+  <div class="col s12 m8 l9">
+    Something will go here
+  </div>
+
+</div>
+
+
