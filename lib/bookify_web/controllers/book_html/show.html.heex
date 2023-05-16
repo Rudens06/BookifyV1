@@ -135,6 +135,8 @@ Description:
     <li class="collection-item avatar">
       <img src={Bookify.Avatar.url({review.user.avatar, review.user}, signed: true)} alt={review.user.name <> " profile picture"} class="circle">
       <p class="right">
+        <%= from_now(review.inserted_at) %>
+        <br>
         <%= display_date(review.inserted_at) %>
         <br>
         <%= display_time(review.inserted_at) %>

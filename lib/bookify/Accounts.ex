@@ -10,6 +10,11 @@ defmodule Bookify.Accounts do
     Repo.get!(User, user_id)
   end
 
+  def get_user_by_id_w_preloads(user_id) do
+    Repo.get!(User, user_id)
+    |> Repo.preload(reviews: [:book])
+  end
+
   def insert(user) do
     Repo.insert(user)
   end

@@ -4,6 +4,7 @@ defmodule Bookify.Reviews do
 
   def list_reviews() do
     Repo.all(Review)
+    |> Repo.preload(:user)
   end
 
   def get_by_id!(user_id) do

@@ -2,6 +2,7 @@ defmodule BookifyWeb.ReviewController do
   use BookifyWeb, :controller
 
   import BookifyWeb.Helpers.User
+  import BookifyWeb.Plugs.RequireAdmin
   import Ecto.Changeset
 
   alias Bookify.Review
@@ -47,11 +48,19 @@ defmodule BookifyWeb.ReviewController do
     |> redirect(to: Routes.book_path(conn, :show, book_id))
   end
 
+  def delete(conn, %{"review_id" => review_id}) do
+    Reviews.delete_review_by_id!(review_id)
+
+    conn
+    |> put_flash(:info, "Deleted Successfully")
+    |> redirect(to: Routes.admin_path(conn, :reviews))
+  end
+
   def check_review_owner(conn, _params) do
     %{params: %{"review_id" => review_id}} = conn
     review = Reviews.get_by_id!(review_id)
 
-    if review.user_id == current_user(conn).id do
+    if review.user_id == current_user(conn).id || user_is_admin?(current_user(conn)) do
       conn
     else
       conn
