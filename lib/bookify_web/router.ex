@@ -47,8 +47,11 @@ defmodule BookifyWeb.Router do
 
     post "/review/:book_id", ReviewController, :create
     delete "/review/:book_id/:review_id/delete", ReviewController, :delete
+    delete "/review/:review_id/delete", ReviewController, :delete
 
-    get "/admin", AdminController, :index
+    get "/admin", AdminController, :reviews
+    get "/admin/users", AdminController, :users
+    get "/admin/user/:id", AdminController, :show
 
   end
 
