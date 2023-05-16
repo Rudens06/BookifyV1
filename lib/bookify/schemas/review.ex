@@ -20,7 +20,7 @@ defmodule Bookify.Review do
   def changeset(review, params \\ %{}) do
     review
     |> cast(params, [:title, :review, :rating])
-    |> validate_required([:title, :review, :rating])
+    |> validate_required([:rating])
     |> validate_inclusion(:rating, 1..10, message: "Rating must be between 1 and 10")
   end
 
