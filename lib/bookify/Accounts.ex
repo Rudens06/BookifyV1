@@ -1,9 +1,12 @@
 defmodule Bookify.Accounts do
+  import Ecto.Query
   alias Bookify.Repo
   alias Bookify.User
 
   def list_users() do
-    Repo.all(User)
+    User
+    |> order_by(asc: :last_login)
+    |> Repo.all()
   end
 
   def get_user_by_id!(user_id) do
