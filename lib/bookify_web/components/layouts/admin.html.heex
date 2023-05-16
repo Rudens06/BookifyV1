@@ -1,0 +1,38 @@
+<nav class="blue darken-2">
+  <div class="nav wrapper container">
+    <a href="/" class="brand-logo">Admin Panel</a>
+    <a href="#" class="sidenav-trigger" data-target="mobile-nav">
+			<i class="material-icons">menu</i>
+		</a>
+    <ul class="right hide-on-med-and-down">
+      <li>
+        <%= link("Reviews", to: Routes.admin_path(@conn, :reviews)) %>
+      </li>
+      <li>
+        <%= link("Users", to: Routes.admin_path(@conn, :users)) %>
+      </li>
+      <li>
+        <%= link("Sign Out", to: Routes.auth_path(@conn, :signout), method: :delete) %>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<ul class="sidenav" id="mobile-nav">
+  <li>
+    <%= link("Reviews", to: Routes.admin_path(@conn, :reviews)) %>
+  </li>
+  <li>
+    <%= link("Users", to: Routes.admin_path(@conn, :users)) %>
+  </li>
+  <li>
+    <%= link("Sign Out", to: Routes.auth_path(@conn, :signout), method: :delete) %>
+  </li>
+</ul>
+
+<main class="px-4 py-20 sm:px-6 lg:px-8">
+  <div class="mx-auto max-w-2xl">
+    <.flash_group flash={@flash} />
+    <%= @inner_content %>
+  </div>
+</main>
