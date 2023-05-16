@@ -8,6 +8,7 @@ defmodule Bookify.Reviews do
     |> order_by(desc: :inserted_at)
     |> Repo.all()
     |> Repo.preload(:user)
+    |> Repo.preload(:book)
   end
 
   def get_by_id!(user_id) do

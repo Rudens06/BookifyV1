@@ -28,15 +28,18 @@ defmodule BookifyWeb.Helpers.Time do
     current_datetime = DateTime.utc_now()
     time_diff = DateTime.diff(current_datetime, timestamp)
 
-    if time_diff < 24 * 60 * 60 do
-      hours =
-        time_diff / (60 * 60)
-        |> floor()
+    cond do
+    time_diff < 60 ->
+      "#{time_diff} seconds ago"
+    time_diff < 60 * 60 ->
+      minutes = div(time_diff, 60)
+      "#{minutes} minutes ago"
+
+    time_diff < 24 * 60 * 60 ->
+      hours = div(time_diff, 60 * 60)
       "#{hours} hours ago"
-    else
-      days =
-        time_diff / (24 * 60 * 60)
-        |> floor()
+    true ->
+      days = div(time_diff, 24 * 60 * 60)
       "#{days} days ago"
     end
   end

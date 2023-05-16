@@ -26,9 +26,9 @@
   <%= for review <- @user.reviews do %>
     <li class="collection-item avatar">
       <img src={review.book.cover_pic_url} alt={review.book.title <> " cover picture"} class="circle">
-      <h5>
+      <h6>
         <%= link "For: " <> review.book.title, to: Routes.book_path(@conn, :show, review.book.id) %>
-      </h5>
+      </h6>
       <p class="right">
         <%= display_date(review.inserted_at) %>
         <br>
