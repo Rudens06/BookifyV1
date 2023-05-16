@@ -50,9 +50,9 @@ defmodule Bookify.Avatar do
   # end
 
   # Provide a default URL if there hasn't been a file uploaded
-  # def default_url(version, scope) do
-  #   "/images/avatars/default_#{version}.png"
-  # end
+  def default_url(version) do
+    "https://bookify-web-bucket.s3.eu-north-1.amazonaws.com/uploads/avatars/placeholders/+default_profile_pic.jpg"
+  end
 
   # Specify custom headers for s3 objects
   # Available options are [:cache_control, :content_disposition,
