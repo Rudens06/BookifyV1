@@ -1,9 +1,12 @@
 defmodule Bookify.Reviews do
+  import Ecto.Query
   alias Bookify.Repo
   alias Bookify.Review
 
   def list_reviews() do
-    Repo.all(Review)
+    Review
+    |> order_by(desc: :inserted_at)
+    |> Repo.all()
     |> Repo.preload(:user)
   end
 
