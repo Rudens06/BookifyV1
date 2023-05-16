@@ -7,6 +7,7 @@ defmodule Bookify.Book do
   alias Bookify.List
   alias Bookify.GenId
 
+  @timestamps_opts [type: :utc_datetime]
   @primary_key {:id, :string, autogenerate: false}
   @foreign_key_type :string
   schema "books" do

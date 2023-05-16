@@ -4,6 +4,7 @@ defmodule Bookify.BooksInLists do
   alias Bookify.Book
   alias Bookify.List
 
+  @timestamps_opts [type: :utc_datetime]
   @primary_key false
   @foreign_key_type :string
   schema "books_in_lists" do

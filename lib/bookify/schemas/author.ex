@@ -4,6 +4,7 @@ defmodule Bookify.Author do
   import Ecto.Changeset
   alias Bookify.GenId
 
+  @timestamps_opts [type: :utc_datetime]
   @primary_key {:id, :string, autogenerate: false}
   schema "authors" do
     field :name, :string

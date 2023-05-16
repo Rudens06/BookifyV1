@@ -8,6 +8,7 @@ defmodule Bookify.User do
   alias Bookify.Avatar
   alias Bookify.Review
 
+  @timestamps_opts [type: :utc_datetime]
   @primary_key {:id, :string, autogenerate: false}
   schema "users" do
     field :name, :string

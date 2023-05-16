@@ -5,6 +5,7 @@ defmodule Bookify.Review do
   alias Bookify.User
   alias Bookify.GenId
 
+  @timestamps_opts [type: :utc_datetime]
   @primary_key {:id, :string, autogenerate: false}
   @foreign_key_type :string
   schema "reviews" do
