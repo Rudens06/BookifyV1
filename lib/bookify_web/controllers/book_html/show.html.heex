@@ -153,6 +153,7 @@ Description:
       <p>
         <%= review.rating %>/10
       </p>
+      <br>
       <%= if @conn.assigns[:current_user] do %>
         <%= if current_user(@conn).id == review.user_id do %>
           <%= link "Delete", to: Routes.review_path(@conn, :delete, @book.id, review.id), 

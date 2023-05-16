@@ -2,6 +2,7 @@ defmodule Bookify.Accounts do
   import Ecto.Query
   alias Bookify.Repo
   alias Bookify.User
+  alias Bookify.Review
 
   def list_users() do
     User
@@ -14,7 +15,10 @@ defmodule Bookify.Accounts do
   end
 
   def get_user_by_id_w_preloads(user_id) do
+    reviews_query = from r in Review, order_by: [desc: r.inserted_at]
+
     Repo.get!(User, user_id)
+    |> Repo.preload(reviews: reviews_query)
     |> Repo.preload(reviews: [:book])
   end
 

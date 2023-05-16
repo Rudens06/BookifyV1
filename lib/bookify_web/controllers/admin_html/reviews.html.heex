@@ -24,6 +24,7 @@
       <p>
         <%= review.rating %>/10
       </p>
+      <br>
         <%= link "Delete", to: Routes.review_path(@conn, :delete, review.id), 
         method: :delete, 
         data: [confirm: "Are you sure?"], class: "right" %>
