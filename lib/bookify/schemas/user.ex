@@ -68,6 +68,8 @@ defmodule Bookify.User do
 
 
   def registration_changeset(user, params \\ %{}) do
+    now = DateTime.utc_now() |> DateTime.truncate(:second)
+
     user
     |> cast(params, [:name, :email, :password, :password_confirmation])
     |> validate_required([:name, :email, :password, :password_confirmation])
@@ -75,6 +77,7 @@ defmodule Bookify.User do
     |> validate_email()
     |> validate_password()
     |> validate_confirmation(:password, message: "Passwords do not match")
+    |> change(last_login: now)
     |> hash_password()
   end
 
