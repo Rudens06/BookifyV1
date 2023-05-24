@@ -6,7 +6,7 @@ defmodule Bookify.Accounts do
 
   def list_users() do
     User
-    |> order_by(asc: :last_login)
+    |> order_by(desc: :last_login)
     |> Repo.all()
   end
 
