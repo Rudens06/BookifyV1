@@ -106,6 +106,14 @@ defmodule BookifyWeb.BookController do
     |> redirect(to: Routes.book_path(conn, :index))
   end
 
+  def top_books(conn, _params) do
+    books = Books.get_top_books(10)
+
+    conn
+    |> assign(:books, books)
+    |> render(:top_books)
+  end
+
   defp genres_to_list(%{"genre" => ""} = book_params), do: book_params
 
   defp genres_to_list(%{"genre" => genres} = book_params) do

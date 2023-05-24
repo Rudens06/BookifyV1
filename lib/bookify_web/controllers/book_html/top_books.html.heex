@@ -1,0 +1,34 @@
+<h4>Top 10 books</h4>
+
+<ul class="collection">
+  <%= for book <- @books do %>
+    <li class="collection-item avatar">
+      <img src={book.cover_pic_url} alt={book.title <> " cover picture"} class="circle">
+      <span>
+        <%= link book.title, to: Routes.book_path(@conn, :show, book.id), class: "title" %>
+      </span>
+      <%!-- <h4 class="right">
+        <%= book.average_rating %>
+      </h4> --%>
+      <%= if RequireAdmin.user_is_admin?(current_user(@conn)) do %>
+        <div class="right">
+          <%= link "Edit", to: Routes.book_path(@conn, :edit, book.id) %>
+          <%= link "Delete", to: Routes.book_path(@conn, :delete, book.id), 
+          method: :delete, 
+          data: [confirm: "Are you sure?"] %>
+        </div>
+      <% end %>
+      <p>
+        <%= book.author.name %>
+      </p>
+      <p>
+        Published: <%= book.publish_year %>
+      </p>
+      <p>
+        Pages: <%= book.page_count %>
+      </p>
+    </li>
+  <% end %>
+</ul>
+
+
