@@ -16,10 +16,10 @@ defmodule BookifyWeb.AuthController do
   def signin(conn, %{"session" => auth_params}) do
     changeset = User.sign_in_changeset(%User{})
     user = Accounts.get_user_by_email(auth_params["email"])
-    update_changeset = User.last_login_changeset(user)
 
     case Bcrypt.check_pass(user, auth_params["password"], [hash_key: :hashed_password]) do
       {:ok, user} ->
+        update_changeset = User.last_login_changeset(user)
         Repo.update(update_changeset)
         conn
         |> put_flash(:info, "Signed in successfully!")
