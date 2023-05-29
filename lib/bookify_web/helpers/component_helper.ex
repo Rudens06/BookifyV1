@@ -22,7 +22,7 @@ defmodule BookifyWeb.Helpers.Component do
     render_stars(full_stars, empty_stars, half_star?)
   end
 
-  defp render_stars(0, 0, _half_star?), do: ""
+  defp render_stars(0, 0, false), do: ""
   defp render_stars(full_stars, empty_stars, half_star?) do
     if full_stars > 0 do
       "<i class=\"material-icons\">star</i>" <> render_stars(full_stars - 1, empty_stars, half_star?)
