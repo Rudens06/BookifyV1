@@ -13,7 +13,7 @@ defmodule Bookify.Review do
     belongs_to :user, User
     field :title, :string
     field :review, :string
-    field :rating, :integer
+    field :rating, :float
     timestamps()
   end
 
@@ -21,7 +21,29 @@ defmodule Bookify.Review do
     review
     |> cast(params, [:title, :review, :rating])
     |> validate_required([:rating])
-    |> validate_inclusion(:rating, 1..10, message: "Rating must be between 1 and 10")
+    |> validate_rating()
+  end
+
+  defp validate_rating(changeset) do
+
+
+    case get_change(changeset, :rating) do
+      nil -> changeset
+      rating ->
+        case validate_float_inclusion(rating, 0, 5) do
+          {:ok, _} -> changeset
+          {:error, message} ->
+            add_error(changeset, :rating, message)
+        end
+    end
+  end
+
+  defp validate_float_inclusion(value, from, to, message \\ "Rating must be between 1 and 5") do
+    if value > from and value <= to do
+      {:ok, value}
+    else
+      {:error, message}
+    end
   end
 
   def new() do
