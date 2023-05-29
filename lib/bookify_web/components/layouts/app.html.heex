@@ -38,6 +38,9 @@
 
 <ul class="sidenav" id="mobile-nav">
   <li>
+    <%= link("Featured", to: Routes.book_path(@conn, :top_books)) %>
+  </li>
+  <li>
     <%= link("Books", to: Routes.book_path(@conn, :index)) %>
   </li>
   <li>
