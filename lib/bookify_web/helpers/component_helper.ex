@@ -19,10 +19,6 @@ defmodule BookifyWeb.Helpers.Component do
     half_star? = if decimal >= 0.5, do: true, else: false
     empty_stars = 5 - full_stars - (if half_star?, do: 1, else: 0)
 
-    IO.inspect(full_stars)
-    IO.inspect(half_star?)
-    IO.inspect(empty_stars)
-
     render_stars(full_stars, empty_stars, half_star?)
   end
 
