@@ -41,7 +41,7 @@
         <%= review.review %>
       </p>
       <p>
-        <%= review.rating %>/10
+        <%= raw(rating_stars(review.rating)) %>
       </p>
       <br>
         <%= link "Delete", to: Routes.review_path(@conn, :delete, review.id), 

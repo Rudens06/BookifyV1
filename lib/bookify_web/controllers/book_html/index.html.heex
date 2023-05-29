@@ -24,6 +24,7 @@
       <p>
         Pages: <%= book.page_count %>
       </p>
+        <%= raw(rating_stars(book.avg_rating)) %>
     </li>
   <% end %>
 </ul>

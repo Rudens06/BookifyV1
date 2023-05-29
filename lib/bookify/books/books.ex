@@ -37,6 +37,17 @@ defmodule Bookify.Books do
   end
 
   def get_top_books(amount) do
-    Repo.all(BookQuery.top_books_query(amount))
+    books = Repo.all(BookQuery.top_books_query(amount))
+    Enum.map(books, fn [%Book{} = book, avg_rating] ->
+      %Book{book | avg_rating: avg_rating}
+    end)
+  end
+
+  def update_avg_rating(book_id) do
+    [book, avg_rating] = Repo.one(BookQuery.book_w_avg_review_query(book_id))
+
+    Book.update_avg_rating_changeset(book, avg_rating)
+    |> Repo.update()
+    |> dbg
   end
 end

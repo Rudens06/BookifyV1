@@ -10,4 +10,35 @@ defmodule BookifyWeb.Helpers.Component do
   def review_btn() do
     "btn green"
   end
+
+  def rating_stars(nil), do: nil
+
+  def rating_stars(rating) do
+    full_stars = trunc(rating)
+    decimal = rating - full_stars
+    half_star? = if decimal >= 0.5, do: true, else: false
+    empty_stars = 5 - full_stars - (if half_star?, do: 1, else: 0)
+
+
+    IO.inspect(full_stars)
+    IO.inspect(empty_stars)
+    IO.inspect(half_star?)
+    IO.inspect(decimal)
+
+
+    render_stars(full_stars, empty_stars, half_star?)
+  end
+
+  defp render_stars(0, 0, _half_star?), do: ""
+  defp render_stars(full_stars, empty_stars, half_star?) do
+    if full_stars > 0 do
+      "<i class=\"material-icons\">star</i>" <> render_stars(full_stars - 1, empty_stars, half_star?)
+    else
+      if half_star? do
+        "<i class=\"material-icons\">star_half</i>" <> render_stars(full_stars, empty_stars, false)
+      else
+        "<i class=\"material-icons\">star_border</i>" <> render_stars(full_stars, empty_stars - 1, false)
+      end
+    end
+  end
 end

@@ -10,6 +10,7 @@ Pages: <%= @book.page_count %>
 Genres:
 <%= if @book.genre == nil, do: '', else: Enum.join(@book.genre, ", ") %>
 <br>
+ <%= if @book.avg_rating, do: raw(rating_stars(@book.avg_rating)) %> 
 <h5>
 Description:
 </h5>
@@ -79,11 +80,11 @@ Description:
             <%= error_tag f, :review %>
           </div>
           <div class="input-field">
-            <%= number_input f, :rating, placeholder: "Rating", class: "white gray-text" %>
+            <%= number_input f, :rating, step: 0.1, placeholder: "Rating", class: "white gray-text" %>
             <%= error_tag f, :rating %>
           </div>
           <span class="helper-text">
-            Rating format: 1 - 10
+            Rating format: 1 - 5
           </span>
             <%= submit "Post Review", class: default_btn() <> " right" %>
         <% end %>
@@ -151,7 +152,7 @@ Description:
         <%= review.review %>
       </p>
       <p>
-        <%= review.rating %>/10
+        <%= raw(rating_stars(review.rating)) %>
       </p>
       <br>
       <%= if @conn.assigns[:current_user] do %>

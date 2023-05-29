@@ -7,9 +7,9 @@
       <span>
         <%= link book.title, to: Routes.book_path(@conn, :show, book.id), class: "title" %>
       </span>
-      <%!-- <h4 class="right">
-        <%= book.average_rating %>
-      </h4> --%>
+      <h6 class="right">
+        <%= raw(rating_stars(book.avg_rating)) %>
+      </h6>
       <%= if RequireAdmin.user_is_admin?(current_user(@conn)) do %>
         <div class="right">
           <%= link "Edit", to: Routes.book_path(@conn, :edit, book.id) %>

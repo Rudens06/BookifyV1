@@ -23,6 +23,7 @@ defmodule BookifyWeb.ReviewController do
 
     case Reviews.insert(review_changeset) do
       {:ok, _review} ->
+        Books.update_avg_rating(book_id)
         conn
         |> put_flash(:info, "Review posted successfully")
         |> redirect(to: Routes.book_path(conn, :show, book.id))
