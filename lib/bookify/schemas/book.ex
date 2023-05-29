@@ -18,6 +18,7 @@ defmodule Bookify.Book do
     field :genre, {:array, :string}
     field :cover_pic_url, :string
     field :anotation, :string
+    field :avg_rating, :float
     has_many :reviews, Review
     many_to_many :lists, List, join_through: BooksInLists
   end
@@ -26,6 +27,12 @@ defmodule Bookify.Book do
     book
     |> cast(params, [:title, :author_id, :publish_year, :page_count, :genre, :cover_pic_url, :anotation])
     |> validate_required([:title, :author_id, :publish_year, :page_count, :genre, :cover_pic_url, :anotation])
+  end
+
+  def update_avg_rating_changeset(book, avg_rating) do
+    book
+    |> cast(%{}, [])
+    |> put_change(:avg_rating, avg_rating)
   end
 
   def new() do
