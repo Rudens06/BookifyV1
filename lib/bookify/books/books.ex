@@ -48,6 +48,5 @@ defmodule Bookify.Books do
 
     Book.update_avg_rating_changeset(book, avg_rating)
     |> Repo.update()
-    |> dbg
   end
 end
