@@ -53,6 +53,7 @@ defmodule BookifyWeb.Router do
     get "/admin", AdminController, :reviews
     get "/admin/users", AdminController, :users
     get "/admin/user/:id", AdminController, :show
+    get "/admin/:review_id", AdminController, :approve_review
 
   end
 
