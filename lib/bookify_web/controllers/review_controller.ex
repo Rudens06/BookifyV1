@@ -17,6 +17,7 @@ defmodule BookifyWeb.ReviewController do
     review_changeset =
       Review.new()
       |> Review.changeset(review_params)
+      |> change(approved: false)
       |> put_assoc(:user, current_user(conn))
       |> put_assoc(:book, book)
 
@@ -25,7 +26,7 @@ defmodule BookifyWeb.ReviewController do
       {:ok, _review} ->
         Books.update_avg_rating(book_id)
         conn
-        |> put_flash(:info, "Review posted successfully")
+        |> put_flash(:info, "Review submitted for approval!")
         |> redirect(to: Routes.book_path(conn, :show, book.id))
       {:error, review_changeset} ->
         conn
