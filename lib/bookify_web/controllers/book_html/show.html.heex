@@ -133,37 +133,39 @@ Description:
 
 <ul class="collection">
   <%= for review <- @book.reviews do %>
-    <li class="collection-item avatar">
-      <img src={Bookify.Avatar.url({review.user.avatar, review.user}, signed: true)} alt={review.user.name <> " profile picture"} class="circle">
-      <p class="right">
-        <%= from_now(review.inserted_at) %>
-        <br>
-        <%= display_date(review.inserted_at) %>
-        <br>
-        <%= display_time(review.inserted_at) %>
-      </p>
-      <h6>
-        <%= review.user.name %>
-      </h6>
-      <h6>
-        <%= review.title %>
-      </h6>
-      <p>
-        <%= review.review %>
-      </p>
-      <p>
-        <%= raw(rating_stars(review.rating)) %>
-      </p>
-      <br>
-      <%= if @conn.assigns[:current_user] do %>
-        <%= if current_user(@conn).id == review.user_id do %>
-          <%= link "Delete", to: Routes.review_path(@conn, :delete, @book.id, review.id), 
-          method: :delete, 
-          data: [confirm: "Are you sure?"], class: "right" %>
+    <%= if review.approved do %>
+      <li class="collection-item avatar">
+        <img src={Bookify.Avatar.url({review.user.avatar, review.user}, signed: true)} alt={review.user.name <> " profile picture"} class="circle">
+        <p class="right">
+          <%= from_now(review.inserted_at) %>
           <br>
+          <%= display_date(review.inserted_at) %>
+          <br>
+          <%= display_time(review.inserted_at) %>
+        </p>
+        <h6>
+          <%= review.user.name %>
+        </h6>
+        <h6>
+          <%= review.title %>
+        </h6>
+        <p>
+          <%= review.review %>
+        </p>
+        <p>
+          <%= raw(rating_stars(review.rating)) %>
+        </p>
+        <br>
+        <%= if @conn.assigns[:current_user] do %>
+          <%= if current_user(@conn).id == review.user_id do %>
+            <%= link "Delete", to: Routes.review_path(@conn, :delete, @book.id, review.id), 
+            method: :delete, 
+            data: [confirm: "Are you sure?"], class: "right" %>
+            <br>
+          <% end %>
         <% end %>
-      <% end %>
-    </li>
+      </li>
+    <% end %>
   <% end %>
 </ul>
 
