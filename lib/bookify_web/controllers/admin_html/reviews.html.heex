@@ -28,7 +28,12 @@
         <%= link "Delete", to: Routes.review_path(@conn, :delete, review.id), 
         method: :delete, 
         data: [confirm: "Are you sure?"], class: "right" %>
-        <br>
+      <br>
+      <%= unless review.approved do %>
+      <br>
+        <%= link "Approve", to: Routes.admin_path(@conn, :approve_review, review.id), class: "right" %>
+      <br>
+      <% end %>
     </li>
   <% end %>
 </ul>
