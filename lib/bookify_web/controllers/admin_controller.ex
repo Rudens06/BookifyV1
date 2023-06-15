@@ -1,12 +1,15 @@
 defmodule BookifyWeb.AdminController do
   use BookifyWeb, :controller
 
+  import Ecto.Changeset
+
   alias Bookify.Repo
   alias Bookify.Book
   alias Bookify.Books
   alias Bookify.Authors
   alias Bookify.Reviews
   alias Bookify.Accounts
+  alias Bookify.Review
 
   plug BookifyWeb.Plugs.RequireAdmin
 
@@ -30,6 +33,19 @@ defmodule BookifyWeb.AdminController do
     |> assign(:users, users)
     |> put_layout({BookifyWeb.Layouts, :admin})
     |> render(:users)
+  end
+
+  def approve_review(conn, %{"review_id" => review_id}) do
+    Reviews.get_by_id!(review_id)
+    |> Review.changeset()
+    |> change(approved: true)
+    |> Reviews.update()
+
+    reviews = Reviews.list_reviews()
+    conn
+    |> assign(:reviews, reviews)
+    |> put_layout({BookifyWeb.Layouts, :admin})
+    |> render(:reviews)
   end
 
   def show(conn, %{"id" => user_id}) do
