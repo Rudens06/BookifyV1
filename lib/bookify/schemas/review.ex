@@ -14,6 +14,7 @@ defmodule Bookify.Review do
     field :title, :string
     field :review, :string
     field :rating, :float
+    field :approved, :boolean
     timestamps()
   end
 
@@ -25,8 +26,6 @@ defmodule Bookify.Review do
   end
 
   defp validate_rating(changeset) do
-
-
     case get_change(changeset, :rating) do
       nil -> changeset
       rating ->
