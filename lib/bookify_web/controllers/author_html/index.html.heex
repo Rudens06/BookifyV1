@@ -1,5 +1,10 @@
 <h4>Authors</h4>
 
+<%= form_for @conn, Routes.author_path(@conn, :index), [method: :get], fn f -> %>
+  <%= search_input f, :query, placeholder: "Search" %>
+  <%= submit "Search", class: default_btn() %>
+<% end %>
+
 <ul class="collection">
   <%= for author <- @authors do %>
     <li class="collection-item avatar">
