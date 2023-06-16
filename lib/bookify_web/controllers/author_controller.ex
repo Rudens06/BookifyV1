@@ -3,11 +3,12 @@ defmodule BookifyWeb.AuthorController do
 
   alias Bookify.Repo
   alias Bookify.Author
+  alias Bookify.Authors
 
   plug BookifyWeb.Plugs.RequireAdmin when action in [:new, :create, :edit, :update, :delete]
 
-  def index(conn, _params) do
-    authors = Repo.all(Author)
+  def index(conn, params) do
+    authors = Authors.list_all(params)
     conn
     |> assign(:page_title, "Authors")
     |> assign(:authors, authors)
