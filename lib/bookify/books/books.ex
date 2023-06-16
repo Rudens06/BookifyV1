@@ -9,8 +9,12 @@ defmodule Bookify.Books do
     Repo.all(Book)
   end
 
-  def list_all_w_author() do
-    Repo.all(Book)
+  def list_all_w_author(params) do
+    search_term = get_in(params, ["query"])
+
+    Book
+    |> search(search_term)
+    |> Repo.all()
     |> Repo.preload(:author)
   end
 
@@ -48,5 +52,15 @@ defmodule Bookify.Books do
 
     Book.update_avg_rating_changeset(book, avg_rating)
     |> Repo.update()
+  end
+
+  def search(query, search_term) do
+    wildcard_search = "%#{search_term}%"
+
+    from book in query,
+    join: author in assoc(book, :author),
+    where: ilike(book.title, ^wildcard_search),
+    or_where: ilike(book.anotation, ^wildcard_search),
+    or_where: ilike(author.name, ^wildcard_search)
   end
 end
