@@ -15,7 +15,9 @@ defmodule BookifyWeb.AuthorController do
   end
 
   def show(conn, %{"id" => author_id}) do
-    author = Repo.get!(Author, author_id)
+    author =
+      Repo.get!(Author, author_id)
+      |> Repo.preload(:books)
     conn
     |> assign(:page_title, "Authors")
     |> assign(:author, author)
