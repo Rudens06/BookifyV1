@@ -13,8 +13,8 @@ defmodule BookifyWeb.BookController do
     conn
   end
 
-  def index(conn, _params) do
-    books = Books.list_all_w_author()
+  def index(conn, params) do
+    books = Books.list_all_w_author(params)
     conn
     |> assign(:page_title, "Books")
     |> assign(:books, books)
