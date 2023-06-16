@@ -138,129 +138,129 @@ defmodule Bookify.GlobalSetup do
 
   def seeds_2() do
 
-    # Bookify.Repo.insert!(%Bookify.Author{
-    #   id: "12nG45tyuIkJm",
-    #   name: "David Walliams",
-    #   birth_year: 1971,
-    #   bio: "David Walliams is a British comedian, actor, and children's author. He gained popularity as a member of the comedy duo 'Little Britain' and has since become a well-known author of children's books. His books, such as 'The Boy in the Dress' and 'Gangsta Granny,' have received critical acclaim and have been bestsellers worldwide.",
-    #   author_pic_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Ashleigh_and_David_Walliams_%28the_voice_of_Pudsey_in_the_movie%29_%28cropped%29.JPG/220px-Ashleigh_and_David_Walliams_%28the_voice_of_Pudsey_in_the_movie%29_%28cropped%29.JPG",
-    #   wikipedia_url: "https://en.wikipedia.org/wiki/David_Walliams"
-    # })
+    Bookify.Repo.insert!(%Bookify.Author{
+      id: "12nG45tyuIkJm",
+      name: "David Walliams",
+      birth_year: 1971,
+      bio: "David Walliams is a British comedian, actor, and children's author. He gained popularity as a member of the comedy duo 'Little Britain' and has since become a well-known author of children's books. His books, such as 'The Boy in the Dress' and 'Gangsta Granny,' have received critical acclaim and have been bestsellers worldwide.",
+      author_pic_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Ashleigh_and_David_Walliams_%28the_voice_of_Pudsey_in_the_movie%29_%28cropped%29.JPG/220px-Ashleigh_and_David_Walliams_%28the_voice_of_Pudsey_in_the_movie%29_%28cropped%29.JPG",
+      wikipedia_url: "https://en.wikipedia.org/wiki/David_Walliams"
+    })
 
-    # Bookify.Repo.insert!(%Bookify.Book{
-    #   id: "7bK83qpRtGfDn",
-    #   title: "Gangsta Granny",
-    #   author_id: "12nG45tyuIkJm",
-    #   page_count: 304,
-    #   publish_year: 2011,
-    #   genre: ["Children's Literature", "Humor"],
-    #   anotation: "Gangsta Granny is a hilarious and heartwarming children's novel written by David Walliams. It follows the story of Ben, a boy who discovers that his seemingly boring granny has an exciting secret life as an international jewel thief. Together, they embark on a thrilling adventure that involves heists, disguises, and unexpected twists. With its clever humor and touching moments, Gangsta Granny is a beloved book that appeals to both children and adults.",
-    #   cover_pic_url: "https://upload.wikimedia.org/wikipedia/en/thumb/f/f4/Gangsta_Granny_Cover.png/220px-Gangsta_Granny_Cover.png"
-    # })
+    Bookify.Repo.insert!(%Bookify.Book{
+      id: "7bK83qpRtGfDn",
+      title: "Gangsta Granny",
+      author_id: "12nG45tyuIkJm",
+      page_count: 304,
+      publish_year: 2011,
+      genre: ["Children's Literature", "Humor"],
+      anotation: "Gangsta Granny is a hilarious and heartwarming children's novel written by David Walliams. It follows the story of Ben, a boy who discovers that his seemingly boring granny has an exciting secret life as an international jewel thief. Together, they embark on a thrilling adventure that involves heists, disguises, and unexpected twists. With its clever humor and touching moments, Gangsta Granny is a beloved book that appeals to both children and adults.",
+      cover_pic_url: "https://upload.wikimedia.org/wikipedia/en/thumb/f/f4/Gangsta_Granny_Cover.png/220px-Gangsta_Granny_Cover.png"
+    })
 
-    # Bookify.Repo.insert!(%Bookify.Author{
-    #   id: "12nG85tyuIkJm",
-    #   name: "Jānis Zuters",
-    #   birth_year: 1974,
-    #   bio: "Latvijas Universitātes Datorikas fakultātes profesors",
-    #   author_pic_url: "http://home.lu.lv/~janiszu/janis_zuters.jpg",
-    #   wikipedia_url: "http://home.lu.lv/~janiszu/"
-    # })
+    Bookify.Repo.insert!(%Bookify.Author{
+      id: "12nG85tyuIkJm",
+      name: "Jānis Zuters",
+      birth_year: 1974,
+      bio: "Latvijas Universitātes Datorikas fakultātes profesors",
+      author_pic_url: "http://home.lu.lv/~janiszu/janis_zuters.jpg",
+      wikipedia_url: "http://home.lu.lv/~janiszu/"
+    })
 
-    # Bookify.Repo.insert!(%Bookify.Book{
-    #   id: "7bK83qp797fDn",
-    #   title: "Programmēšana un C++",
-    #   author_id: "12nG85tyuIkJm",
-    #   page_count: 217,
-    #   publish_year: 2021,
-    #   genre: ["Programming", "Coding"],
-    #   anotation: "'Programmēšana un C++' is an authoritative and comprehensive resource for anyone looking to master the C++ programming language. This book covers all essential aspects of C++ programming, from basic syntax to advanced concepts like templates and memory management. With clear explanations and practical examples, readers can gain a solid understanding of C++ and its application in various domains such as software development and system programming. Whether you are a beginner or an experienced programmer, this book provides the necessary knowledge and guidance to write efficient and robust C++ code.
+    Bookify.Repo.insert!(%Bookify.Book{
+      id: "7bK83qp797fDn",
+      title: "Programmēšana un C++",
+      author_id: "12nG85tyuIkJm",
+      page_count: 217,
+      publish_year: 2021,
+      genre: ["Programming", "Coding"],
+      anotation: "'Programmēšana un C++' is an authoritative and comprehensive resource for anyone looking to master the C++ programming language. This book covers all essential aspects of C++ programming, from basic syntax to advanced concepts like templates and memory management. With clear explanations and practical examples, readers can gain a solid understanding of C++ and its application in various domains such as software development and system programming. Whether you are a beginner or an experienced programmer, this book provides the necessary knowledge and guidance to write efficient and robust C++ code.
 
-    #   Through its in-depth exploration of C++ features, best practices, and real-world examples, 'Programmēšana un C++' equips readers with the skills to tackle complex programming challenges. The author's expertise and insights into language design choices and performance considerations make this book a valuable reference for experienced developers. By studying this book, readers can enhance their C++ proficiency, write high-quality code, and take advantage of the language's extensive capabilities to develop sophisticated software solutions."
-    # })
+      Through its in-depth exploration of C++ features, best practices, and real-world examples, 'Programmēšana un C++' equips readers with the skills to tackle complex programming challenges. The author's expertise and insights into language design choices and performance considerations make this book a valuable reference for experienced developers. By studying this book, readers can enhance their C++ proficiency, write high-quality code, and take advantage of the language's extensive capabilities to develop sophisticated software solutions."
+    })
 
-    # Bookify.Repo.insert!(%Bookify.Author{
-    #   id: "8oP29stKjGfEa",
-    #   name: "John Steinbeck",
-    #   birth_year: 1902,
-    #   bio: "John Steinbeck was an American writer, celebrity, and award laureate. He is best known for his works such as 'The Grapes of Wrath' and 'Of Mice and Men,' which explore themes of social justice, humanity, and the struggles of the individual. Steinbeck also engaged in political activism, standing out as a prominent voice during his time. His literary contributions have left a lasting impact on American literature, earning him numerous accolades and a place among the most revered authors of the 20th century.",
-    #   author_pic_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/John_Steinbeck_1939_%28cropped%29.jpg/220px-John_Steinbeck_1939_%28cropped%29.jpg",
-    #   wikipedia_url: "https://en.wikipedia.org/wiki/John_Steinbeck"
-    # })
+    Bookify.Repo.insert!(%Bookify.Author{
+      id: "8oP29stKjGfEa",
+      name: "John Steinbeck",
+      birth_year: 1902,
+      bio: "John Steinbeck was an American writer, celebrity, and award laureate. He is best known for his works such as 'The Grapes of Wrath' and 'Of Mice and Men,' which explore themes of social justice, humanity, and the struggles of the individual. Steinbeck also engaged in political activism, standing out as a prominent voice during his time. His literary contributions have left a lasting impact on American literature, earning him numerous accolades and a place among the most revered authors of the 20th century.",
+      author_pic_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/John_Steinbeck_1939_%28cropped%29.jpg/220px-John_Steinbeck_1939_%28cropped%29.jpg",
+      wikipedia_url: "https://en.wikipedia.org/wiki/John_Steinbeck"
+    })
 
-    # Bookify.Repo.insert!(%Bookify.Book{
-    #   id: "6dR48klMnGcBn",
-    #   title: "Of Mice and Men",
-    #   author_id: "8oP29stKjGfEa",
-    #   page_count: 107,
-    #   publish_year: 1937,
-    #   genre: ["Fiction", "Classic"],
-    #   anotation: "Set during the Great Depression, 'Of Mice and Men' is a compelling novella written by John Steinbeck. The story revolves around the unlikely friendship between two migrant workers, George and Lennie, as they navigate the challenges and hardships of life in rural California. Steinbeck's poignant narrative explores themes of loneliness, dreams, friendship, and the human desire for a sense of belonging. Through vivid characterization and evocative descriptions, the author delves into the struggles faced by individuals striving for a better life amidst a society marked by poverty and societal inequalities. 'Of Mice and Men' is a timeless classic that continues to captivate readers with its profound examination of the human condition.",
-    #   cover_pic_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Of_Mice_and_Men_%281937_1st_ed_dust_jacket%29.jpg/220px-Of_Mice_and_Men_%281937_1st_ed_dust_jacket%29.jpg"
-    # })
+    Bookify.Repo.insert!(%Bookify.Book{
+      id: "6dR48klMnGcBn",
+      title: "Of Mice and Men",
+      author_id: "8oP29stKjGfEa",
+      page_count: 107,
+      publish_year: 1937,
+      genre: ["Fiction", "Classic"],
+      anotation: "Set during the Great Depression, 'Of Mice and Men' is a compelling novella written by John Steinbeck. The story revolves around the unlikely friendship between two migrant workers, George and Lennie, as they navigate the challenges and hardships of life in rural California. Steinbeck's poignant narrative explores themes of loneliness, dreams, friendship, and the human desire for a sense of belonging. Through vivid characterization and evocative descriptions, the author delves into the struggles faced by individuals striving for a better life amidst a society marked by poverty and societal inequalities. 'Of Mice and Men' is a timeless classic that continues to captivate readers with its profound examination of the human condition.",
+      cover_pic_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Of_Mice_and_Men_%281937_1st_ed_dust_jacket%29.jpg/220px-Of_Mice_and_Men_%281937_1st_ed_dust_jacket%29.jpg"
+    })
 
-    # Bookify.Repo.insert!(%Bookify.Author{
-    #   id: "8oP29stKjGd4r",
-    #   name: "Ēriks Kūlis",
-    #   birth_year: 1941,
-    #   bio: "Ēriks Kūlis (1941) – rakstnieks. Vairāku stāstu, stāstu krājumu, romānu un bērnu pasaku grāmatu autors. Strādājis Liepājas laikrakstā 'Komunists', vēlāk – 'Kurzemes Vārds'.",
-    #   author_pic_url: "https://www.literatura.lv/uploads/persons-files/1299685/kuliseriks.jpg",
-    #   wikipedia_url: "https://www.literatura.lv/personas/eriks-kulis"
-    # })
+    Bookify.Repo.insert!(%Bookify.Author{
+      id: "8oP29stKjGd4r",
+      name: "Ēriks Kūlis",
+      birth_year: 1941,
+      bio: "Ēriks Kūlis (1941) – rakstnieks. Vairāku stāstu, stāstu krājumu, romānu un bērnu pasaku grāmatu autors. Strādājis Liepājas laikrakstā 'Komunists', vēlāk – 'Kurzemes Vārds'.",
+      author_pic_url: "https://www.literatura.lv/uploads/persons-files/1299685/kuliseriks.jpg",
+      wikipedia_url: "https://www.literatura.lv/personas/eriks-kulis"
+    })
 
-    # Bookify.Repo.insert!(%Bookify.Book{
-    #   id: "6dR48klMneews",
-    #   title: "Niķa un Riķa stiķi",
-    #   author_id: "8oP29stKjGd4r",
-    #   page_count: 212,
-    #   publish_year: 2022,
-    #   genre: ["Children's Literature"],
-    #   anotation: "Grāmata par zinātkāriem rūķiem, kas grib tikt skaidrībā par to, vai bumbierus taisa no bumbām, vai sniegpulkstenītēm mājas ir sniegā vai pulkstenī, vai spalvaskāts ir ļoti spalvains un kāpēc lasis nemāk lasīt.
-    #   Šajā grāmatā var daudz uzzināt par zinātkāro, labestīgo, nereti palaidnīgo rūķēnu Niķa un Riķa labajiem darbiem un arī nedarbiem.",
-    #   cover_pic_url: "https://www.zvaigzne.lv/images/books/58274/300x0_cover.jpg"
-    # })
+    Bookify.Repo.insert!(%Bookify.Book{
+      id: "6dR48klMneews",
+      title: "Niķa un Riķa stiķi",
+      author_id: "8oP29stKjGd4r",
+      page_count: 212,
+      publish_year: 2022,
+      genre: ["Children's Literature"],
+      anotation: "Grāmata par zinātkāriem rūķiem, kas grib tikt skaidrībā par to, vai bumbierus taisa no bumbām, vai sniegpulkstenītēm mājas ir sniegā vai pulkstenī, vai spalvaskāts ir ļoti spalvains un kāpēc lasis nemāk lasīt.
+      Šajā grāmatā var daudz uzzināt par zinātkāro, labestīgo, nereti palaidnīgo rūķēnu Niķa un Riķa labajiem darbiem un arī nedarbiem.",
+      cover_pic_url: "https://www.zvaigzne.lv/images/books/58274/300x0_cover.jpg"
+    })
 
-    # Bookify.Repo.insert!(%Bookify.Author{
-    #   id: "4gT25juMkFhWd",
-    #   name: "George Orwell",
-    #   birth_year: 1903,
-    #   bio: "George Orwell was an English novelist, essayist, and critic. His works explore themes of social injustice, totalitarianism, and the dangers of political oppression. Orwell's writing style is characterized by clarity and political astuteness, making him one of the most influential writers of the 20th century.",
-    #   author_pic_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/George_Orwell_press_photo.jpg/220px-George_Orwell_press_photo.jpg",
-    #   wikipedia_url: "https://en.wikipedia.org/wiki/George_Orwell"
-    # })
+    Bookify.Repo.insert!(%Bookify.Author{
+      id: "4gT25juMkFhWd",
+      name: "George Orwell",
+      birth_year: 1903,
+      bio: "George Orwell was an English novelist, essayist, and critic. His works explore themes of social injustice, totalitarianism, and the dangers of political oppression. Orwell's writing style is characterized by clarity and political astuteness, making him one of the most influential writers of the 20th century.",
+      author_pic_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/George_Orwell_press_photo.jpg/220px-George_Orwell_press_photo.jpg",
+      wikipedia_url: "https://en.wikipedia.org/wiki/George_Orwell"
+    })
 
-    # Bookify.Repo.insert!(%Bookify.Book{
-    #   id: "2hF47ikLnDsTb",
-    #   title: "Nineteen Eighty-Four",
-    #   author_id: "4gT25juMkFhWd",
-    #   page_count: 328,
-    #   publish_year: 1949,
-    #   genre: ["Dystopian", "Science Fiction"],
-    #   anotation: "Nineteen Eighty-Four is a dystopian novel by George Orwell, depicting a totalitarian regime where Big Brother watches over every aspect of people's lives. Orwell's grim vision of the future explores themes of government surveillance, psychological manipulation, and the erosion of individual freedom. The novel's concepts and language, including terms like 'Big Brother' and 'doublethink,' have become iconic and continue to be referenced in popular culture.",
-    #   cover_pic_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/1984first.jpg/440px-1984first.jpg"
-    # })
+    Bookify.Repo.insert!(%Bookify.Book{
+      id: "2hF47ikLnDsTb",
+      title: "Nineteen Eighty-Four",
+      author_id: "4gT25juMkFhWd",
+      page_count: 328,
+      publish_year: 1949,
+      genre: ["Dystopian", "Science Fiction"],
+      anotation: "Nineteen Eighty-Four is a dystopian novel by George Orwell, depicting a totalitarian regime where Big Brother watches over every aspect of people's lives. Orwell's grim vision of the future explores themes of government surveillance, psychological manipulation, and the erosion of individual freedom. The novel's concepts and language, including terms like 'Big Brother' and 'doublethink,' have become iconic and continue to be referenced in popular culture.",
+      cover_pic_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/1984first.jpg/440px-1984first.jpg"
+    })
 
-    # Bookify.Repo.insert!(%Bookify.Book{
-    #   id: "9fB36tmNkJlRc",
-    #   title: "Animal Farm",
-    #   author_id: "4gT25juMkFhWd",
-    #   page_count: 112,
-    #   publish_year: 1945,
-    #   genre: ["Satire", "Allegory"],
-    #   anotation: "Animal Farm is an allegorical novella by George Orwell, using a group of farm animals to represent events leading up to the Russian Revolution of 1917 and the Stalinist era in the Soviet Union. Orwell's satirical work explores themes of power, corruption, and the dangers of authoritarianism. Through the story of the animals' rebellion against their human farmer, the novel provides a critical commentary on political systems and the manipulation of language for political gain.",
-    #   cover_pic_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Animal_Farm_-_1st_edition.jpg/440px-Animal_Farm_-_1st_edition.jpg"
-    # })
+    Bookify.Repo.insert!(%Bookify.Book{
+      id: "9fB36tmNkJlRc",
+      title: "Animal Farm",
+      author_id: "4gT25juMkFhWd",
+      page_count: 112,
+      publish_year: 1945,
+      genre: ["Satire", "Allegory"],
+      anotation: "Animal Farm is an allegorical novella by George Orwell, using a group of farm animals to represent events leading up to the Russian Revolution of 1917 and the Stalinist era in the Soviet Union. Orwell's satirical work explores themes of power, corruption, and the dangers of authoritarianism. Through the story of the animals' rebellion against their human farmer, the novel provides a critical commentary on political systems and the manipulation of language for political gain.",
+      cover_pic_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Animal_Farm_-_1st_edition.jpg/440px-Animal_Farm_-_1st_edition.jpg"
+    })
 
-    # Bookify.Repo.insert!(%Bookify.Book{
-    #   id: "5mE29hnQkBsLd",
-    #   title: "Down and Out in Paris and London",
-    #   author_id: "4gT25juMkFhWd",
-    #   page_count: 224,
-    #   publish_year: 1933,
-    #   genre: ["Autobiographical", "Social Commentary"],
-    #   anotation: "Down and Out in Paris and London is a semi-autobiographical work by George Orwell, recounting his experiences of poverty and homelessness in the two cities. The book provides a firsthand account of the hardships faced by the working class and explores themes of social inequality, exploitation, and the struggle for survival. Orwell's raw and vivid descriptions shed light on the plight of the marginalized and serve as a critique of societal indifference towards the poor.",
-    #   cover_pic_url: "https://upload.wikimedia.org/wikipedia/en/0/06/Downout_paris_london.jpg"
-    # })
+    Bookify.Repo.insert!(%Bookify.Book{
+      id: "5mE29hnQkBsLd",
+      title: "Down and Out in Paris and London",
+      author_id: "4gT25juMkFhWd",
+      page_count: 224,
+      publish_year: 1933,
+      genre: ["Autobiographical", "Social Commentary"],
+      anotation: "Down and Out in Paris and London is a semi-autobiographical work by George Orwell, recounting his experiences of poverty and homelessness in the two cities. The book provides a firsthand account of the hardships faced by the working class and explores themes of social inequality, exploitation, and the struggle for survival. Orwell's raw and vivid descriptions shed light on the plight of the marginalized and serve as a critique of societal indifference towards the poor.",
+      cover_pic_url: "https://upload.wikimedia.org/wikipedia/en/0/06/Downout_paris_london.jpg"
+    })
 
     Bookify.Repo.insert!(%Bookify.Author{
       id: "6jK34opLmTdSe",
