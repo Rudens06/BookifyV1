@@ -3,6 +3,7 @@ defmodule Bookify.Author do
   use Ecto.Schema
   import Ecto.Changeset
   alias Bookify.GenId
+  alias Bookify.Book
 
   @timestamps_opts [type: :utc_datetime]
   @primary_key {:id, :string, autogenerate: false}
@@ -12,6 +13,7 @@ defmodule Bookify.Author do
     field :bio, :string
     field :author_pic_url, :string
     field :wikipedia_url, :string
+    has_many :books, Book
 
   end
 
