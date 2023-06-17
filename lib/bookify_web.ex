@@ -39,7 +39,7 @@ defmodule BookifyWeb do
   def controller do
     quote do
       use Phoenix.Controller,
-        formats: [:html, :json],
+        formats: [:html, :json, :xml],
         layouts: [html: BookifyWeb.Layouts]
 
       import Plug.Conn

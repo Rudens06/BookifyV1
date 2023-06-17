@@ -26,6 +26,7 @@ defmodule BookifyWeb.Router do
     delete "/books/:id/delete", BookController, :delete
     get "/books/:id", BookController, :show
     get "/top_books", BookController, :top_books
+    get "/rss", BookController, :rss
 
     resources "/authors", AuthorController
 

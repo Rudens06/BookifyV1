@@ -1,3 +1,5 @@
+<link rel="alternate" type="application/rss+xml" title="RSS for books" href={~p"/rss"} />
+
 <h4>Books</h4>
 
 <%= form_for @conn, Routes.book_path(@conn, :index), [method: :get], fn f -> %>
@@ -41,3 +43,4 @@
   </div>
 <% end %>
 
+<a href={~p"/rss"}>RSS feed</a>

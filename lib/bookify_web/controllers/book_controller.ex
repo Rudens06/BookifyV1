@@ -7,6 +7,7 @@ defmodule BookifyWeb.BookController do
   alias Bookify.Authors
   alias Bookify.Review
 
+  plug :accepts, ["xml"] when action in [:rss]
   plug BookifyWeb.Plugs.RequireAdmin when action in [:new, :create, :edit, :update, :delete]
 
   def init(conn, _params) do
@@ -112,6 +113,15 @@ defmodule BookifyWeb.BookController do
     conn
     |> assign(:books, books)
     |> render(:top_books)
+  end
+
+  def rss(conn, _params) do
+    books = Books.list_all_w_author()
+
+    conn
+    |> assign(:books, books)
+    |> put_view(BookifyWeb.BookXML)
+    |> render("rss.xml")
   end
 
   defp genres_to_list(%{"genre" => ""} = book_params), do: book_params
