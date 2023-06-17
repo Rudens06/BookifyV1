@@ -1,46 +1,51 @@
-<link rel="alternate" type="application/rss+xml" title="RSS for books" href={~p"/rss"} />
+<link rel="alternate" type="application/rss+xml" title={gettext("RSS for books")} href={~p"/rss"} />
 
-<h4>Books</h4>
+<h4><%= gettext("Books") %></h4>
 
 <%= form_for @conn, Routes.book_path(@conn, :index), [method: :get], fn f -> %>
-  <%= search_input f, :query, placeholder: "Search" %>
-  <%= submit "Search", class: default_btn() %>
+  <%= search_input(f, :query, placeholder: gettext("Search")) %>
+  <%= submit(gettext("Search"), class: default_btn()) %>
 <% end %>
-
 
 <ul class="collection">
   <%= for book <- @books do %>
     <li class="collection-item avatar">
-      <img src={book.cover_pic_url} alt={book.title <> " cover picture"} class="circle">
+      <img
+        src={book.cover_pic_url}
+        alt={gettext("%{title} cover picture", title: book.title)}
+        class="circle"
+      />
       <span>
-        <%= link book.title, to: Routes.book_path(@conn, :show, book.id), class: "title" %>
+        <%= link(book.title, to: Routes.book_path(@conn, :show, book.id), class: "title") %>
       </span>
       <%= if RequireAdmin.user_is_admin?(current_user(@conn)) do %>
         <div class="right">
-          <%= link "Edit", to: Routes.book_path(@conn, :edit, book.id) %>
-          <%= link "Delete", to: Routes.book_path(@conn, :delete, book.id), 
-          method: :delete, 
-          data: [confirm: "Are you sure?"] %>
+          <%= link(gettext("Edit"), to: Routes.book_path(@conn, :edit, book.id)) %>
+          <%= link(gettext("Delete"),
+            to: Routes.book_path(@conn, :delete, book.id),
+            method: :delete,
+            data: [confirm: gettext("Are you sure?")]
+          ) %>
         </div>
       <% end %>
       <p>
         <%= book.author.name %>
       </p>
       <p>
-        Published: <%= book.publish_year %>
+        <%= gettext("Published: %{year}", year: book.publish_year) %>
       </p>
       <p>
-        Pages: <%= book.page_count %>
+        <%= gettext("Pages: %{count}", count: book.page_count) %>
       </p>
-        <%= raw(rating_stars(book.avg_rating)) %>
+      <%= raw(rating_stars(book.avg_rating)) %>
     </li>
   <% end %>
 </ul>
 
 <%= if RequireAdmin.user_is_admin?(current_user(@conn)) do %>
   <div class="right">
-    <%= link "Add book", to: Routes.book_path(@conn, :new), class: default_btn() %>
+    <%= link(gettext("Add book"), to: Routes.book_path(@conn, :new), class: default_btn()) %>
   </div>
 <% end %>
 
-<a href={~p"/rss"}>RSS feed</a>
+<a href={~p"/rss"}><%= gettext("RSS feed") %></a>

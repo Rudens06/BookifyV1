@@ -1,18 +1,18 @@
 <nav class="blue darken-2">
   <div class="nav wrapper container">
-    <a href="/admin" class="brand-logo">Admin Panel</a>
+    <a href="/admin" class="brand-logo"><%= gettext("Admin Panel") %></a>
     <a href="#" class="sidenav-trigger" data-target="mobile-nav">
-			<i class="material-icons">menu</i>
-		</a>
+      <i class="material-icons">menu</i>
+    </a>
     <ul class="right hide-on-med-and-down">
       <li>
-        <%= link("Reviews", to: Routes.admin_path(@conn, :reviews)) %>
+        <%= link(gettext("Reviews"), to: Routes.admin_path(@conn, :reviews)) %>
       </li>
       <li>
-        <%= link("Users", to: Routes.admin_path(@conn, :users)) %>
+        <%= link(gettext("Users"), to: Routes.admin_path(@conn, :users)) %>
       </li>
       <li>
-        <%= link("Sign Out", to: Routes.auth_path(@conn, :signout), method: :delete) %>
+        <%= link(gettext("Sign Out"), to: Routes.auth_path(@conn, :signout), method: :delete) %>
       </li>
     </ul>
   </div>
@@ -20,13 +20,13 @@
 
 <ul class="sidenav" id="mobile-nav">
   <li>
-    <%= link("Reviews", to: Routes.admin_path(@conn, :reviews)) %>
+    <%= link(gettext("Reviews"), to: Routes.admin_path(@conn, :reviews)) %>
   </li>
   <li>
-    <%= link("Users", to: Routes.admin_path(@conn, :users)) %>
+    <%= link(gettext("Users"), to: Routes.admin_path(@conn, :users)) %>
   </li>
   <li>
-    <%= link("Sign Out", to: Routes.auth_path(@conn, :signout), method: :delete) %>
+    <%= link(gettext("Sign Out"), to: Routes.auth_path(@conn, :signout), method: :delete) %>
   </li>
 </ul>
 

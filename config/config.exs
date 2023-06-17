@@ -29,6 +29,8 @@ config :bookify, BookifyWeb.Endpoint,
 # at the `config/runtime.exs`.
 config :bookify, Bookify.Mailer, adapter: Swoosh.Adapters.Local
 
+config :bookify, BookifyWeb.Gettext, locales: ~w(en lv), default_locale: "lv"
+
 # Configure esbuild (the version is required)
 config :esbuild,
   version: "0.14.41",

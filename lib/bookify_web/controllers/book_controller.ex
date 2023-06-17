@@ -16,8 +16,9 @@ defmodule BookifyWeb.BookController do
 
   def index(conn, params) do
     books = Books.list_all_w_author(params)
+
     conn
-    |> assign(:page_title, "Books")
+    |> assign(:page_title, gettext("Books"))
     |> assign(:books, books)
     |> render(:index)
   end
@@ -28,18 +29,17 @@ defmodule BookifyWeb.BookController do
 
     conn
     |> assign(:review_changeset, review_changeset)
-    |> assign(:page_title, "Books")
+    |> assign(:page_title, gettext("Books"))
     |> assign(:book, book)
     |> render(:show)
-
   end
 
   def new(conn, _params) do
-    authors = Authors.list_all
+    authors = Authors.list_all()
     changeset = Book.changeset(%Book{})
 
     conn
-    |> assign(:page_title, "Add Book")
+    |> assign(:page_title, gettext("Add Book"))
     |> assign(:changeset, changeset)
     |> assign(:authors, authors)
     |> render(:new)
@@ -47,7 +47,8 @@ defmodule BookifyWeb.BookController do
 
   def create(conn, %{"book" => book_params}) do
     book_params = genres_to_list(book_params)
-    authors = Authors.list_all
+    authors = Authors.list_all()
+
     changeset =
       Book.new()
       |> Book.changeset(book_params)
@@ -55,8 +56,9 @@ defmodule BookifyWeb.BookController do
     case Books.insert(changeset) do
       {:ok, _topic} ->
         conn
-        |> put_flash(:info, "Book Created")
+        |> put_flash(:info, gettext("Book Created"))
         |> redirect(to: Routes.book_path(conn, :index))
+
       {:error, changeset} ->
         conn
         |> assign(:changeset, changeset)
@@ -66,11 +68,12 @@ defmodule BookifyWeb.BookController do
   end
 
   def edit(conn, %{"id" => book_id}) do
-    authors = Authors.list_all
+    authors = Authors.list_all()
     book = Books.get_by_id!(book_id)
     changeset = Book.changeset(book)
+
     conn
-    |> assign(:page_title, "Edit Book")
+    |> assign(:page_title, gettext("Edit Book"))
     |> assign(:changeset, changeset)
     |> assign(:book, book)
     |> assign(:authors, authors)
@@ -79,7 +82,7 @@ defmodule BookifyWeb.BookController do
 
   def update(conn, %{"book" => book_params, "id" => book_id}) do
     book_params = genres_to_list(book_params)
-    authors = Authors.list_all
+    authors = Authors.list_all()
     book = Books.get_by_id!(book_id)
 
     changeset = Book.changeset(book, book_params)
@@ -87,8 +90,9 @@ defmodule BookifyWeb.BookController do
     case Books.update(changeset) do
       {:ok, _topic} ->
         conn
-        |> put_flash(:info, "Book Updated Successfully")
+        |> put_flash(:info, gettext("Book Updated Successfully"))
         |> redirect(to: Routes.book_path(conn, :index))
+
       {:error, changeset} ->
         conn
         |> assign(:changeset, changeset)
@@ -100,10 +104,10 @@ defmodule BookifyWeb.BookController do
 
   def delete(conn, %{"id" => book_id}) do
     Books.get_by_id!(book_id)
-    |> Repo.delete!
+    |> Repo.delete!()
 
     conn
-    |> put_flash(:info, "Deleted Successfully")
+    |> put_flash(:info, gettext("Deleted Successfully"))
     |> redirect(to: Routes.book_path(conn, :index))
   end
 
