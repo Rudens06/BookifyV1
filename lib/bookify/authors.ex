@@ -11,6 +11,11 @@ defmodule Bookify.Authors do
     |> Repo.all()
   end
 
+  def list_all() do
+    Author
+    |> Repo.all()
+  end
+
   def get_by_id!(author_id) do
     Repo.get!(Author, author_id)
   end

@@ -18,6 +18,11 @@ defmodule Bookify.Books do
     |> Repo.preload(:author)
   end
 
+  def list_all_w_author(params) do
+    Book
+    |> Repo.preload(:author)
+  end
+
   def get_by_id!(book_id) do
     reviews_query = from r in Review, order_by: [desc: r.inserted_at]
 
