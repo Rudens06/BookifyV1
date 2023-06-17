@@ -8,6 +8,7 @@ defmodule BookifyWeb.Router do
     plug :put_root_layout, {BookifyWeb.Layouts, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug BookifyWeb.Plugs.SetLocale
     plug BookifyWeb.Plugs.SetUser
   end
 
