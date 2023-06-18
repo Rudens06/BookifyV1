@@ -23,7 +23,7 @@ msgstr "Aplūkojuma bilde: %{title}"
 msgid "Actions"
 msgstr "Darbības"
 
-#: lib/bookify_web/controllers/book_controller.ex:42
+#: lib/bookify_web/controllers/book_controller.ex:43
 #, elixir-autogen, elixir-format
 msgid "Add Book"
 msgstr "Pievienot grāmatu"
@@ -55,18 +55,18 @@ msgstr "Vai esat drošs?"
 #: lib/bookify_web/components/layouts/app.html.heex:15
 #: lib/bookify_web/components/layouts/app.html.heex:47
 #: lib/bookify_web/controllers/author_controller.ex:14
-#: lib/bookify_web/controllers/author_controller.ex:25
+#: lib/bookify_web/controllers/author_controller.ex:27
 #: lib/bookify_web/controllers/author_html/index.html.heex:1
 #, elixir-autogen, elixir-format
 msgid "Authors"
 msgstr "Autori"
 
-#: lib/bookify_web/controllers/book_controller.ex:59
+#: lib/bookify_web/controllers/book_controller.ex:60
 #, elixir-autogen, elixir-format
 msgid "Book Created"
 msgstr "Grāmata izveidota"
 
-#: lib/bookify_web/controllers/book_controller.ex:93
+#: lib/bookify_web/controllers/book_controller.ex:94
 #, elixir-autogen, elixir-format
 msgid "Book Updated Successfully"
 msgstr "Grāmata veiksmīgi atjaunināta"
@@ -80,9 +80,9 @@ msgstr "Bookify"
 #: lib/bookify_web/components/layouts/app.html.heex:12
 #: lib/bookify_web/components/layouts/app.html.heex:44
 #: lib/bookify_web/controllers/book_controller.ex:21
-#: lib/bookify_web/controllers/book_controller.ex:32
+#: lib/bookify_web/controllers/book_controller.ex:33
 #: lib/bookify_web/controllers/book_html/index.html.heex:3
-#: lib/bookify_web/controllers/list_controller.ex:32
+#: lib/bookify_web/controllers/list_controller.ex:33
 #, elixir-autogen, elixir-format
 msgid "Books"
 msgstr "Grāmatas"
@@ -101,10 +101,10 @@ msgstr "Grāmatas"
 msgid "Delete"
 msgstr "Dzēst"
 
-#: lib/bookify_web/controllers/author_controller.ex:89
-#: lib/bookify_web/controllers/book_controller.ex:110
-#: lib/bookify_web/controllers/review_controller.ex:51
-#: lib/bookify_web/controllers/review_controller.ex:59
+#: lib/bookify_web/controllers/author_controller.ex:91
+#: lib/bookify_web/controllers/book_controller.ex:111
+#: lib/bookify_web/controllers/review_controller.ex:53
+#: lib/bookify_web/controllers/review_controller.ex:61
 #, elixir-autogen, elixir-format
 msgid "Deleted Successfully"
 msgstr "Veiksmīgi dzēsts"
@@ -117,7 +117,7 @@ msgstr "Veiksmīgi dzēsts"
 msgid "Edit"
 msgstr "Rediģēt"
 
-#: lib/bookify_web/controllers/book_controller.ex:76
+#: lib/bookify_web/controllers/book_controller.ex:77
 #, elixir-autogen, elixir-format
 msgid "Edit Book"
 msgstr "Rediģēt grāmatu"
@@ -252,7 +252,7 @@ msgstr "%{name} profila attēls"
 msgid "%{seconds} seconds ago"
 msgstr "pirms %{seconds} sekundēm"
 
-#: lib/bookify_web/controllers/author_controller.ex:34
+#: lib/bookify_web/controllers/author_controller.ex:36
 #, elixir-autogen, elixir-format, fuzzy
 msgid "Add Author"
 msgstr "Autori"
@@ -303,12 +303,12 @@ msgstr "Vismaz viens skaitlis"
 msgid "At least one symbol %{symbols}"
 msgstr "Vismaz viens simbols %{symbols}"
 
-#: lib/bookify_web/controllers/author_controller.ex:47
+#: lib/bookify_web/controllers/author_controller.ex:49
 #, elixir-autogen, elixir-format
 msgid "Author Created"
 msgstr "Autors Izveidots"
 
-#: lib/bookify_web/controllers/author_controller.ex:73
+#: lib/bookify_web/controllers/author_controller.ex:75
 #, elixir-autogen, elixir-format, fuzzy
 msgid "Author Updated Successfully"
 msgstr "Autors veiksmīgi atjaunināts"
@@ -346,12 +346,12 @@ msgstr "Biogrāfija:"
 msgid "Birth Year"
 msgstr "Dzimšanas gads"
 
-#: lib/bookify_web/controllers/list_controller.ex:49
+#: lib/bookify_web/controllers/list_controller.ex:51
 #, elixir-autogen, elixir-format
 msgid "Book added to %{list}"
 msgstr "Grāmata pievienota sarakstam %{list}"
 
-#: lib/bookify_web/controllers/list_controller.ex:69
+#: lib/bookify_web/controllers/list_controller.ex:72
 #, elixir-autogen, elixir-format
 msgid "Book deleted from %{list}"
 msgstr "Grāmata izdzēsta no saraksta %{list}"
@@ -412,7 +412,7 @@ msgstr "Pašreizējā Parole"
 msgid "Description:"
 msgstr "Apraksts:"
 
-#: lib/bookify_web/controllers/author_controller.ex:60
+#: lib/bookify_web/controllers/author_controller.ex:62
 #, elixir-autogen, elixir-format
 msgid "Edit Author"
 msgstr "Rediģēt Autoru"
@@ -432,7 +432,7 @@ msgstr "Rediģēt Profilu"
 msgid "Email"
 msgstr "E-pasts"
 
-#: lib/bookify_web/controllers/review_controller.ex:35
+#: lib/bookify_web/controllers/review_controller.ex:36
 #, elixir-autogen, elixir-format
 msgid "Error occured"
 msgstr "Radās kļūda"
@@ -500,7 +500,7 @@ msgid "No reviews yet"
 msgstr "Pagaidām nav atsauksmju."
 
 #: lib/bookify_web/controllers/plugs/require_admin.ex:17
-#: lib/bookify_web/controllers/review_controller.ex:71
+#: lib/bookify_web/controllers/review_controller.ex:73
 #, elixir-autogen, elixir-format
 msgid "Not Allowed"
 msgstr "Nav atļauts"
@@ -610,7 +610,7 @@ msgstr "Atsauksme"
 msgid "Review for %{title}"
 msgstr "Atsauksme par %{title}"
 
-#: lib/bookify_web/controllers/review_controller.ex:30
+#: lib/bookify_web/controllers/review_controller.ex:31
 #, elixir-autogen, elixir-format
 msgid "Review submitted for approval!"
 msgstr "Atsauksme iesniegta apstiprināšanai!"
@@ -648,8 +648,8 @@ msgid "Signed up successfully"
 msgstr "Reģistrācija veiksmīga"
 
 #: lib/bookify_web/controllers/account_controller.ex:109
-#: lib/bookify_web/controllers/list_controller.ex:56
-#: lib/bookify_web/controllers/list_controller.ex:75
+#: lib/bookify_web/controllers/list_controller.ex:58
+#: lib/bookify_web/controllers/list_controller.ex:78
 #, elixir-autogen, elixir-format
 msgid "Something went wrong"
 msgstr "Radās kļūda"
@@ -748,3 +748,13 @@ msgstr "Jums ir jāpiesakās"
 #, elixir-autogen, elixir-format, fuzzy
 msgid "Signed in successfully!"
 msgstr "Ierakstīšanās veiksmīga!"
+
+#: lib/bookify_web/components/core_components.ex:189
+#, elixir-autogen, elixir-format
+msgid "Error!"
+msgstr "Kļūda!"
+
+#: lib/bookify_web/components/core_components.ex:188
+#, elixir-autogen, elixir-format
+msgid "Success!"
+msgstr "Veiksmīgi!"

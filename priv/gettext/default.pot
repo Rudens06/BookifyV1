@@ -23,7 +23,7 @@ msgstr ""
 msgid "Actions"
 msgstr ""
 
-#: lib/bookify_web/controllers/book_controller.ex:42
+#: lib/bookify_web/controllers/book_controller.ex:43
 #, elixir-autogen, elixir-format
 msgid "Add Book"
 msgstr ""
@@ -55,18 +55,18 @@ msgstr ""
 #: lib/bookify_web/components/layouts/app.html.heex:15
 #: lib/bookify_web/components/layouts/app.html.heex:47
 #: lib/bookify_web/controllers/author_controller.ex:14
-#: lib/bookify_web/controllers/author_controller.ex:25
+#: lib/bookify_web/controllers/author_controller.ex:27
 #: lib/bookify_web/controllers/author_html/index.html.heex:1
 #, elixir-autogen, elixir-format
 msgid "Authors"
 msgstr ""
 
-#: lib/bookify_web/controllers/book_controller.ex:59
+#: lib/bookify_web/controllers/book_controller.ex:60
 #, elixir-autogen, elixir-format
 msgid "Book Created"
 msgstr ""
 
-#: lib/bookify_web/controllers/book_controller.ex:93
+#: lib/bookify_web/controllers/book_controller.ex:94
 #, elixir-autogen, elixir-format
 msgid "Book Updated Successfully"
 msgstr ""
@@ -80,9 +80,9 @@ msgstr ""
 #: lib/bookify_web/components/layouts/app.html.heex:12
 #: lib/bookify_web/components/layouts/app.html.heex:44
 #: lib/bookify_web/controllers/book_controller.ex:21
-#: lib/bookify_web/controllers/book_controller.ex:32
+#: lib/bookify_web/controllers/book_controller.ex:33
 #: lib/bookify_web/controllers/book_html/index.html.heex:3
-#: lib/bookify_web/controllers/list_controller.ex:32
+#: lib/bookify_web/controllers/list_controller.ex:33
 #, elixir-autogen, elixir-format
 msgid "Books"
 msgstr ""
@@ -101,10 +101,10 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
-#: lib/bookify_web/controllers/author_controller.ex:89
-#: lib/bookify_web/controllers/book_controller.ex:110
-#: lib/bookify_web/controllers/review_controller.ex:51
-#: lib/bookify_web/controllers/review_controller.ex:59
+#: lib/bookify_web/controllers/author_controller.ex:91
+#: lib/bookify_web/controllers/book_controller.ex:111
+#: lib/bookify_web/controllers/review_controller.ex:53
+#: lib/bookify_web/controllers/review_controller.ex:61
 #, elixir-autogen, elixir-format
 msgid "Deleted Successfully"
 msgstr ""
@@ -117,7 +117,7 @@ msgstr ""
 msgid "Edit"
 msgstr ""
 
-#: lib/bookify_web/controllers/book_controller.ex:76
+#: lib/bookify_web/controllers/book_controller.ex:77
 #, elixir-autogen, elixir-format
 msgid "Edit Book"
 msgstr ""
@@ -252,7 +252,7 @@ msgstr ""
 msgid "%{seconds} seconds ago"
 msgstr ""
 
-#: lib/bookify_web/controllers/author_controller.ex:34
+#: lib/bookify_web/controllers/author_controller.ex:36
 #, elixir-autogen, elixir-format
 msgid "Add Author"
 msgstr ""
@@ -303,12 +303,12 @@ msgstr ""
 msgid "At least one symbol %{symbols}"
 msgstr ""
 
-#: lib/bookify_web/controllers/author_controller.ex:47
+#: lib/bookify_web/controllers/author_controller.ex:49
 #, elixir-autogen, elixir-format
 msgid "Author Created"
 msgstr ""
 
-#: lib/bookify_web/controllers/author_controller.ex:73
+#: lib/bookify_web/controllers/author_controller.ex:75
 #, elixir-autogen, elixir-format
 msgid "Author Updated Successfully"
 msgstr ""
@@ -346,12 +346,12 @@ msgstr ""
 msgid "Birth Year"
 msgstr ""
 
-#: lib/bookify_web/controllers/list_controller.ex:49
+#: lib/bookify_web/controllers/list_controller.ex:51
 #, elixir-autogen, elixir-format
 msgid "Book added to %{list}"
 msgstr ""
 
-#: lib/bookify_web/controllers/list_controller.ex:69
+#: lib/bookify_web/controllers/list_controller.ex:72
 #, elixir-autogen, elixir-format
 msgid "Book deleted from %{list}"
 msgstr ""
@@ -412,7 +412,7 @@ msgstr ""
 msgid "Description:"
 msgstr ""
 
-#: lib/bookify_web/controllers/author_controller.ex:60
+#: lib/bookify_web/controllers/author_controller.ex:62
 #, elixir-autogen, elixir-format
 msgid "Edit Author"
 msgstr ""
@@ -432,7 +432,7 @@ msgstr ""
 msgid "Email"
 msgstr ""
 
-#: lib/bookify_web/controllers/review_controller.ex:35
+#: lib/bookify_web/controllers/review_controller.ex:36
 #, elixir-autogen, elixir-format
 msgid "Error occured"
 msgstr ""
@@ -500,7 +500,7 @@ msgid "No reviews yet"
 msgstr ""
 
 #: lib/bookify_web/controllers/plugs/require_admin.ex:17
-#: lib/bookify_web/controllers/review_controller.ex:71
+#: lib/bookify_web/controllers/review_controller.ex:73
 #, elixir-autogen, elixir-format
 msgid "Not Allowed"
 msgstr ""
@@ -610,7 +610,7 @@ msgstr ""
 msgid "Review for %{title}"
 msgstr ""
 
-#: lib/bookify_web/controllers/review_controller.ex:30
+#: lib/bookify_web/controllers/review_controller.ex:31
 #, elixir-autogen, elixir-format
 msgid "Review submitted for approval!"
 msgstr ""
@@ -648,8 +648,8 @@ msgid "Signed up successfully"
 msgstr ""
 
 #: lib/bookify_web/controllers/account_controller.ex:109
-#: lib/bookify_web/controllers/list_controller.ex:56
-#: lib/bookify_web/controllers/list_controller.ex:75
+#: lib/bookify_web/controllers/list_controller.ex:58
+#: lib/bookify_web/controllers/list_controller.ex:78
 #, elixir-autogen, elixir-format
 msgid "Something went wrong"
 msgstr ""
@@ -747,4 +747,14 @@ msgstr ""
 #: lib/bookify_web/controllers/auth_controller.ex:27
 #, elixir-autogen, elixir-format
 msgid "Signed in successfully!"
+msgstr ""
+
+#: lib/bookify_web/components/core_components.ex:189
+#, elixir-autogen, elixir-format
+msgid "Error!"
+msgstr ""
+
+#: lib/bookify_web/components/core_components.ex:188
+#, elixir-autogen, elixir-format
+msgid "Success!"
 msgstr ""
