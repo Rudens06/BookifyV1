@@ -7,8 +7,8 @@ defmodule BookifyWeb.BookController do
   alias Bookify.Authors
   alias Bookify.Review
 
-  plug :accepts, ["xml"] when action in [:rss]
-  plug BookifyWeb.Plugs.RequireAdmin when action in [:new, :create, :edit, :update, :delete]
+  plug(:accepts, ["xml"] when action in [:rss])
+  plug(BookifyWeb.Plugs.RequireAdmin when action in [:new, :create, :edit, :update, :delete])
 
   def init(conn, _params) do
     conn
@@ -23,7 +23,8 @@ defmodule BookifyWeb.BookController do
     |> render(:index)
   end
 
-  def show(conn, %{"id" => book_id}) do
+  def show(conn, %{"id" => book_slug_with_id}) do
+    book_id = book_slug_with_id |> String.split("-") |> List.last()
     book = Books.get_by_id!(book_id)
     review_changeset = Review.changeset(%Review{})
 

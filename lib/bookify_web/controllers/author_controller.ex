@@ -5,7 +5,7 @@ defmodule BookifyWeb.AuthorController do
   alias Bookify.Author
   alias Bookify.Authors
 
-  plug BookifyWeb.Plugs.RequireAdmin when action in [:new, :create, :edit, :update, :delete]
+  plug(BookifyWeb.Plugs.RequireAdmin when action in [:new, :create, :edit, :update, :delete])
 
   def index(conn, params) do
     authors = Authors.list_all(params)
@@ -16,7 +16,9 @@ defmodule BookifyWeb.AuthorController do
     |> render(:index)
   end
 
-  def show(conn, %{"id" => author_id}) do
+  def show(conn, %{"id" => author_slug_with_id}) do
+    author_id = author_slug_with_id |> String.split("-") |> List.last()
+
     author =
       Repo.get!(Author, author_id)
       |> Repo.preload(:books)

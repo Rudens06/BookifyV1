@@ -7,6 +7,7 @@ defmodule BookifyWeb.ReviewController do
 
   alias Bookify.Review
   alias Bookify.Reviews
+  alias Bookify.Book
   alias Bookify.Books
 
   plug BookifyWeb.Plugs.RequireAuth when action in [:new, :create, :edit, :update, :delete]
@@ -28,7 +29,7 @@ defmodule BookifyWeb.ReviewController do
 
         conn
         |> put_flash(:info, gettext("Review submitted for approval!"))
-        |> redirect(to: Routes.book_path(conn, :show, book.id))
+        |> redirect(to: Routes.book_path(conn, :show, Book.slug_with_id(book)))
 
       {:error, review_changeset} ->
         conn
@@ -46,10 +47,11 @@ defmodule BookifyWeb.ReviewController do
 
   def delete(conn, %{"review_id" => review_id, "book_id" => book_id}) do
     Reviews.delete_review_by_id!(review_id)
+    book = Books.get_by_id!(book_id)
 
     conn
     |> put_flash(:info, gettext("Deleted Successfully"))
-    |> redirect(to: Routes.book_path(conn, :show, book_id))
+    |> redirect(to: Routes.book_path(conn, :show, Book.slug_with_id(book)))
   end
 
   def delete(conn, %{"review_id" => review_id}) do

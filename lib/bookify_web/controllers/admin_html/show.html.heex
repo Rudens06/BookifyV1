@@ -32,7 +32,7 @@
       />
       <h6>
         <%= link(gettext("For: %{title}", review.book.title),
-          to: Routes.book_path(@conn, :show, review.book.id)
+          to: Routes.book_path(@conn, :show, Bookify.Book.slug_with_id(review.book))
         ) %>
       </h6>
       <p class="right">

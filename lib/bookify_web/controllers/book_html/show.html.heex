@@ -2,7 +2,7 @@
 <%= @book.title %>
 <br />
 <%= gettext("Author:") %> <%= link(@book.author.name,
-  to: Routes.author_path(@conn, :show, @book.author.id)
+  to: Routes.author_path(@conn, :show, Bookify.Author.slug_with_id(@book.author))
 ) %>
 <br />
 <%= gettext("Year:") %> <%= @book.publish_year %>

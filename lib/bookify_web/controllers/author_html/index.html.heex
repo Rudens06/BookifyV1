@@ -24,7 +24,7 @@
             ) %>
           </div>
         <% end %>
-        <%= link(author.name, to: Routes.author_path(@conn, :show, author.id), class: "title") %>
+        <%= link(author.name, to: Routes.author_path(@conn, :show, Bookify.Author.slug_with_id(author)), class: "title") %>
       </span>
       <p>
         <%= author.birth_year %>

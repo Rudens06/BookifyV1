@@ -5,7 +5,7 @@
     <li class="collection-item avatar">
       <img src={book.cover_pic_url} alt={book.title <> " cover picture"} class="circle" />
       <span>
-        <%= link(book.title, to: Routes.book_path(@conn, :show, book.id), class: "title") %>
+        <%= link(book.title, to: Routes.book_path(@conn, :show, Bookify.Book.slug_with_id(book)), class: "title") %>
       </span>
       <h6 class="right">
         <%= raw(rating_stars(book.avg_rating)) %>

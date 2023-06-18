@@ -8,6 +8,7 @@ defmodule BookifyWeb.ListController do
   alias Bookify.Lists.ListQuery
   alias Bookify.Repo
   alias Bookify.Lists
+  alias Bookify.Book
   alias Bookify.Books
   alias Bookify.BooksInLists
 
@@ -36,6 +37,7 @@ defmodule BookifyWeb.ListController do
 
   def add_book_to_list(conn, %{"type" => list_type, "id" => book_id}) do
     list = Repo.one(ListQuery.list_by_user_id_and_type(current_user(conn).id, list_type))
+    book = Books.get_by_id!(book_id)
 
     changeset =
       BooksInLists.changeset(%BooksInLists{})
@@ -52,7 +54,7 @@ defmodule BookifyWeb.ListController do
 
       {:error, _changeset} ->
         conn
-        |> redirect(to: Routes.book_path(conn, :show, book_id))
+        |> redirect(to: Routes.book_path(conn, :show, Book.slug_with_id(book)))
         |> put_flash(:error, gettext("Something went wrong"))
     end
   end
@@ -60,6 +62,7 @@ defmodule BookifyWeb.ListController do
   def remove_book_from_list(conn, %{"type" => list_type, "id" => book_id}) do
     list = Repo.one(ListQuery.list_by_user_id_and_type(current_user(conn).id, list_type))
     book_in_list = Repo.one(ListQuery.book_in_list_query(list.id, book_id))
+    book = Books.get_by_id!(book_id)
 
     case Repo.delete(book_in_list) do
       {:ok, _BooksInLists} ->
@@ -73,7 +76,7 @@ defmodule BookifyWeb.ListController do
       {:error, _changeset} ->
         conn
         |> put_flash(:error, gettext("Something went wrong"))
-        |> redirect(to: Routes.book_path(conn, :show, book_id))
+        |> redirect(to: Routes.book_path(conn, :show, Book.slug_with_id(book)))
     end
   end
 end

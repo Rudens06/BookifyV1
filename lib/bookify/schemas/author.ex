@@ -26,4 +26,19 @@ defmodule Bookify.Author do
   def new() do
     %__MODULE__{id: GenId.generate()}
   end
+
+  def slug(author) do
+    author.name
+    |> String.downcase()
+    # remove non-word characters
+    |> String.replace(~r/[^\w\s]/, "")
+    # split into words
+    |> String.split()
+    # join words with hyphen
+    |> Enum.join("-")
+  end
+
+  def slug_with_id(author) do
+    slug(author) <> "-" <> author.id
+  end
 end
