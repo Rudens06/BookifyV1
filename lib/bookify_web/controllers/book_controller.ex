@@ -120,7 +120,7 @@ defmodule BookifyWeb.BookController do
   end
 
   def rss(conn, _params) do
-    books = Books.list_all_w_author()
+    books = Books.list_all_w_author(%{})
 
     conn
     |> assign(:books, books)

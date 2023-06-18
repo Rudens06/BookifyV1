@@ -6,9 +6,9 @@ defmodule BookifyWeb.BookXML do
     <?xml version="1.0" encoding="UTF-8" ?>
     <rss version="2.0">
       <channel>
-        <title>Your RSS feed title</title>
-        <link>Your website link</link>
-        <description>Your RSS feed description</description>
+        <title>Book feed</title>
+        <link>#{url(~p"/rss")}</link>
+        <description>List of latest books</description>
         #{render_items(assigns.books)}
       </channel>
     </rss>
