@@ -7,7 +7,7 @@
         class="circle"
       />
       <h6>
-        <%= link(gettext("For: %{title}", review.book.title),
+        <%= link(gettext("For: %{title}", title: review.book.title),
           to: Routes.book_path(@conn, :show, review.book.id)
         ) %>
       </h6>
