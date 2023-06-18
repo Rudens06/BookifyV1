@@ -20,14 +20,9 @@ defmodule BookifyWeb.Router do
     pipe_through :browser
 
     get "/", BookController, :index
-    get "/books/new", BookController, :new
-    post "/books", BookController, :create
-    get "/books/:id/edit", BookController, :edit
-    put "/books/:id", BookController, :update
-    delete "/books/:id/delete", BookController, :delete
-    get "/books/:id", BookController, :show
     get "/top_books", BookController, :top_books
     get "/rss", BookController, :rss
+    resources "/books", BookController, except: [:index]
 
     resources "/authors", AuthorController
 
@@ -56,7 +51,6 @@ defmodule BookifyWeb.Router do
     get "/admin/users", AdminController, :users
     get "/admin/user/:id", AdminController, :show
     get "/admin/:review_id", AdminController, :approve_review
-
   end
 
   # Other scopes may use custom stacks.

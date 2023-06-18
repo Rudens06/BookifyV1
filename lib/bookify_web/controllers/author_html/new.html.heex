@@ -1,26 +1,32 @@
 <%= form_for @changeset, Routes.author_path(@conn, :create), fn f -> %>
   <div class="form-group">
     <div class="input-field">
-      <%= text_input f, :name, placeholder: "Name", class: "form-control" %>
-      <%= error_tag f, :name %>
+      <%= text_input(f, :name, placeholder: gettext("Name"), class: "form-control") %>
+      <%= error_tag(f, :name) %>
     </div>
     <div class="input-field">
-      <%= number_input f, :birth_year, placeholder: "Birth Year", class: "form-control" %>
-      <%= error_tag f, :birth_year %>
+      <%= number_input(f, :birth_year, placeholder: gettext("Birth Year"), class: "form-control") %>
+      <%= error_tag(f, :birth_year) %>
     </div>
     <div class="input-field">
-      <%= text_input f, :bio, placeholder: "Biography", class: "form-control" %>
-      <%= error_tag f, :bio %>
+      <%= text_input(f, :bio, placeholder: gettext("Biography"), class: "form-control") %>
+      <%= error_tag(f, :bio) %>
     </div>
     <div class="input-field">
-      <%= text_input f, :author_pic_url, placeholder: "Author picture URL", class: "form-control" %>
-      <%= error_tag f, :author_pic_url %>
+      <%= text_input(f, :author_pic_url,
+        placeholder: gettext("Author picture URL"),
+        class: "form-control"
+      ) %>
+      <%= error_tag(f, :author_pic_url) %>
     </div>
     <div class="input-field">
-      <%= text_input f, :wikipedia_url, placeholder: "Wikipedia URL", class: "form-control" %>
-      <%= error_tag f, :wikipedia_url %>
+      <%= text_input(f, :wikipedia_url,
+        placeholder: gettext("Wikipedia URL"),
+        class: "form-control"
+      ) %>
+      <%= error_tag(f, :wikipedia_url) %>
     </div>
   </div>
 
-  <%= submit "Save Author", class: default_btn() %>
+  <%= submit(gettext("Save Author"), class: default_btn()) %>
 <% end %>

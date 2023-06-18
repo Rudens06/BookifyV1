@@ -1,41 +1,47 @@
-<img src={@author.author_pic_url}>
+<img src={@author.author_pic_url} />
 <h4><%= @author.name %></h4>
 <h5><%= @author.birth_year %></h5>
-<h6>Biography: </h6>
+<h6><%= gettext("Biography:") %></h6>
 <%= @author.bio %>
-<br>
-<br>
-<a href={@author.wikipedia_url}>Wikipedia Page</a>
+<br />
+<br />
+<a href={@author.wikipedia_url}><%= gettext("Wikipedia Page") %></a>
 
 <h5>
-Books:
+  <%= gettext("Books:") %>
 </h5>
 
 <ul class="collection">
   <%= for book <- @author.books do %>
     <li class="collection-item avatar">
-      <img src={book.cover_pic_url} alt={book.title <> " cover picture"} class="circle">
+      <img
+        src={book.cover_pic_url}
+        alt={gettext("%{title} cover picture", title: book.title)}
+        class="circle"
+      />
       <span>
-        <%= link book.title, to: Routes.book_path(@conn, :show, book.id), class: "title" %>
+        <%= link(book.title, to: Routes.book_path(@conn, :show, book.id), class: "title") %>
       </span>
       <%= if RequireAdmin.user_is_admin?(current_user(@conn)) do %>
         <div class="right">
-          <%= link "Edit", to: Routes.book_path(@conn, :edit, book.id) %>
-          <%= link "Delete", to: Routes.book_path(@conn, :delete, book.id), 
-          method: :delete, 
-          data: [confirm: "Are you sure?"] %>
+          <%= link(gettext("Edit"), to: Routes.book_path(@conn, :edit, book.id)) %>
+          <%= link(gettext("Delete"),
+            to: Routes.book_path(@conn, :delete, book.id),
+            method: :delete,
+            data: [confirm: gettext("Are you sure?")]
+          ) %>
         </div>
       <% end %>
       <p>
         <%= @author.name %>
       </p>
       <p>
-        Published: <%= book.publish_year %>
+        <%= gettext("Published: %{year}", year: book.publish_year) %>
       </p>
       <p>
-        Pages: <%= book.page_count %>
+        <%= gettext("Pages: %{count}", count: book.page_count) %>
       </p>
-        <%= raw(rating_stars(book.avg_rating)) %>
+      <%= raw(rating_stars(book.avg_rating)) %>
     </li>
   <% end %>
 </ul>

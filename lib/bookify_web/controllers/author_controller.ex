@@ -9,8 +9,9 @@ defmodule BookifyWeb.AuthorController do
 
   def index(conn, params) do
     authors = Authors.list_all(params)
+
     conn
-    |> assign(:page_title, "Authors")
+    |> assign(:page_title, gettext("Authors"))
     |> assign(:authors, authors)
     |> render(:index)
   end
@@ -19,20 +20,20 @@ defmodule BookifyWeb.AuthorController do
     author =
       Repo.get!(Author, author_id)
       |> Repo.preload(:books)
+
     conn
-    |> assign(:page_title, "Authors")
+    |> assign(:page_title, gettext("Authors"))
     |> assign(:author, author)
     |> render(:show)
-
   end
 
   def new(conn, _params) do
     changeset = Author.changeset(%Author{})
 
-      conn
-      |> assign(:page_title, "Add Author")
-      |> assign(:changeset, changeset)
-      |> render(:new)
+    conn
+    |> assign(:page_title, gettext("Add Author"))
+    |> assign(:changeset, changeset)
+    |> render(:new)
   end
 
   def create(conn, %{"author" => author_params}) do
@@ -43,8 +44,9 @@ defmodule BookifyWeb.AuthorController do
     case Repo.insert(changeset) do
       {:ok, _author} ->
         conn
-        |> put_flash(:info, "Author Created")
+        |> put_flash(:info, gettext("Author Created"))
         |> redirect(to: Routes.author_path(conn, :index))
+
       {:error, changeset} ->
         render(conn, :new, changeset: changeset)
     end
@@ -53,8 +55,9 @@ defmodule BookifyWeb.AuthorController do
   def edit(conn, %{"id" => author_id}) do
     author = Repo.get(Author, author_id)
     changeset = Author.changeset(author)
+
     conn
-    |> assign(:page_title, "Edit Author")
+    |> assign(:page_title, gettext("Edit Author"))
     |> assign(:changeset, changeset)
     |> assign(:author, author)
     |> render(:edit)
@@ -67,8 +70,9 @@ defmodule BookifyWeb.AuthorController do
     case Repo.update(changeset) do
       {:ok, _author} ->
         conn
-        |> put_flash(:info, "Author Updated Successfully")
+        |> put_flash(:info, gettext("Author Updated Successfully"))
         |> redirect(to: Routes.author_path(conn, :index))
+
       {:error, changeset} ->
         conn
         |> assign(:author, author)
@@ -79,10 +83,10 @@ defmodule BookifyWeb.AuthorController do
 
   def delete(conn, %{"id" => author_id}) do
     Repo.get!(Author, author_id)
-    |> Repo.delete!
+    |> Repo.delete!()
 
     conn
-    |> put_flash(:info, "Deleted Successfully")
+    |> put_flash(:info, gettext("Deleted Successfully"))
     |> redirect(to: Routes.author_path(conn, :index))
   end
 end

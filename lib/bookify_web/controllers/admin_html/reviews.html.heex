@@ -1,15 +1,21 @@
 <ul class="collection">
   <%= for review <- @reviews do %>
     <li class="collection-item avatar">
-      <img src={Bookify.Avatar.url({review.user.avatar, review.user}, signed: true)} alt={review.user.name <> " profile picture"} class="circle">
+      <img
+        src={Bookify.Avatar.url({review.user.avatar, review.user}, signed: true)}
+        alt={gettext("%{name} profile picture", name: review.user.name)}
+        class="circle"
+      />
       <h6>
-        <%= link "For: " <> review.book.title, to: Routes.book_path(@conn, :show, review.book.id) %>
+        <%= link(gettext("For: %{title}", review.book.title),
+          to: Routes.book_path(@conn, :show, review.book.id)
+        ) %>
       </h6>
       <p class="right">
         <%= from_now(review.inserted_at) %>
-        <br>
+        <br />
         <%= display_date(review.inserted_at) %>
-        <br>
+        <br />
         <%= display_time(review.inserted_at) %>
       </p>
       <h6>
@@ -24,19 +30,22 @@
       <p>
         <%= raw(rating_stars(review.rating)) %>
       </p>
-      <br>
-        <%= link "Delete", to: Routes.review_path(@conn, :delete, review.id), 
-        method: :delete, 
-        data: [confirm: "Are you sure?"], class: "right" %>
-      <br>
+      <br />
+      <%= link(gettext("Delete"),
+        to: Routes.review_path(@conn, :delete, review.id),
+        method: :delete,
+        data: [confirm: gettext("Are you sure?")],
+        class: "right"
+      ) %>
+      <br />
       <%= unless review.approved do %>
-      <br>
-        <%= link "Approve", to: Routes.admin_path(@conn, :approve_review, review.id), class: "right" %>
-      <br>
+        <br />
+        <%= link(gettext("Approve"),
+          to: Routes.admin_path(@conn, :approve_review, review.id),
+          class: "right"
+        ) %>
+        <br />
       <% end %>
     </li>
   <% end %>
 </ul>
-
-
-

@@ -1,33 +1,40 @@
-<h2>Register</h2>
+<h2><%= gettext("Register") %></h2>
 
-<div class="form-group"> 
-    <%= form_for @changeset, Routes.user_path(@conn, :create), fn f -> %>
-        <div class="input-field">
-            <%= text_input f, :name, placeholder: "Name", class: "white gray-text" %>
-            <%= error_tag f, :name %>
-        </div>
-        <div class="input-field">
-            <%= text_input f, :email, placeholder: "Email", class: "form-control" %>
-            <%= error_tag f, :email %>
-        </div>
-        <div class="input-field">
-            <%= password_input f, :password, placeholder: "Password", class: "form-control" %>
-            <%= error_tag f, :password %>
-            <span class="helper-text">
-            Password format:
-            <ul>
-            <li>At least 8 characters long</li>
-            <li>At least one lower case character</li>
-            <li>At least one UPPER case character</li>
-            <li>At least one number</li>
-            <li>At least one symbol <%= safe_to_string({:safe, "(*.!@#$%^&(){}[:;<>,.?)"}) %></li>
-            </ul>
-        </span>
-        </div>
-        <div class="input-field">
-            <%= password_input f, :password_confirmation, placeholder: "Confirm password", class: "form-control" %>
-            <%= error_tag f, :password_confirmation %>
-        </div>
-        <%= submit "Register", class: default_btn() %>
-    <% end %>
+<div class="form-group">
+  <%= form_for @changeset, Routes.user_path(@conn, :create), fn f -> %>
+    <div class="input-field">
+      <%= text_input(f, :name, placeholder: gettext("Name"), class: "white gray-text") %>
+      <%= error_tag(f, :name) %>
+    </div>
+    <div class="input-field">
+      <%= text_input(f, :email, placeholder: gettext("Email"), class: "form-control") %>
+      <%= error_tag(f, :email) %>
+    </div>
+    <div class="input-field">
+      <%= password_input(f, :password, placeholder: gettext("Password"), class: "form-control") %>
+      <%= error_tag(f, :password) %>
+      <span class="helper-text">
+        <%= gettext("Password format:") %>
+        <ul>
+          <li><%= gettext("At least 8 characters long") %></li>
+          <li><%= gettext("At least one lower case character") %></li>
+          <li><%= gettext("At least one UPPER case character") %></li>
+          <li><%= gettext("At least one number") %></li>
+          <li>
+            <%= gettext("At least one symbol %{symbols}",
+              symbols: safe_to_string({:safe, "(*.!@#$%^&(){}[:;<>,.?)"})
+            ) %>
+          </li>
+        </ul>
+      </span>
+    </div>
+    <div class="input-field">
+      <%= password_input(f, :password_confirmation,
+        placeholder: gettext("Confirm password"),
+        class: "form-control"
+      ) %>
+      <%= error_tag(f, :password_confirmation) %>
+    </div>
+    <%= submit(gettext("Register"), class: default_btn()) %>
+  <% end %>
 </div>

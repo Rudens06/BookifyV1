@@ -1,37 +1,43 @@
 <h4>
-  User: <%= @user.name %>
+  <%= gettext("User: %{name}", name: @user.name) %>
 </h4>
 
 <h5>
-  Stats
+  <%= gettext("Stats") %>
 </h5>
 
 <ul class="collection">
   <li class="collection-item">
-      Registered: <%= display_date(@user.inserted_at) %>
-      <%= display_time(@user.inserted_at) %>
-      <%= from_now(@user.inserted_at) %>
+    <%= gettext("Registered: %{date}", date: display_date(@user.inserted_at)) %>
+    <%= display_time(@user.inserted_at) %>
+    <%= from_now(@user.inserted_at) %>
   </li>
   <li class="collection-item">
-      Last log-in: <%= display_date(@user.last_login) %>
-      <%= display_time(@user.last_login) %>
-      <%= from_now(@user.last_login) %>
+    <%= gettext("Last log-in: %{date}", date: display_date(@user.last_login)) %>
+    <%= display_time(@user.last_login) %>
+    <%= from_now(@user.last_login) %>
   </li>
 </ul>
 
 <h5>
-  Reviews
+  <%= gettext("Reviews") %>
 </h5>
 <ul class="collection">
   <%= for review <- @user.reviews do %>
     <li class="collection-item avatar">
-      <img src={review.book.cover_pic_url} alt={review.book.title <> " cover picture"} class="circle">
+      <img
+        src={review.book.cover_pic_url}
+        alt={gettext("%{title} cover picture", title: review.book.title)}
+        class="circle"
+      />
       <h6>
-        <%= link "For: " <> review.book.title, to: Routes.book_path(@conn, :show, review.book.id) %>
+        <%= link(gettext("For: %{title}", review.book.title),
+          to: Routes.book_path(@conn, :show, review.book.id)
+        ) %>
       </h6>
       <p class="right">
         <%= display_date(review.inserted_at) %>
-        <br>
+        <br />
         <%= display_time(review.inserted_at) %>
       </p>
       <h6>
@@ -43,14 +49,14 @@
       <p>
         <%= raw(rating_stars(review.rating)) %>
       </p>
-      <br>
-        <%= link "Delete", to: Routes.review_path(@conn, :delete, review.id), 
-        method: :delete, 
-        data: [confirm: "Are you sure?"], class: "right" %>
-        <br>
+      <br />
+      <%= link(gettext("Delete"),
+        to: Routes.review_path(@conn, :delete, review.id),
+        method: :delete,
+        data: [confirm: gettext("Are you sure?")],
+        class: "right"
+      ) %>
+      <br />
     </li>
   <% end %>
 </ul>
-
-
-

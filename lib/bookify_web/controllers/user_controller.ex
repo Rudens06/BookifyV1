@@ -12,7 +12,7 @@ defmodule BookifyWeb.UserController do
     changeset = User.changeset(%User{})
 
     conn
-    |> assign(:page_title, "Register")
+    |> assign(:page_title, gettext("Register"))
     |> assign(:changeset, changeset)
     |> render(:new)
   end
@@ -41,7 +41,7 @@ defmodule BookifyWeb.UserController do
       {:ok, transaction} ->
         conn
         |> put_session(:current_user_id, transaction.user.id)
-        |> put_flash(:info, "Signed up successfully")
+        |> put_flash(:info, gettext("Signed up successfully"))
         |> redirect(to: Routes.book_path(conn, :index))
 
       {:error, :user, changeset, _} ->

@@ -1,18 +1,20 @@
-<h4>My Lists</h4>
+<h4><%= gettext("My Lists") %></h4>
 
 <%= for list <- @lists do %>
-
   <%= if list.type == want_to_read_list_type() do %>
     <ul class="collection with-header">
-      <li class="collection-header">Want To Read</li>
+      <li class="collection-header"><%= gettext("Want To Read") %></li>
       <%= for book <- list.books do %>
-        <li class="collection-item"> 
+        <li class="collection-item">
           <span>
-            <%= link book.title, to: Routes.book_path(@conn, :show, book.id), class: "title" %>
+            <%= link(book.title, to: Routes.book_path(@conn, :show, book.id), class: "title") %>
           </span>
           <div class="right">
-            <%= link "Delete", to: Routes.list_path(@conn, :remove_book_from_list, want_to_read_list_type(), book.id),
-            data: [confirm: "Are you sure?"] %>
+            <%= link(gettext("Delete"),
+              to:
+                Routes.list_path(@conn, :remove_book_from_list, want_to_read_list_type(), book.id),
+              data: [confirm: gettext("Are you sure?")]
+            ) %>
           </div>
         </li>
       <% end %>
@@ -21,15 +23,17 @@
 
   <%= if list.type == reading_list_type() do %>
     <ul class="collection with-header">
-      <li class="collection-header">Reading</li>
+      <li class="collection-header"><%= gettext("Reading") %></li>
       <%= for book <- list.books do %>
         <li class="collection-item">
           <span>
-            <%= link book.title, to: Routes.book_path(@conn, :show, book.id), class: "title" %>
+            <%= link(book.title, to: Routes.book_path(@conn, :show, book.id), class: "title") %>
           </span>
           <div class="right">
-            <%= link "Delete", to: Routes.list_path(@conn, :remove_book_from_list, reading_list_type(), book.id),
-            data: [confirm: "Are you sure?"] %>
+            <%= link(gettext("Delete"),
+              to: Routes.list_path(@conn, :remove_book_from_list, reading_list_type(), book.id),
+              data: [confirm: gettext("Are you sure?")]
+            ) %>
           </div>
         </li>
       <% end %>
@@ -38,20 +42,20 @@
 
   <%= if list.type == has_read_list_type() do %>
     <ul class="collection with-header">
-      <li class="collection-header">Have Read</li>
+      <li class="collection-header"><%= gettext("Have Read") %></li>
       <%= for book <- list.books do %>
         <li class="collection-item">
           <span>
-            <%= link book.title, to: Routes.book_path(@conn, :show, book.id), class: "title" %>
+            <%= link(book.title, to: Routes.book_path(@conn, :show, book.id), class: "title") %>
           </span>
           <div class="right">
-            <%= link "Delete", to: Routes.list_path(@conn, :remove_book_from_list, has_read_list_type(), book.id),
-            data: [confirm: "Are you sure?"] %>
+            <%= link(gettext("Delete"),
+              to: Routes.list_path(@conn, :remove_book_from_list, has_read_list_type(), book.id),
+              data: [confirm: gettext("Are you sure?")]
+            ) %>
           </div>
         </li>
       <% end %>
     </ul>
   <% end %>
-
 <% end %>
-

@@ -1,6 +1,7 @@
 defmodule BookifyWeb.Plugs.RequireAuth do
   import Plug.Conn
   import Phoenix.Controller
+  import BookifyWeb.Gettext
 
   alias BookifyWeb.Router.Helpers
 
@@ -12,7 +13,7 @@ defmodule BookifyWeb.Plugs.RequireAuth do
       conn
     else
       conn
-      |> put_flash(:error, "You must be logged in")
+      |> put_flash(:error, gettext("You must be logged in"))
       |> redirect(to: Helpers.book_path(conn, :index))
       |> halt()
     end

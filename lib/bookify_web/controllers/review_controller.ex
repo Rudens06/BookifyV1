@@ -14,6 +14,7 @@ defmodule BookifyWeb.ReviewController do
 
   def create(conn, %{"review" => review_params, "book_id" => book_id}) do
     book = Books.get_by_id!(book_id)
+
     review_changeset =
       Review.new()
       |> Review.changeset(review_params)
@@ -21,16 +22,17 @@ defmodule BookifyWeb.ReviewController do
       |> put_assoc(:user, current_user(conn))
       |> put_assoc(:book, book)
 
-
     case Reviews.insert(review_changeset) do
       {:ok, _review} ->
         Books.update_avg_rating(book_id)
+
         conn
-        |> put_flash(:info, "Review submitted for approval!")
+        |> put_flash(:info, gettext("Review submitted for approval!"))
         |> redirect(to: Routes.book_path(conn, :show, book.id))
+
       {:error, review_changeset} ->
         conn
-        |> put_flash(:error, "Error occured")
+        |> put_flash(:error, gettext("Error occured"))
         |> put_view(BookifyWeb.BookHTML)
         |> assign(:book, book)
         |> assign(:review_changeset, review_changeset)
@@ -46,7 +48,7 @@ defmodule BookifyWeb.ReviewController do
     Reviews.delete_review_by_id!(review_id)
 
     conn
-    |> put_flash(:info, "Deleted Successfully")
+    |> put_flash(:info, gettext("Deleted Successfully"))
     |> redirect(to: Routes.book_path(conn, :show, book_id))
   end
 
@@ -54,7 +56,7 @@ defmodule BookifyWeb.ReviewController do
     Reviews.delete_review_by_id!(review_id)
 
     conn
-    |> put_flash(:info, "Deleted Successfully")
+    |> put_flash(:info, gettext("Deleted Successfully"))
     |> redirect(to: Routes.admin_path(conn, :reviews))
   end
 
@@ -66,7 +68,7 @@ defmodule BookifyWeb.ReviewController do
       conn
     else
       conn
-      |> put_flash(:error, "Not Allowed")
+      |> put_flash(:error, gettext("Not Allowed"))
       |> redirect(to: Routes.book_path(conn, :index))
       |> halt()
     end

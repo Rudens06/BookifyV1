@@ -1,18 +1,19 @@
 <ul class="collection">
   <%= for user <- @users do %>
     <li class="collection-item avatar">
-      <img src={Bookify.Avatar.url({user.avatar, user}, signed: true)} alt={user.name <> " profile picture"} class="circle">
+      <img
+        src={Bookify.Avatar.url({user.avatar, user}, signed: true)}
+        alt={gettext("%{name} profile picture", name: user.name)}
+        class="circle"
+      />
       <p class="right">
-        Last Log-in: <%= user.last_login %>
-        <br>
-        Created: <%= user.inserted_at %>
+        <%= gettext("Last Log-in: %{date}", date: user.last_login) %>
+        <br />
+        <%= gettext("Created: %{date}", date: user.inserted_at) %>
       </p>
       <h6>
-        <%= link user.name, to: Routes.admin_path(@conn, :show, user.id) %>
+        <%= link(user.name, to: Routes.admin_path(@conn, :show, user.id)) %>
       </h6>
     </li>
   <% end %>
 </ul>
-
-
-

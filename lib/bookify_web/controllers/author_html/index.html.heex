@@ -1,24 +1,30 @@
-<h4>Authors</h4>
+<h4><%= gettext("Authors") %></h4>
 
 <%= form_for @conn, Routes.author_path(@conn, :index), [method: :get], fn f -> %>
-  <%= search_input f, :query, placeholder: "Search" %>
-  <%= submit "Search", class: default_btn() %>
+  <%= search_input(f, :query, placeholder: gettext("Search")) %>
+  <%= submit("Search", class: default_btn()) %>
 <% end %>
 
 <ul class="collection">
   <%= for author <- @authors do %>
     <li class="collection-item avatar">
-      <img src={author.author_pic_url} alt={author.name <> " picture"} class="circle">
+      <img
+        src={author.author_pic_url}
+        alt={gettext("%{name} picture", name: author.name)}
+        class="circle"
+      />
       <span>
-      <%= if RequireAdmin.user_is_admin?(current_user(@conn)) do %>
-        <div class="right">
-          <%= link "Edit", to: Routes.author_path(@conn, :edit, author.id) %>
-          <%= link "Delete", to: Routes.author_path(@conn, :delete, author.id),
-          method: :delete, 
-          data: [confirm: "Are you sure?"] %>
-        </div>
-      <% end %>
-        <%= link author.name, to: Routes.author_path(@conn, :show, author.id), class: "title" %>
+        <%= if RequireAdmin.user_is_admin?(current_user(@conn)) do %>
+          <div class="right">
+            <%= link(gettext("Edit"), to: Routes.author_path(@conn, :edit, author.id)) %>
+            <%= link(gettext("Delete"),
+              to: Routes.author_path(@conn, :delete, author.id),
+              method: :delete,
+              data: [confirm: gettext("Are you sure?")]
+            ) %>
+          </div>
+        <% end %>
+        <%= link(author.name, to: Routes.author_path(@conn, :show, author.id), class: "title") %>
       </span>
       <p>
         <%= author.birth_year %>
@@ -29,7 +35,6 @@
 
 <%= if RequireAdmin.user_is_admin?(current_user(@conn)) do %>
   <div class="right">
-  <%= link "Add author", to: Routes.author_path(@conn, :new), class: default_btn() %>
+    <%= link(gettext("Add author"), to: Routes.author_path(@conn, :new), class: default_btn()) %>
   </div>
 <% end %>
-

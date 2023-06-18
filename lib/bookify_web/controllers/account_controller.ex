@@ -6,13 +6,16 @@ defmodule BookifyWeb.AccountController do
   alias Bookify.User
   alias Bookify.Accounts
 
-  plug BookifyWeb.Plugs.RequireAuth when action in [:index, :update_name, :update_password, :edit_name, :edit_password]
+  plug BookifyWeb.Plugs.RequireAuth
+       when action in [:index, :update_name, :update_password, :edit_name, :edit_password]
 
   def index(conn, _params) do
-    assign(conn, :page_title, "Register")
+    assign(conn, :page_title, gettext("Register"))
+
     case get_session(conn, :current_user_id) do
       nil ->
         redirect(conn, to: Routes.user_path(conn, :new))
+
       _ ->
         render(conn, :index)
     end
@@ -21,8 +24,9 @@ defmodule BookifyWeb.AccountController do
   def edit_profile(conn, _params) do
     changeset = User.edit_profile_changeset(current_user(conn))
     avatar_changeset = User.avatar_changeset(current_user(conn))
+
     conn
-    |> assign(:page_title, "Edit Profile")
+    |> assign(:page_title, gettext("Edit Profile"))
     |> assign(:avatar_changeset, avatar_changeset)
     |> assign(:changeset, changeset)
     |> render(:edit_profile)
@@ -32,7 +36,7 @@ defmodule BookifyWeb.AccountController do
     changeset = User.changeset(current_user(conn))
 
     conn
-    |> assign(:page_title, "Change Password")
+    |> assign(:page_title, gettext("Change Password"))
     |> assign(:changeset, changeset)
     |> render(:edit_password)
   end
@@ -43,8 +47,9 @@ defmodule BookifyWeb.AccountController do
     case Accounts.update(changeset) do
       {:ok, _topic} ->
         conn
-        |> put_flash(:info, "Profile updated Successfully")
+        |> put_flash(:info, gettext("Profile updated Successfully"))
         |> redirect(to: Routes.account_path(conn, :index))
+
       {:error, changeset} ->
         conn
         |> assign(:changeset, changeset)
@@ -55,13 +60,16 @@ defmodule BookifyWeb.AccountController do
   def update_password(conn, %{"user" => user_params}) do
     changeset = User.edit_password_changeset(current_user(conn), user_params)
 
-    case Bcrypt.check_pass(current_user(conn), user_params["current_password"], [hash_key: :hashed_password]) do
+    case Bcrypt.check_pass(current_user(conn), user_params["current_password"],
+           hash_key: :hashed_password
+         ) do
       {:ok, _user} ->
         case Accounts.update(changeset) do
           {:ok, _user} ->
             conn
-            |> put_flash(:info, "Password updated successfully!")
+            |> put_flash(:info, gettext("Password updated successfully!"))
             |> redirect(to: Routes.account_path(conn, :index))
+
           {:error, changeset} ->
             conn
             |> assign(:changeset, changeset)
@@ -70,7 +78,7 @@ defmodule BookifyWeb.AccountController do
 
       {:error, _} ->
         conn
-        |> put_flash(:error, "Wrong current password")
+        |> put_flash(:error, gettext("Wrong current password"))
         |> assign(:changeset, changeset)
         |> render(:edit_password)
     end
@@ -82,7 +90,7 @@ defmodule BookifyWeb.AccountController do
     case Accounts.update_user_avatar(current_user(conn), user_params) do
       {:ok, _user} ->
         conn
-        |> put_flash(:info, "Avatar updated successfully.")
+        |> put_flash(:info, gettext("Avatar updated successfully."))
         |> redirect(to: Routes.account_path(conn, :index))
 
       {:error, avatar_changeset} ->
@@ -96,9 +104,10 @@ defmodule BookifyWeb.AccountController do
   def update_avatar(conn, _params) do
     changeset = User.edit_profile_changeset(current_user(conn))
     avatar_changeset = User.avatar_changeset(current_user(conn))
+
     conn
-    |> put_flash(:error, "Something went wrong")
-    |> assign(:page_title, "Edit Profile")
+    |> put_flash(:error, gettext("Something went wrong"))
+    |> assign(:page_title, gettext("Edit Profile"))
     |> assign(:avatar_changeset, avatar_changeset)
     |> assign(:changeset, changeset)
     |> render(:edit_profile)

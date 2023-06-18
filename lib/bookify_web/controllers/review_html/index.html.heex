@@ -1,2 +1,1 @@
-<h4>Hi, <%= @current_user.name %></h4>
-
+<h4><%= gettext("Hi, %{name}", name: @current_user.name) %></h4>

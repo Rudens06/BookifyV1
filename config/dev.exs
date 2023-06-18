@@ -2,8 +2,8 @@ import Config
 
 # Configure your database
 config :bookify, Bookify.Repo,
-  username: "postgres",
-  password: "postgres",
+  username: "maarf",
+  password: "",
   hostname: "localhost",
   database: "bookify_dev",
   stacktrace: true,

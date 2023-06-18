@@ -1,4 +1,6 @@
 defmodule BookifyWeb.Helpers.List do
+  import BookifyWeb.Gettext
+
   def want_to_read_list_type do
     "want_to_read"
   end
@@ -13,9 +15,9 @@ defmodule BookifyWeb.Helpers.List do
 
   def convert_to_readable(list_type) do
     case list_type do
-      "want_to_read" -> "Want to Read list"
-      "reading" -> "Reading list"
-      "has_read" -> "Read Books list"
+      "want_to_read" -> gettext("Want to Read list")
+      "reading" -> gettext("Reading list")
+      "has_read" -> gettext("Read Books list")
     end
   end
 end
