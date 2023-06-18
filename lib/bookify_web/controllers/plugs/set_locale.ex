@@ -17,10 +17,24 @@ defmodule BookifyWeb.Plugs.SetLocale do
   end
 
   defp fetch_locale_from(conn) do
-    (conn.params["locale"] || conn.cookies["locale"])
+    (conn.params["locale"] ||
+       conn.cookies["locale"] ||
+       fetch_locale_from_headers(conn))
     |> check_locale
   end
 
   defp check_locale(locale) when locale in @supported_locales, do: locale
   defp check_locale(_), do: nil
+
+  defp fetch_locale_from_headers(conn) do
+    conn
+    |> get_req_header("accept-language")
+    |> List.first()
+    |> String.split(",")
+    |> List.first()
+    |> String.split(";")
+    |> List.first()
+    |> String.split("-")
+    |> List.first()
+  end
 end
