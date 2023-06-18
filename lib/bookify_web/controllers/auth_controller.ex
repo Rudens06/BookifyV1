@@ -24,7 +24,7 @@ defmodule BookifyWeb.AuthController do
         Repo.update(update_changeset)
 
         conn
-        |> put_flash(:info, "Signed in successfully!")
+        |> put_flash(:info, gettext("Signed in successfully!"))
         |> put_session(:current_user_id, user.id)
         |> redirect(to: Routes.book_path(conn, :index))
 

@@ -743,3 +743,8 @@ msgstr ""
 #, elixir-autogen, elixir-format
 msgid "You must be logged in"
 msgstr ""
+
+#: lib/bookify_web/controllers/auth_controller.ex:27
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Signed in successfully!"
+msgstr ""
