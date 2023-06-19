@@ -25,6 +25,8 @@ a:active {
   width: var(--content-width);
 }
 
-#disconnected {
+/* TODO: Fix these */
+#disconnected,
+#flash {
   display: none;
 }

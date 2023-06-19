@@ -12,6 +12,17 @@
   --paper-8: #2e2e23;
   --paper-9: #191912;
 
+  --gray-0: #f6f8fa;
+  --gray-1: #eaeef2;
+  --gray-2: #d0d7de;
+  --gray-3: #afb8c1;
+  --gray-4: #8c959f;
+  --gray-5: #6e7781;
+  --gray-6: #57606a;
+  --gray-7: #424a53;
+  --gray-8: #32383f;
+  --gray-9: #24292f;
+
   --blue-0: #ddf4ff;
   --blue-1: #b6e3ff;
   --blue-2: #80ccff;
@@ -34,6 +45,8 @@
   --purple-8: #3e1f79;
   --purple-9: #2e1461;
 
+  --white: #fff;
+  --black: #000;
 
   /* Typography */
 

@@ -1,195 +1,206 @@
-<img src={@book.cover_pic_url} />
-<%= @book.title %>
-<br />
-<%= gettext("Author:") %> <%= link(@book.author.name,
-  to: Routes.author_path(@conn, :show, Bookify.Author.slug_with_id(@book.author))
-) %>
-<br />
-<%= gettext("Year:") %> <%= @book.publish_year %>
-<br />
-<%= gettext("Pages:") %> <%= @book.page_count %>
-<br />
-<%= gettext("Genres:") %> <%= if @book.genre == nil, do: '', else: Enum.join(@book.genre, ", ") %>
-<br />
-<%= if @book.avg_rating, do: raw(rating_stars(@book.avg_rating)) %>
-<h5>
-  <%= gettext("Description:") %>
-</h5>
-<p><%= @book.anotation %></p>
+<section class="book">
+  <section class="book-sticky">
+    <div class="book-cover">
+      <img src={@book.cover_pic_url} />
+    </div>
+  </section>
 
-<%= if @conn.assigns[:current_user] do %>
-  <%= if Lists.book_in_list?(
-    current_user(@conn).id,
-    want_to_read_list_type(),
-    @book.id
-    ) do %>
-    <%= link(gettext("Remove from wishlist"),
-      to: Routes.list_path(@conn, :remove_book_from_list, want_to_read_list_type(), @book.id),
-      class: cancel_btn()
-    ) %>
-  <% else %>
-    <%= link(gettext("Want to Read"),
-      to: Routes.list_path(@conn, :add_book_to_list, want_to_read_list_type(), @book.id),
-      class: default_btn()
-    ) %>
-  <% end %>
+  <header class="book-title">
+    <h2><%= @book.title %></h2>
+    <p class="book-author">
+      <span class="book-author-by"><%= gettext("by") %></span>
+      <%= link(@book.author.name, to: Routes.author_path(@conn, :show, Bookify.Author.slug_with_id(@book.author))) %>
+    </p>
+  </header>
 
-  <%= if Lists.book_in_list?(
-    current_user(@conn).id,
-    reading_list_type(),
-    @book.id
-    ) do %>
-    <%= link(gettext("Remove from Reading"),
-      to: Routes.list_path(@conn, :remove_book_from_list, reading_list_type(), @book.id),
-      class: cancel_btn()
-    ) %>
-  <% else %>
-    <%= link(gettext("Reading"),
-      to: Routes.list_path(@conn, :add_book_to_list, reading_list_type(), @book.id),
-      class: default_btn()
-    ) %>
-  <% end %>
+  <section class="book-details">
+    <article class="book-annotation formatted">
+      <%= raw Earmark.as_html!(@book.anotation) %>
+    </article>
+    <dl class="book-facts">
+      <dt><%= gettext("Year:") %></dt>
+      <dd><%= @book.publish_year %></dd>
+      <dt><%= gettext("Pages:") %></dt>
+      <dd><%= @book.page_count %></dd>
+      <dt><%= gettext("Genres:") %></dt>
+      <dd><%= if @book.genre == nil, do: '', else: Enum.join(@book.genre, ", ") %></dd>
+      <%= if @book.avg_rating do %>
+        <dt><%= gettext("Rating:") %></dt>
+        <dd>
+          <%= raw(rating_stars(@book.avg_rating)) %>
+          <%= @book.avg_rating %>
+        </dd>
+      <% end %>
+    </dl>
+  </section>
 
-  <%= if Lists.book_in_list?(
-    current_user(@conn).id,
-    has_read_list_type(),
-    @book.id
-    ) do %>
-    <%= link(gettext("Remove from Have Read"),
-      to: Routes.list_path(@conn, :remove_book_from_list, has_read_list_type(), @book.id),
-      class: cancel_btn()
-    ) %>
-  <% else %>
-    <%= link(gettext("Have Read"),
-      to: Routes.list_path(@conn, :add_book_to_list, has_read_list_type(), @book.id),
-      class: default_btn()
-    ) %>
-  <% end %>
+  <section class="book-actions">
+    <%= if @conn.assigns[:current_user] do %>
+      <%= if Lists.book_in_list?(
+        current_user(@conn).id,
+        want_to_read_list_type(),
+        @book.id
+        ) do %>
+        <%= link(gettext("Remove from wishlist"),
+          to: Routes.list_path(@conn, :remove_book_from_list, want_to_read_list_type(), @book.id),
+          class: cancel_btn()
+        ) %>
+      <% else %>
+        <%= link(gettext("Want to Read"),
+          to: Routes.list_path(@conn, :add_book_to_list, want_to_read_list_type(), @book.id),
+          class: default_btn()
+        ) %>
+      <% end %>
 
-  <%!-- WRITE REVIEW MODAL --%>
-  <!-- Modal Trigger -->
-  <a class={"modal-trigger " <> review_btn() } href="#write-review">
-    <%= gettext("Write a Review") %>
-  </a>
+      <%= if Lists.book_in_list?(
+        current_user(@conn).id,
+        reading_list_type(),
+        @book.id
+        ) do %>
+        <%= link(gettext("Remove from Reading"),
+          to: Routes.list_path(@conn, :remove_book_from_list, reading_list_type(), @book.id),
+          class: cancel_btn()
+        ) %>
+      <% else %>
+        <%= link(gettext("Reading"),
+          to: Routes.list_path(@conn, :add_book_to_list, reading_list_type(), @book.id),
+          class: default_btn()
+        ) %>
+      <% end %>
 
-  <div id="write-review" class="modal">
-    <div class="modal-content">
-      <h4>
-        <%= gettext("Review for %{title}", title: @book.title) %>
-      </h4>
-      <div class="form-group">
-        <%= form_for @review_changeset, Routes.review_path(@conn, :create, @book.id), fn f -> %>
-          <div class="input-field">
-            <%= text_input(f, :title, placeholder: gettext("Title"), class: "white gray-text") %>
-            <%= error_tag(f, :title) %>
+      <%= if Lists.book_in_list?(
+        current_user(@conn).id,
+        has_read_list_type(),
+        @book.id
+        ) do %>
+        <%= link(gettext("Remove from Have Read"),
+          to: Routes.list_path(@conn, :remove_book_from_list, has_read_list_type(), @book.id),
+          class: cancel_btn()
+        ) %>
+      <% else %>
+        <%= link(gettext("Have Read"),
+          to: Routes.list_path(@conn, :add_book_to_list, has_read_list_type(), @book.id),
+          class: default_btn()
+        ) %>
+      <% end %>
+
+      <%!-- WRITE REVIEW MODAL --%>
+      <!-- Modal Trigger -->
+      <a class={"modal-trigger " <> review_btn() } href="#write-review">
+        <%= gettext("Write a Review") %>
+      </a>
+
+      <div id="write-review" class="modal">
+        <div class="modal-content">
+          <h4>
+            <%= gettext("Review for %{title}", title: @book.title) %>
+          </h4>
+          <div class="form-group">
+            <%= form_for @review_changeset, Routes.review_path(@conn, :create, @book.id), fn f -> %>
+              <div class="input-field">
+                <%= text_input(f, :title, placeholder: gettext("Title"), class: "white gray-text") %>
+                <%= error_tag(f, :title) %>
+              </div>
+              <div class="input-field">
+                <%= text_input(f, :review, placeholder: gettext("Review"), class: "white gray-text") %>
+                <%= error_tag(f, :review) %>
+              </div>
+              <div class="input-field">
+                <%= number_input(f, :rating,
+                  step: 0.1,
+                  placeholder: gettext("Rating"),
+                  class: "white gray-text"
+                ) %>
+                <%= error_tag(f, :rating) %>
+              </div>
+              <span class="helper-text">
+                <%= gettext("Rating format: 1 - 5") %>
+              </span>
+              <%= submit(gettext("Post Review"), class: default_btn() <> " right") %>
+            <% end %>
           </div>
-          <div class="input-field">
-            <%= text_input(f, :review, placeholder: gettext("Review"), class: "white gray-text") %>
-            <%= error_tag(f, :review) %>
-          </div>
-          <div class="input-field">
-            <%= number_input(f, :rating,
-              step: 0.1,
-              placeholder: gettext("Rating"),
-              class: "white gray-text"
-            ) %>
-            <%= error_tag(f, :rating) %>
-          </div>
-          <span class="helper-text">
-            <%= gettext("Rating format: 1 - 5") %>
-          </span>
-          <%= submit(gettext("Post Review"), class: default_btn() <> " right") %>
-        <% end %>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-close waves-effect waves-green btn-flat">
+            <%= gettext("Cancel") %>
+          </a>
+        </div>
       </div>
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-green btn-flat">
-        <%= gettext("Cancel") %>
+    <% else %>
+      <%!-- NOT LOGGED IN MODAL FOR LOGIN --%>
+      <!-- Modal Trigger -->
+      <a class={"modal-trigger " <> review_btn() } href="#sign-in">
+        <%= gettext("Write a Review") %>
       </a>
-    </div>
-  </div>
-<% else %>
-  <%!-- NOT LOGGED IN MODAL FOR LOGIN --%>
-  <!-- Modal Trigger -->
-  <a class={"modal-trigger " <> review_btn() } href="#sign-in">
-    <%= gettext("Write a Review") %>
-  </a>
-  <!-- Modal Structure -->
-  <div id="sign-in" class="modal">
-    <div class="modal-content">
-      <h4>
-        <%= gettext("You have to be signed in to write a review") %>
-      </h4>
-      <%= link(gettext("Sign In"),
-        to: Routes.auth_path(@conn, :new),
-        class: default_btn()
-      ) %>
+      <!-- Modal Structure -->
+      <div id="sign-in" class="modal">
+        <div class="modal-content">
+          <h4>
+            <%= gettext("You have to be signed in to write a review") %>
+          </h4>
+          <%= link(gettext("Sign In"),
+            to: Routes.auth_path(@conn, :new),
+            class: default_btn()
+          ) %>
 
-      <%= link(gettext("Register"),
-        to: Routes.user_path(@conn, :new),
-        class: default_btn()
-      ) %>
+          <%= link(gettext("Register"),
+            to: Routes.user_path(@conn, :new),
+            class: default_btn()
+          ) %>
 
-      <a href="#!" class="modal-close waves-effect waves-green btn-flat right">
-        <%= gettext("Close") %>
-      </a>
-    </div>
-  </div>
-<% end %>
-
-<%!-- Reviews --%>
-
-<h4>
-  <%= gettext("Reviews") %>
-</h4>
-
-<%= if @book.reviews == [] do %>
-  <p><%= gettext("No reviews yet") %></p>
-<% end %>
-
-<ul class="collection">
-  <%= for review <- @book.reviews do %>
-    <%= if review.approved do %>
-      <li class="collection-item avatar">
-        <img
-          src={Bookify.Avatar.url({review.user.avatar, review.user}, signed: true)}
-          alt={gettext("%{name} profile picture", name: review.user.name)}
-          class="circle"
-        />
-        <p class="right">
-          <%= from_now(review.inserted_at) %>
-          <br />
-          <%= display_date(review.inserted_at) %>
-          <br />
-          <%= display_time(review.inserted_at) %>
-        </p>
-        <h6>
-          <%= review.user.name %>
-        </h6>
-        <h6>
-          <%= review.title %>
-        </h6>
-        <p>
-          <%= review.review %>
-        </p>
-        <p>
-          <%= raw(rating_stars(review.rating)) %>
-        </p>
-        <br />
-        <%= if @conn.assigns[:current_user] do %>
-          <%= if current_user(@conn).id == review.user_id do %>
-            <%= link(gettext("Delete"),
-              to: Routes.review_path(@conn, :delete, @book.id, review.id),
-              method: :delete,
-              data: [confirm: gettext("Are you sure?")],
-              class: "right"
-            ) %>
-            <br />
-          <% end %>
-        <% end %>
-      </li>
+          <a href="#!" class="modal-close waves-effect waves-green btn-flat right">
+            <%= gettext("Close") %>
+          </a>
+        </div>
+      </div>
     <% end %>
-  <% end %>
-</ul>
+  </section>
 
-<%!-- Reviews End --%>
+  <section class="book-reviews">
+    <h3>
+      <%= gettext("Reviews") %>
+    </h3>
+
+    <%= if @book.reviews == [] do %>
+      <p><%= gettext("No reviews yet") %></p>
+    <% end %>
+
+    <ul class="reviews-list">
+      <%= for review <- @book.reviews do %>
+        <%= if review.approved do %>
+          <li class="review-item">
+            <div class="review-item-avatar">
+              <img
+                src={Bookify.Avatar.url({review.user.avatar, review.user}, signed: true)}
+                alt={gettext("%{name} profile picture", name: review.user.name)}
+              />
+            </div>
+            <header class="review-item-title">
+              <h4><%= review.title %></h4>
+              <p class="review-item-author">
+                <span class="review-item-author-by"><%= gettext("by") %></span>
+                <%= review.user.name %>
+              </p>
+              <p class="review-item-rating">
+                <%= raw(rating_stars(review.rating)) %>
+              </p>
+            </header>
+            <article class="review-item-content formatted">
+              <%= raw Earmark.as_html!(review.review) %>
+            </article>
+            <%= if current_user(@conn) && current_user(@conn).id == review.user_id do %>
+              <div class="review-item-actions">
+                <%= link(gettext("Delete"),
+                  to: Routes.review_path(@conn, :delete, @book.id, review.id),
+                  method: :delete,
+                  data: [confirm: gettext("Are you sure?")],
+                  class: "button"
+                ) %>
+              </div>
+            <% end %>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </section>
+</section>

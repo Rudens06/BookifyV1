@@ -1,0 +1,84 @@
+.book {
+  padding-left: 240px;
+}
+
+.book-sticky {
+  margin-left: -240px;
+  float: left;
+  position: sticky;
+  width: 220px;
+}
+
+.book-cover img {
+  border-radius: 2px;
+  box-shadow: 0 0.5px 0.5px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.2);
+  display: block;
+  max-width: 220px;
+}
+
+.book-title h2 {
+  color: var(--paper-8);
+  font-family: var(--title-font);
+  font-size: var(--title-1-font-size);
+  line-height: var(--title-1-leading);
+  margin-bottom: 8px;
+}
+
+.book-author {
+  margin-bottom: 24px;
+}
+
+.book-author-by {
+  color: var(--paper-5);
+  font-family: var(--title-font);
+  font-style: italic;
+}
+
+.book-details {
+  float: left;
+  margin-bottom: 24px;
+  width: 460px;
+}
+
+.book-annotation {
+  font-size: var(--body-font-size);
+  line-height: var(--body-leading);
+  margin-bottom: 24px;
+}
+
+.book-facts {
+  padding-left: 160px;
+}
+
+.book-facts dt {
+  clear: left;
+  color: var(--paper-5);
+  float: left;
+  font-size: var(--caption-1-font-size);
+  letter-spacing: 1px;
+  margin-left: -160px;
+  text-transform: uppercase;
+  width: 140px;
+}
+
+.book-facts dd {
+  color: var(--paper-6);
+  font-size: var(--subhead-font-size);
+  line-height: var(--subhead-font-size);
+  margin-bottom: 8px;
+}
+
+.book-actions {
+  float: right;
+  width: 220px;
+}
+
+.book-reviews {
+  clear: both;
+}
+
+.book-reviews>h3 {
+  font-size: var(--title-2-font-size);
+  line-height: var(--title-2-leading);
+  margin-bottom: 12px;
+}
