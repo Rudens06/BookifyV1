@@ -41,9 +41,11 @@
 </main>
 
 <footer id="footer">
-  <%= gettext("Set language:") %>
-  <ul>
-    <li><%= locale_link("en", "English") %></li>
-    <li><%= locale_link("lv", "Latviski") %></li>
-  </ul>
+  <section class="languages">
+    <h4><%= gettext("Set language:") %></h4>
+    <ul>
+      <li><%= locale_link("en", "English") %></li>
+      <li><%= locale_link("lv", "Latviski") %></li>
+    </ul>
+  </section>
 </footer>

@@ -3,20 +3,4 @@
 @import "base.css";
 
 @import "header.css";
-
-/* This file is for your main application CSS */
-
-.help-block {
-  color: red;
-  text-transform: capitalize;
-  left: 0;
-  top: 47px;
-}
-
-.form-group {
-  margin-bottom: 25px;
-}
-
-select {
-  display: block !important;
-}
+@import "footer.css";

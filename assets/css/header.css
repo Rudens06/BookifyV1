@@ -1,5 +1,6 @@
 #header {
   height: 80px;
+  margin-bottom: 40px;
 }
 
 #header-logo {
@@ -34,7 +35,7 @@
 }
 
 #navigation a {
-  color: var(--blue-6);
+  color: var(--purple-6);
   display: block;
   font-size: var(--footnote-font-size);
   font-weight: 500;
@@ -45,8 +46,8 @@
 }
 
 #navigation a:hover {
-  color: var(--blue-7);
-  border-bottom: 1px var(--blue-7) solid;
+  color: var(--purple-5);
+  border-bottom: 1px var(--purple-5) solid;
   /* cancel the bottom border */
   margin-bottom: -1px;
 }
