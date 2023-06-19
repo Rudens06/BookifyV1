@@ -1,0 +1,62 @@
+:root {
+  /* Color scheme */
+
+  --paper-0: #faf9de;
+  --paper-1: #e5e1b7;
+  --paper-2: #cbc7a1;
+  --paper-3: #b3aa8b;
+  --paper-4: #968f74;
+  --paper-5: #7a745d;
+  --paper-6: #5f5c49;
+  --paper-7: #454436;
+  --paper-8: #2e2e23;
+  --paper-9: #191912;
+
+  --blue-0: #ddf4ff;
+  --blue-1: #b6e3ff;
+  --blue-2: #80ccff;
+  --blue-3: #54aeff;
+  --blue-4: #218bff;
+  --blue-5: #0969da;
+  --blue-6: #0550ae;
+  --blue-7: #033d8b;
+  --blue-8: #0a3069;
+  --blue-9: #002155;
+
+  /* Typography */
+
+  --content-font: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  --title-font: "Georgia", serif;
+
+  --large-title-font-size: 34px;
+  --large-title-leading: 41px;
+  --title-1-font-size: 28px;
+  --title-1-leading: 34px;
+  --title-2-font-size: 22px;
+  --title-2-leading: 28px;
+  --title-3-font-size: 20px;
+  --title-3-leading: 25px;
+  --headline-font-size: 17px;
+  --headline-leading: 22px;
+  --body-font-size: 17px;
+  --body-leading: 22px;
+  --callout-font-size: 16px;
+  --callout-leading: 21px;
+  --subhead-font-size: 15px;
+  --subhead-leading: 20px;
+  --footnote-font-size: 13px;
+  --footnote-leading: 18px;
+  --caption-1-font-size: 12px;
+  --caption-1-leading: 16px;
+  --caption-2-font-size: 11px;
+  --caption-2-leading: 13px;
+
+  /* Base */
+
+  --body-background: var(--paper-0);
+  --body-text-color: var(--paper-7);
+
+  --content-width: 960px;
+
+  /* Components */
+}

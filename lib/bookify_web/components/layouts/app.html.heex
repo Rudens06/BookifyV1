@@ -1,10 +1,7 @@
-<nav class="orange darken-2">
-  <div class="nav wrapper container">
-    <a href="/" class="brand-logo"><%= gettext("Bookify") %></a>
-    <a href="#" class="sidenav-trigger" data-target="mobile-nav">
-      <i class="material-icons">menu</i>
-    </a>
-    <ul class="right hide-on-med-and-down">
+<header id="header">
+  <h1><a href="/" id="header-logo"><%= gettext("Bookify") %></a></h1>
+  <nav id="navigation">
+    <ul class="navigation-global">
       <li>
         <%= link(gettext("Featured"), to: Routes.book_path(@conn, :top_books)) %>
       </li>
@@ -14,9 +11,11 @@
       <li>
         <%= link(gettext("Authors"), to: Routes.author_path(@conn, :index)) %>
       </li>
+    </ul>
+    <ul class="navigation-personal">
       <%= if @conn.assigns[:current_user] do %>
         <li>
-          <%= link(gettext("Lists"), to: Routes.list_path(@conn, :index)) %>
+          <%= link(gettext("My Lists"), to: Routes.list_path(@conn, :index)) %>
         </li>
         <li>
           <%= link(gettext("My Account"), to: Routes.account_path(@conn, :index)) %>
@@ -33,47 +32,15 @@
         </li>
       <% end %>
     </ul>
-  </div>
-</nav>
+  </nav>
+</header>
 
-<ul class="sidenav" id="mobile-nav">
-  <li>
-    <%= link(gettext("Featured"), to: Routes.book_path(@conn, :top_books)) %>
-  </li>
-  <li>
-    <%= link(gettext("Books"), to: Routes.book_path(@conn, :index)) %>
-  </li>
-  <li>
-    <%= link(gettext("Authors"), to: Routes.author_path(@conn, :index)) %>
-  </li>
-  <%= if @conn.assigns[:current_user] do %>
-    <li>
-      <%= link(gettext("Lists"), to: Routes.list_path(@conn, :index)) %>
-    </li>
-    <li>
-      <%= link(gettext("My Account"), to: Routes.account_path(@conn, :index)) %>
-    </li>
-    <li>
-      <%= link(gettext("Sign Out"), to: Routes.auth_path(@conn, :signout), method: :delete) %>
-    </li>
-  <% else %>
-    <li>
-      <%= link(gettext("Sign In"), to: Routes.auth_path(@conn, :new)) %>
-    </li>
-    <li>
-      <%= link(gettext("Register"), to: Routes.user_path(@conn, :new)) %>
-    </li>
-  <% end %>
-</ul>
-
-<main class="px-4 py-20 sm:px-6 lg:px-8">
-  <div class="mx-auto max-w-2xl">
-    <.flash_group flash={@flash} />
-    <%= @inner_content %>
-  </div>
+<main id="main">
+  <.flash_group flash={@flash} />
+  <%= @inner_content %>
 </main>
 
-<footer>
+<footer id="footer">
   <%= gettext("Set language:") %>
   <ul>
     <li><%= locale_link("en", "English") %></li>
