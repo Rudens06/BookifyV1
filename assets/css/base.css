@@ -25,6 +25,19 @@ a:active {
   width: var(--content-width);
 }
 
+.section-title {
+  font-size: var(--title-2-font-size);
+  line-height: var(--title-2-leading);
+  margin-bottom: 12px;
+}
+
+.admin-actions {
+  border-bottom: 1px solid var(--paper-1);
+  border-top: 1px solid var(--paper-1);
+  padding: 12px 0;
+  margin-bottom: 12px;
+}
+
 /* TODO: Fix these */
 #disconnected,
 #flash {

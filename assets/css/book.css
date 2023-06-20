@@ -76,9 +76,3 @@
 .book-reviews {
   clear: both;
 }
-
-.book-reviews>h3 {
-  font-size: var(--title-2-font-size);
-  line-height: var(--title-2-leading);
-  margin-bottom: 12px;
-}

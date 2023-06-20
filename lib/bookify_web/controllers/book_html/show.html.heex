@@ -157,9 +157,7 @@
   </section>
 
   <section class="book-reviews">
-    <h3>
-      <%= gettext("Reviews") %>
-    </h3>
+    <h3 class="section-title"><%= gettext("Reviews") %></h3>
 
     <%= if @book.reviews == [] do %>
       <p><%= gettext("No reviews yet") %></p>

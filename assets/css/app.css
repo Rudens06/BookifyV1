@@ -8,4 +8,6 @@
 @import "formatted.css";
 
 @import "book.css";
+@import "book-search.css";
+@import "books-list.css";
 @import "reviews-list.css";
