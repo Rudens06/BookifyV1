@@ -100,7 +100,7 @@
 
   /* Base */
 
-  --body-background: var(--paper-0);
+  --body-background: var(--gray-0);
   --body-text-color: var(--paper-7);
 
   --content-width: 960px;

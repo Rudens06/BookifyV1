@@ -38,11 +38,12 @@
   font-family: var(--title-font);
   font-size: var(--title-3-font-size);
   line-height: var(--title-3-leading);
-  text-decoration: underline;
+  text-decoration: none;
+  transition: all 150ms
 }
 
 .book-item-title-link:hover {
-  color: var(--paper-7);
+  color: var(--blue-5);
 }
 
 .book-item-author,

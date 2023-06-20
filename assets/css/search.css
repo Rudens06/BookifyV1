@@ -12,7 +12,7 @@
 .search-field {
   background: var(--white);
   border: 1px solid var(--paper-2);
-  border-radius: 20px;
+  border-radius: 5px;
   color: var(--paper-8);
   display: block;
   flex-grow: 1;
@@ -24,7 +24,7 @@
 }
 
 .search-button {
-  background: var(--paper-2);
+  background: var(--gray-2);
   border: 0;
   border-radius: 20px;
   display: block;
@@ -33,11 +33,16 @@
   overflow: hidden;
   position: relative;
   text-indent: -999px;
+  transition: all 150ms;
   width: 40px;
 }
 
 .search-button:active {
   background: var(--paper-3);
+}
+
+.search-button:hover {
+  background: var(--gray-3);
 }
 
 .search-button::after {

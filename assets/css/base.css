@@ -7,7 +7,7 @@ body {
 
 a {
   color: var(--blue-4);
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 a:hover {

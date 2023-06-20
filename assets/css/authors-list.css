@@ -38,7 +38,7 @@
   font-family: var(--title-font);
   font-size: var(--title-3-font-size);
   line-height: var(--title-3-leading);
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .author-item-name-link:hover {

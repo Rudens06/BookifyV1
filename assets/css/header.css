@@ -35,7 +35,7 @@
 }
 
 #navigation a {
-  color: var(--purple-6);
+  color: var(--gray-8);
   display: block;
   font-size: var(--footnote-font-size);
   font-weight: 500;
@@ -43,13 +43,11 @@
   letter-spacing: 1px;
   text-decoration: none;
   text-transform: uppercase;
+  transition: all 150ms;
 }
 
 #navigation a:hover {
-  color: var(--purple-5);
-  border-bottom: 1px var(--purple-5) solid;
-  /* cancel the bottom border */
-  margin-bottom: -1px;
+  color: var(--blue-5);
 }
 
 .navigation-personal::before {
