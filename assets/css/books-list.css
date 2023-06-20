@@ -39,7 +39,7 @@
   font-size: var(--title-3-font-size);
   line-height: var(--title-3-leading);
   text-decoration: none;
-  transition: all 150ms
+  transition: all 150ms;
 }
 
 .book-item-title-link:hover {
