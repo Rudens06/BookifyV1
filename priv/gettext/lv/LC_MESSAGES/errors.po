@@ -21,13 +21,13 @@ msgid "is invalid"
 msgstr "ir nederīgs"
 
 msgid "must be accepted"
-msgstr "jāpieņem"
+msgstr "jāapstiprina"
 
 msgid "has invalid format"
-msgstr "ir ar nederīgu formātu"
+msgstr "nederīgs fromāts"
 
 msgid "has an invalid entry"
-msgstr "ir ar nederīgu ierakstu"
+msgstr "nederīgs ieraksts"
 
 msgid "is reserved"
 msgstr "ir rezervēts"
