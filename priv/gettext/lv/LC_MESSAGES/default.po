@@ -126,7 +126,7 @@ msgstr "Rediģēt grāmatu"
 #: lib/bookify_web/components/layouts/app.html.heex:41
 #, elixir-autogen, elixir-format
 msgid "Featured"
-msgstr "Atlasītās"
+msgstr "Tops"
 
 #: lib/bookify_web/components/layouts/app.html.heex:19
 #: lib/bookify_web/components/layouts/app.html.heex:51
@@ -568,7 +568,7 @@ msgstr "Izlasīto grāmatu saraksts"
 #: lib/bookify_web/controllers/list_html/index.html.heex:26
 #, elixir-autogen, elixir-format
 msgid "Reading"
-msgstr "Lasīšana"
+msgstr "Lasu"
 
 #: lib/bookify_web/helpers/list_helpers.ex:19
 #, elixir-autogen, elixir-format
@@ -593,7 +593,7 @@ msgstr "Noņemt no izlasītajiem"
 #: lib/bookify_web/controllers/book_html/show.html.heex:42
 #, elixir-autogen, elixir-format
 msgid "Remove from Reading"
-msgstr "Noņemt no lasīšanas"
+msgstr "Noņemt no lasīšanas saraksta"
 
 #: lib/bookify_web/controllers/book_html/show.html.heex:26
 #, elixir-autogen, elixir-format
@@ -747,7 +747,7 @@ msgstr "Jums ir jāpiesakās"
 #: lib/bookify_web/controllers/auth_controller.ex:27
 #, elixir-autogen, elixir-format, fuzzy
 msgid "Signed in successfully!"
-msgstr "Ierakstīšanās veiksmīga!"
+msgstr "Pierakstīšanās veiksmīga!"
 
 #: lib/bookify_web/components/core_components.ex:189
 #, elixir-autogen, elixir-format
