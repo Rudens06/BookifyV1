@@ -1,0 +1,7 @@
+.empty {
+  color: var(--paper-3);
+  font-size: var(--title-3-font-size);
+  line-height: var(--title-3-leading);
+  padding: 24px 0;
+  text-align: center;
+}

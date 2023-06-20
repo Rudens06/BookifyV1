@@ -26,6 +26,7 @@ a:active {
 }
 
 .section-title {
+  color: var(--paper-8);
   font-size: var(--title-2-font-size);
   line-height: var(--title-2-leading);
   margin-bottom: 12px;

@@ -1,61 +1,176 @@
-<h4><%= gettext("My Lists") %></h4>
+<section>
+  <h2 class="section-title"><%= gettext("My Lists") %></h2>
 
-<%= for list <- @lists do %>
-  <%= if list.type == want_to_read_list_type() do %>
-    <ul class="collection with-header">
-      <li class="collection-header"><%= gettext("Want To Read") %></li>
-      <%= for book <- list.books do %>
-        <li class="collection-item">
-          <span>
-            <%= link(book.title, to: Routes.book_path(@conn, :show, Bookify.Book.slug_with_id(book)), class: "title") %>
-          </span>
-          <div class="right">
-            <%= link(gettext("Delete"),
-              to:
-                Routes.list_path(@conn, :remove_book_from_list, want_to_read_list_type(), book.id),
-              data: [confirm: gettext("Are you sure?")]
-            ) %>
+  <%= for list <- @lists do %>
+    <%= if list.type == want_to_read_list_type() do %>
+      <section class="list">
+        <h3 class="list-title"><%= gettext("Want To Read") %></h3>
+        <%= if Enum.empty?(list.books) do %>
+          <div class="empty">
+            <%= gettext("This list is empty") %>
           </div>
-        </li>
-      <% end %>
-    </ul>
-  <% end %>
+        <% else %>
+          <ul class="books-list">
+            <%= for book <- list.books do %>
+              <li class="book-item">
+                <div class="book-item-cover">
+                  <%= link(to: Routes.book_path(@conn, :show, Bookify.Book.slug_with_id(book))) do %>
+                    <img
+                      src={book.cover_pic_url}
+                      alt={gettext("%{title} cover picture", title: book.title)}
+                    />
+                  <% end %>
+                </div>
+                <header class="book-item-title">
+                  <h4>
+                    <%= link(book.title,
+                      to: Routes.book_path(@conn, :show, Bookify.Book.slug_with_id(book)),
+                      class: "book-item-title-link"
+                    ) %>
+                  </h4>
+                  <p class="book-item-author">
+                    <span class="book-item-author-by"><%= gettext("by") %></span>
+                    <%= book.author.name %>
+                  </p>
+                </header>
+                <%= if book.avg_rating do %>
+                  <p class="book-item-rating">
+                    <%= raw(rating_stars(book.avg_rating)) %>
+                    <%= book.avg_rating %>
+                  </p>
+                <% end %>
+                <div class="book-item-actions">
+                  <%= link(gettext("Remove from List"),
+                    to:
+                      Routes.list_path(
+                        @conn,
+                        :remove_book_from_list,
+                        want_to_read_list_type(),
+                        book.id
+                      ),
+                    data: [confirm: gettext("Are you sure?")],
+                    class: "button"
+                  ) %>
+                </div>
+              </li>
+            <% end %>
+          </ul>
+        <% end %>
+      </section>
+    <% end %>
 
-  <%= if list.type == reading_list_type() do %>
-    <ul class="collection with-header">
-      <li class="collection-header"><%= gettext("Reading") %></li>
-      <%= for book <- list.books do %>
-        <li class="collection-item">
-          <span>
-            <%= link(book.title, to: Routes.book_path(@conn, :show, Bookify.Book.slug_with_id(book)), class: "title") %>
-          </span>
-          <div class="right">
-            <%= link(gettext("Delete"),
-              to: Routes.list_path(@conn, :remove_book_from_list, reading_list_type(), book.id),
-              data: [confirm: gettext("Are you sure?")]
-            ) %>
+    <%= if list.type == reading_list_type() do %>
+      <section class="list">
+        <h3 class="list-title"><%= gettext("Reading") %></h3>
+        <%= if Enum.empty?(list.books) do %>
+          <div class="empty">
+            <%= gettext("This list is empty") %>
           </div>
-        </li>
-      <% end %>
-    </ul>
-  <% end %>
+        <% else %>
+          <ul class="books-list">
+            <%= for book <- list.books do %>
+              <li class="book-item">
+                <div class="book-item-cover">
+                  <%= link(to: Routes.book_path(@conn, :show, Bookify.Book.slug_with_id(book))) do %>
+                    <img
+                      src={book.cover_pic_url}
+                      alt={gettext("%{title} cover picture", title: book.title)}
+                    />
+                  <% end %>
+                </div>
+                <header class="book-item-title">
+                  <h4>
+                    <%= link(book.title,
+                      to: Routes.book_path(@conn, :show, Bookify.Book.slug_with_id(book)),
+                      class: "book-item-title-link"
+                    ) %>
+                  </h4>
+                  <p class="book-item-author">
+                    <span class="book-item-author-by"><%= gettext("by") %></span>
+                    <%= book.author.name %>
+                  </p>
+                </header>
+                <%= if book.avg_rating do %>
+                  <p class="book-item-rating">
+                    <%= raw(rating_stars(book.avg_rating)) %>
+                    <%= book.avg_rating %>
+                  </p>
+                <% end %>
+                <div class="book-item-actions">
+                  <%= link(gettext("Remove from List"),
+                    to:
+                      Routes.list_path(
+                        @conn,
+                        :remove_book_from_list,
+                        reading_list_type(),
+                        book.id
+                      ),
+                    data: [confirm: gettext("Are you sure?")],
+                    class: "button"
+                  ) %>
+                </div>
+              </li>
+            <% end %>
+          </ul>
+        <% end %>
+      </section>
+    <% end %>
 
-  <%= if list.type == has_read_list_type() do %>
-    <ul class="collection with-header">
-      <li class="collection-header"><%= gettext("Have Read") %></li>
-      <%= for book <- list.books do %>
-        <li class="collection-item">
-          <span>
-            <%= link(book.title, to: Routes.book_path(@conn, :show, Bookify.Book.slug_with_id(book)), class: "title") %>
-          </span>
-          <div class="right">
-            <%= link(gettext("Delete"),
-              to: Routes.list_path(@conn, :remove_book_from_list, has_read_list_type(), book.id),
-              data: [confirm: gettext("Are you sure?")]
-            ) %>
+    <%= if list.type == has_read_list_type() do %>
+      <section class="list">
+        <h3 class="list-title"><%= gettext("Have Read") %></h3>
+        <%= if Enum.empty?(list.books) do %>
+          <div class="empty">
+            <%= gettext("This list is empty") %>
           </div>
-        </li>
-      <% end %>
-    </ul>
+        <% else %>
+          <ul class="books-list">
+            <%= for book <- list.books do %>
+              <li class="book-item">
+                <div class="book-item-cover">
+                  <%= link(to: Routes.book_path(@conn, :show, Bookify.Book.slug_with_id(book))) do %>
+                    <img
+                      src={book.cover_pic_url}
+                      alt={gettext("%{title} cover picture", title: book.title)}
+                    />
+                  <% end %>
+                </div>
+                <header class="book-item-title">
+                  <h4>
+                    <%= link(book.title,
+                      to: Routes.book_path(@conn, :show, Bookify.Book.slug_with_id(book)),
+                      class: "book-item-title-link"
+                    ) %>
+                  </h4>
+                  <p class="book-item-author">
+                    <span class="book-item-author-by"><%= gettext("by") %></span>
+                    <%= book.author.name %>
+                  </p>
+                </header>
+                <%= if book.avg_rating do %>
+                  <p class="book-item-rating">
+                    <%= raw(rating_stars(book.avg_rating)) %>
+                    <%= book.avg_rating %>
+                  </p>
+                <% end %>
+                <div class="book-item-actions">
+                  <%= link(gettext("Remove from List"),
+                    to:
+                      Routes.list_path(
+                        @conn,
+                        :remove_book_from_list,
+                        has_read_list_type(),
+                        book.id
+                      ),
+                    data: [confirm: gettext("Are you sure?")],
+                    class: "button"
+                  ) %>
+                </div>
+              </li>
+            <% end %>
+          </ul>
+        <% end %>
+      </section>
+    <% end %>
   <% end %>
-<% end %>
+</section>

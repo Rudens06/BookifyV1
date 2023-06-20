@@ -1,6 +1,6 @@
 <section class="search">
   <%= form_for @conn, Routes.author_path(@conn, :index), [method: :get, class: "search-form"], fn f -> %>
-    <%= search_input(f, :query, placeholder: gettext("Search"), class: "search-field") %>
+    <%= search_input(f, :query, placeholder: gettext("Find an Author"), class: "search-field") %>
     <%= submit("Search", class: "search-button") %>
   <% end %>
 </section>
