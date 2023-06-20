@@ -16,7 +16,7 @@ msgstr ""
 #: lib/bookify_web/controllers/book_html/index.html.heex:15
 #, elixir-autogen, elixir-format
 msgid "%{title} cover picture"
-msgstr "Aplūkojuma bilde: %{title}"
+msgstr "Vāka bilde: %{title}"
 
 #: lib/bookify_web/components/core_components.ex:490
 #, elixir-autogen, elixir-format
@@ -64,7 +64,7 @@ msgstr "Autori"
 #: lib/bookify_web/controllers/book_controller.ex:60
 #, elixir-autogen, elixir-format
 msgid "Book Created"
-msgstr "Grāmata izveidota"
+msgstr "Grāmata pievienota"
 
 #: lib/bookify_web/controllers/book_controller.ex:94
 #, elixir-autogen, elixir-format
@@ -223,7 +223,7 @@ msgstr "aizvērt"
 #: lib/bookify_web/helpers/time_helpers.ex:49
 #, elixir-autogen, elixir-format
 msgid "%{days} days ago"
-msgstr "prims %{days} dienām"
+msgstr "pirms %{days} dienām"
 
 #: lib/bookify_web/helpers/time_helpers.ex:45
 #, elixir-autogen, elixir-format
@@ -255,12 +255,12 @@ msgstr "pirms %{seconds} sekundēm"
 #: lib/bookify_web/controllers/author_controller.ex:36
 #, elixir-autogen, elixir-format, fuzzy
 msgid "Add Author"
-msgstr "Autori"
+msgstr "Pievienot Autoru"
 
 #: lib/bookify_web/controllers/author_html/index.html.heex:38
 #, elixir-autogen, elixir-format, fuzzy
 msgid "Add author"
-msgstr "Autori"
+msgstr "Pievienot Autoru"
 
 #: lib/bookify_web/controllers/book_html/edit.html.heex:37
 #: lib/bookify_web/controllers/book_html/new.html.heex:37
@@ -277,25 +277,25 @@ msgstr "Apstiprināt"
 #: lib/bookify_web/controllers/user_html/new.html.heex:19
 #, elixir-autogen, elixir-format
 msgid "At least 8 characters long"
-msgstr "Vismaz 8 rakstzīmes garš"
+msgstr "Vismaz 8 rakstzīmes"
 
 #: lib/bookify_web/controllers/account_html/edit_password.html.heex:20
 #: lib/bookify_web/controllers/user_html/new.html.heex:21
 #, elixir-autogen, elixir-format
 msgid "At least one UPPER case character"
-msgstr "Vismaz viena LIELA burtzīme"
+msgstr "Vismaz viens lielais burts"
 
 #: lib/bookify_web/controllers/account_html/edit_password.html.heex:19
 #: lib/bookify_web/controllers/user_html/new.html.heex:20
 #, elixir-autogen, elixir-format
 msgid "At least one lower case character"
-msgstr "Vismaz viena maza burtzīme"
+msgstr "Vismaz viens mazais burts"
 
 #: lib/bookify_web/controllers/account_html/edit_password.html.heex:21
 #: lib/bookify_web/controllers/user_html/new.html.heex:22
 #, elixir-autogen, elixir-format
 msgid "At least one number"
-msgstr "Vismaz viens skaitlis"
+msgstr "Vismaz viens cipars"
 
 #: lib/bookify_web/controllers/account_html/edit_password.html.heex:23
 #: lib/bookify_web/controllers/user_html/new.html.heex:24
@@ -306,7 +306,7 @@ msgstr "Vismaz viens simbols %{symbols}"
 #: lib/bookify_web/controllers/author_controller.ex:49
 #, elixir-autogen, elixir-format
 msgid "Author Created"
-msgstr "Autors Izveidots"
+msgstr "Autors Pievienots"
 
 #: lib/bookify_web/controllers/author_controller.ex:75
 #, elixir-autogen, elixir-format, fuzzy
@@ -446,7 +446,7 @@ msgstr "Priekš: %{title}"
 #: lib/bookify_web/controllers/book_html/edit.html.heex:26
 #, elixir-autogen, elixir-format
 msgid "Format: Detective, Drama, Crime, …"
-msgstr "Formāts: Detektīvs, Drāma, Noziegums, …"
+msgstr "Formāts: Detektīvs, Drāma, Kriminālromāns, …"
 
 #: lib/bookify_web/controllers/book_html/edit.html.heex:23
 #: lib/bookify_web/controllers/book_html/new.html.heex:23
@@ -463,7 +463,7 @@ msgstr "Žanri:"
 #: lib/bookify_web/controllers/list_html/index.html.heex:45
 #, elixir-autogen, elixir-format
 msgid "Have Read"
-msgstr "Lasīts"
+msgstr "Izlasīts"
 
 #: lib/bookify_web/controllers/account_html/index.html.heex:2
 #: lib/bookify_web/controllers/review_html/index.html.heex:1
@@ -508,7 +508,7 @@ msgstr "Nav atļauts"
 #: lib/bookify_web/controllers/account_html/edit_profile.html.heex:30
 #, elixir-autogen, elixir-format
 msgid "Oops, something went wrong! Please check the errors below."
-msgstr "Atvainojiet, radās kļūda! Lūdzu, pārbaudiet zemāk esošās kļūdas."
+msgstr "Radās kļūda! Lūdzu, pārbaudiet zemāk esošās kļūdas."
 
 #: lib/bookify_web/controllers/book_html/edit.html.heex:19
 #: lib/bookify_web/controllers/book_html/new.html.heex:19
@@ -542,7 +542,7 @@ msgstr "Parole veiksmīgi atjaunināta!"
 #: lib/bookify_web/controllers/book_html/show.html.heex:101
 #, elixir-autogen, elixir-format
 msgid "Post Review"
-msgstr "Iesūtīt atsauksmi"
+msgstr "Pievienot atsauksmi"
 
 #: lib/bookify_web/controllers/account_controller.ex:50
 #, elixir-autogen, elixir-format
@@ -578,7 +578,7 @@ msgstr "Lasīšanas saraksts"
 #: lib/bookify_web/controllers/auth_html/new.html.heex:16
 #, elixir-autogen, elixir-format, fuzzy
 msgid "Register an Account"
-msgstr "Reģistrēt kontu"
+msgstr "Reģistrēties"
 
 #: lib/bookify_web/controllers/admin_html/show.html.heex:11
 #, elixir-autogen, elixir-format, fuzzy
@@ -588,7 +588,7 @@ msgstr "Reģistrēts: %{date}"
 #: lib/bookify_web/controllers/book_html/show.html.heex:58
 #, elixir-autogen, elixir-format
 msgid "Remove from Have Read"
-msgstr "Noņemt no izlasītajiem"
+msgstr "Noņemt no izlasītajām"
 
 #: lib/bookify_web/controllers/book_html/show.html.heex:42
 #, elixir-autogen, elixir-format
@@ -674,7 +674,7 @@ msgstr "Nosaukums"
 #: lib/bookify_web/controllers/book_html/top_books.html.heex:1
 #, elixir-autogen, elixir-format
 msgid "Top 10 books"
-msgstr "10 labākās grāmatas"
+msgstr "Top 10 grāmatas"
 
 #: lib/bookify_web/controllers/account_html/edit_profile.html.heex:40
 #, elixir-autogen, elixir-format
@@ -716,7 +716,7 @@ msgstr "Vikipēdijas URL"
 #: lib/bookify_web/controllers/book_html/show.html.heex:115
 #, elixir-autogen, elixir-format
 msgid "Write a Review"
-msgstr "Rakstīt atsauksmi"
+msgstr "Pievienot atsauksmi"
 
 #: lib/bookify_web/controllers/account_controller.ex:81
 #, elixir-autogen, elixir-format
@@ -737,7 +737,7 @@ msgstr "Gads:"
 #: lib/bookify_web/controllers/book_html/show.html.heex:121
 #, elixir-autogen, elixir-format
 msgid "You have to be signed in to write a review"
-msgstr "Lai rakstītu atsauksmi, jums ir jāpiesakās"
+msgstr "Lai pievienotu atsauksmi, jums ir jāpiesakās"
 
 #: lib/bookify_web/controllers/plugs/require_auth.ex:16
 #, elixir-autogen, elixir-format
