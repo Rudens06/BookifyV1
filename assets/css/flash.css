@@ -1,0 +1,79 @@
+.flash {
+  border: 1px solid var(--paper-1);
+  border-radius: 10px;
+  padding: 10px 12px 10px 40px;
+  margin: 0 auto 24px;
+  position: relative;
+  width: 460px;
+}
+
+.flash-icon {
+  left: 8px;
+  position: absolute;
+  top: 8px;
+}
+
+.flash-title {
+  font-size: var(--body-font-size);
+  line-height: var(--body-leading);
+  margin-bottom: 8px;
+}
+
+.flash-close {
+  align-items: center;
+  background: rgba(0, 0, 0, 0.1);
+  border: 0;
+  border-radius: 20px;
+  color: var(--white);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  height: 24px;
+  padding: 0;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  width: 24px;
+}
+
+.flash-close:hover {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.flash-close:active {
+  background: rgba(0, 0, 0, 0.20);
+}
+
+.flash-close .icon {
+  color: rgba(0, 0, 0, 0.4);
+  height: 16px;
+  width: 16px;
+}
+
+.flash-info {
+  background: var(--green-0);
+  border: 1px solid var(--green-1);
+}
+
+.flash-info .flash-title,
+.flash-info .flash-icon {
+  color: var(--green-7);
+}
+
+.flash-info .flash-message {
+  color: var(--green-6);
+}
+
+.flash-error {
+  background: var(--red-0);
+  border: 1px solid var(--red-1);
+}
+
+.flash-error .flash-title,
+.flash-error .flash-icon {
+  color: var(--red-7);
+}
+
+.flash-error .flash-message {
+  color: var(--red-6);
+}

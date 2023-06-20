@@ -5,13 +5,17 @@
 @import "button.css";
 @import "header.css";
 @import "footer.css";
+@import "form.css";
 @import "formatted.css";
 
+@import "auth.css";
 @import "author.css";
 @import "authors-list.css";
 @import "book.css";
 @import "books-list.css";
+@import "flash.css";
 @import "empty.css";
+@import "icon.css";
 @import "list.css";
 @import "reviews-list.css";
 @import "search.css";
