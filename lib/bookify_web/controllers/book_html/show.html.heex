@@ -106,44 +106,42 @@
       <%!-- WRITE REVIEW MODAL --%>
 
       <dialog id="new-review-modal" class="modal">
-        <div class="modal-content">
-          <header class="modal-title">
-            <h4><%= gettext("Review for %{title}", title: @book.title) %></h4>
-            <button
-              id="new-review-modal-close"
-              type="button"
-              class="modal-close"
-              aria-label={gettext("close")}
-            >
-              <Heroicons.x_mark solid class="icon icon-close" />
-            </button>
-          </header>
-          <section class="new-review">
-            <%= form_for @review_changeset, Routes.review_path(@conn, :create, @book.id), [class: "form review-form"], fn f -> %>
-              <div class="form-row">
-                <%= label(f, :title, gettext("Title")) %>
-                <%= text_input(f, :title, autofocus: true) %>
-                <%= error_tag(f, :title) %>
+        <header class="modal-title">
+          <h4><%= gettext("Review for %{title}", title: @book.title) %></h4>
+          <button
+            id="new-review-modal-close"
+            type="button"
+            class="modal-close"
+            aria-label={gettext("close")}
+          >
+            <Heroicons.x_mark solid class="icon icon-close" />
+          </button>
+        </header>
+        <section class="new-review">
+          <%= form_for @review_changeset, Routes.review_path(@conn, :create, @book.id), [class: "form review-form"], fn f -> %>
+            <div class="form-row">
+              <%= label(f, :title, gettext("Title")) %>
+              <%= text_input(f, :title, autofocus: true) %>
+              <%= error_tag(f, :title) %>
+            </div>
+            <div class="form-row">
+              <%= label(f, :review, gettext("Review")) %>
+              <%= textarea(f, :review) %>
+              <%= error_tag(f, :review) %>
+            </div>
+            <div class="form-row">
+              <%= label(f, :rating, gettext("Rating")) %>
+              <%= number_input(f, :rating, step: 0.1) %>
+              <%= error_tag(f, :rating) %>
+              <div class="form-field-notes">
+                <%= gettext("Rating format: 1 - 5") %>
               </div>
-              <div class="form-row">
-                <%= label(f, :review, gettext("Review")) %>
-                <%= textarea(f, :review) %>
-                <%= error_tag(f, :review) %>
-              </div>
-              <div class="form-row">
-                <%= label(f, :rating, gettext("Rating")) %>
-                <%= number_input(f, :rating, step: 0.1) %>
-                <%= error_tag(f, :rating) %>
-                <div class="form-field-notes">
-                  <%= gettext("Rating format: 1 - 5") %>
-                </div>
-              </div>
-              <div class="form-actions">
-                <%= submit(gettext("Post Review"), class: "button") %>
-              </div>
-            <% end %>
-          </section>
-        </div>
+            </div>
+            <div class="form-actions">
+              <%= submit(gettext("Post Review"), class: "button") %>
+            </div>
+          <% end %>
+        </section>
       </dialog>
     <% else %>
       <%!-- NOT LOGGED IN MODAL FOR LOGIN --%>

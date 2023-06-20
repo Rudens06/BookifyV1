@@ -1,38 +1,33 @@
-<nav class="blue darken-2">
-  <div class="nav wrapper container">
-    <a href="/admin" class="brand-logo"><%= gettext("Admin Panel") %></a>
-    <a href="#" class="sidenav-trigger" data-target="mobile-nav">
-      <i class="material-icons">menu</i>
-    </a>
-    <ul class="right hide-on-med-and-down">
+<header id="header">
+  <h1><a href="/admin" id="header-logo"><%= gettext("Adminify") %></a></h1>
+  <nav id="navigation">
+    <ul class="navigation-global">
       <li>
         <%= link(gettext("Reviews"), to: Routes.admin_path(@conn, :reviews)) %>
       </li>
       <li>
         <%= link(gettext("Users"), to: Routes.admin_path(@conn, :users)) %>
       </li>
+    </ul>
+    <ul class="navigation-personal">
       <li>
         <%= link(gettext("Sign Out"), to: Routes.auth_path(@conn, :signout), method: :delete) %>
       </li>
     </ul>
-  </div>
-</nav>
+  </nav>
+</header>
 
-<ul class="sidenav" id="mobile-nav">
-  <li>
-    <%= link(gettext("Reviews"), to: Routes.admin_path(@conn, :reviews)) %>
-  </li>
-  <li>
-    <%= link(gettext("Users"), to: Routes.admin_path(@conn, :users)) %>
-  </li>
-  <li>
-    <%= link(gettext("Sign Out"), to: Routes.auth_path(@conn, :signout), method: :delete) %>
-  </li>
-</ul>
-
-<main class="px-4 py-20 sm:px-6 lg:px-8">
-  <div class="mx-auto max-w-2xl">
-    <.flash_group flash={@flash} />
-    <%= @inner_content %>
-  </div>
+<main id="main">
+  <.flash_group flash={@flash} />
+  <%= @inner_content %>
 </main>
+
+<footer id="footer">
+  <section class="languages">
+    <h4><%= gettext("Set language:") %></h4>
+    <ul>
+      <li><%= locale_link("en", "English") %></li>
+      <li><%= locale_link("lv", "Latviski") %></li>
+    </ul>
+  </section>
+</footer>

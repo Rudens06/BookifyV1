@@ -1,0 +1,30 @@
+.user-name {
+  color: var(--paper-8);
+  font-family: var(--title-font);
+  font-size: var(--title-1-font-size);
+  line-height: var(--title-1-leading);
+  margin-bottom: 16px;
+}
+
+.user-facts {
+  padding-left: 160px;
+  margin-bottom: 24px;
+}
+
+.user-facts dt {
+  clear: left;
+  color: var(--paper-5);
+  float: left;
+  font-size: var(--caption-1-font-size);
+  letter-spacing: 1px;
+  margin-left: -160px;
+  text-transform: uppercase;
+  width: 140px;
+}
+
+.user-facts dd {
+  color: var(--paper-6);
+  font-size: var(--subhead-font-size);
+  line-height: var(--subhead-font-size);
+  margin-bottom: 8px;
+}

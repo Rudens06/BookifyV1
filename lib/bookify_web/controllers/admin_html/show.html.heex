@@ -1,62 +1,64 @@
-<h4>
-  <%= gettext("User: %{name}", name: @user.name) %>
-</h4>
+<section class="user">
+  <h2 class="user-name"><%= @user.name %></h2>
 
-<h5>
-  <%= gettext("Stats") %>
-</h5>
+  <dl class="user-facts">
+    <dt><%= gettext("Registered:") %></dt>
+    <dd>
+      <%= display_date(@user.inserted_at) %>
+      <%= display_time(@user.inserted_at) %>
+      <%= from_now(@user.inserted_at) %>
+    </dd>
+    <dt><%= gettext("Last log-in:") %></dt>
+    <dd>
+      <%= display_date(@user.last_login) %>
+      <%= display_time(@user.last_login) %>
+      <%= from_now(@user.last_login) %>
+    </dd>
+  </dl>
 
-<ul class="collection">
-  <li class="collection-item">
-    <%= gettext("Registered: %{date}", date: display_date(@user.inserted_at)) %>
-    <%= display_time(@user.inserted_at) %>
-    <%= from_now(@user.inserted_at) %>
-  </li>
-  <li class="collection-item">
-    <%= gettext("Last log-in: %{date}", date: display_date(@user.last_login)) %>
-    <%= display_time(@user.last_login) %>
-    <%= from_now(@user.last_login) %>
-  </li>
-</ul>
-
-<h5>
-  <%= gettext("Reviews") %>
-</h5>
-<ul class="collection">
-  <%= for review <- @user.reviews do %>
-    <li class="collection-item avatar">
-      <img
-        src={review.book.cover_pic_url}
-        alt={gettext("%{title} cover picture", title: review.book.title)}
-        class="circle"
-      />
-      <h6>
-        <%= link(gettext("For: %{title}", review.book.title),
-          to: Routes.book_path(@conn, :show, Bookify.Book.slug_with_id(review.book))
-        ) %>
-      </h6>
-      <p class="right">
-        <%= display_date(review.inserted_at) %>
-        <br />
-        <%= display_time(review.inserted_at) %>
-      </p>
-      <h6>
-        <%= review.title %>
-      </h6>
-      <p>
-        <%= review.review %>
-      </p>
-      <p>
-        <%= raw(rating_stars(review.rating)) %>
-      </p>
-      <br />
-      <%= link(gettext("Delete"),
-        to: Routes.review_path(@conn, :delete, review.id),
-        method: :delete,
-        data: [confirm: gettext("Are you sure?")],
-        class: "right"
-      ) %>
-      <br />
-    </li>
-  <% end %>
-</ul>
+  <section>
+    <h3 class="section-title"><%= gettext("Reviews") %></h3>
+    <ul class="reviews-list">
+      <%= for review <- @user.reviews do %>
+        <li class="review-item">
+          <div class="review-item-avatar">
+            <img
+              src={Bookify.Avatar.url({@user.avatar, review.user}, signed: true)}
+              alt={gettext("%{name} profile picture", name: @user.name)}
+            />
+          </div>
+          <header class="review-item-title">
+            <h4><%= review.title %></h4>
+            <p class="review-item-author">
+              <span class="review-item-author-by"><%= gettext("by") %></span>
+              <%= @user.name %>
+            </p>
+            <p class="review-item-rating">
+              <%= raw(rating_stars(review.rating)) %>
+            </p>
+          </header>
+          <article class="review-item-content formatted">
+            <%= raw(Earmark.as_html!(review.review)) %>
+          </article>
+          <div class="review-item-actions">
+            <%= link(gettext("Delete"),
+              to: Routes.review_path(@conn, :delete, review.id),
+              method: :delete,
+              data: [confirm: gettext("Are you sure?")],
+              class: "button"
+            ) %>
+            <br />
+            <%= unless review.approved do %>
+              <br />
+              <%= link(gettext("Approve"),
+                to: Routes.admin_path(@conn, :approve_review, review.id),
+                class: "button"
+              ) %>
+              <br />
+            <% end %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </section>
+</section>
