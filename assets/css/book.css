@@ -104,12 +104,30 @@
   padding: 12px;
 }
 
+button.book-actions-button {
+  color: var(--purple-5);
+  cursor: pointer;
+  display: block;
+  background: transparent;
+  border: 0;
+  box-sizing: border-box;
+  font-size: var(--subhead-font-size);
+  line-height: var(--subhead-leading);
+  margin: 0;
+  width: 100%;
+}
+
 .book-actions-button:hover {
   background: var(--purple-0);
   color: var(--purple-6);
 }
 
-.book-actions-list>li:last-child a:hover {
+.book-actions-list>li:first-child .book-actions-button:hover {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.book-actions-list>li:last-child .book-actions-button:hover {
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
 }

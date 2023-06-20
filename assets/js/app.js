@@ -38,3 +38,20 @@ liveSocket.connect()
 // >> liveSocket.enableLatencySim(1000)  // enabled for duration of browser session
 // >> liveSocket.disableLatencySim()
 window.liveSocket = liveSocket
+
+// Snippet for opening new review modal
+document.addEventListener("DOMContentLoaded", e => {
+  let reviewButton = document.getElementById("book-actions-review-button")
+  let reviewModal = document.getElementById("new-review-modal")
+  let closeButton = document.getElementById("new-review-modal-close")
+  if (reviewButton && reviewModal) {
+    reviewButton.addEventListener("click", e => {
+      reviewModal.showModal()
+    })
+  }
+  if (closeButton && reviewModal) {
+    closeButton.addEventListener("click", e => {
+      reviewModal.close()
+    })
+  }
+})

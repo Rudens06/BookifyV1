@@ -12,7 +12,9 @@
 
 .form-row input[type=text],
 .form-row input[type=email],
-.form-row input[type=password] {
+.form-row input[type=password],
+.form-row input[type=number],
+.form-row textarea {
   background: var(--white);
   border: 1px solid var(--paper-2);
   border-radius: 2px;
