@@ -1,15 +1,15 @@
-.book-search {
+.search {
   width: 460px;
   margin: 0 auto 24px;
 }
 
-.book-search-form {
+.search-form {
   display: flex;
   flex-direction: row;
   gap: 8px;
 }
 
-.book-search-field {
+.search-field {
   background: var(--white);
   border: 1px solid var(--paper-2);
   border-radius: 20px;
@@ -23,7 +23,7 @@
   margin: 0;
 }
 
-.book-search-button {
+.search-button {
   background: var(--paper-2);
   border: 0;
   border-radius: 20px;
@@ -36,11 +36,11 @@
   width: 40px;
 }
 
-.book-search-button:active {
+.search-button:active {
   background: var(--paper-3);
 }
 
-.book-search-button::after {
+.search-button::after {
   content: "🔎";
   font-size: var(--title-2-font-size);
   left: 0;

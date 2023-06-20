@@ -7,7 +7,9 @@
 @import "footer.css";
 @import "formatted.css";
 
+@import "author.css";
+@import "authors-list.css";
 @import "book.css";
-@import "book-search.css";
 @import "books-list.css";
 @import "reviews-list.css";
+@import "search.css";

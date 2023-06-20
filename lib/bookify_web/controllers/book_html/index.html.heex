@@ -1,9 +1,9 @@
 <link rel="alternate" type="application/rss+xml" title={gettext("RSS for books")} href={~p"/rss"} />
 
-<section class="book-search">
-  <%= form_for @conn, Routes.book_path(@conn, :index), [method: :get, class: "book-search-form"], fn f -> %>
-    <%= search_input(f, :query, placeholder: gettext("Find a Book"), class: "book-search-field") %>
-    <%= submit(gettext("Search"), class: "book-search-button") %>
+<section class="search">
+  <%= form_for @conn, Routes.book_path(@conn, :index), [method: :get, class: "search-form"], fn f -> %>
+    <%= search_input(f, :query, placeholder: gettext("Find a Book"), class: "search-field") %>
+    <%= submit(gettext("Search"), class: "search-button") %>
   <% end %>
 </section>
 
@@ -23,7 +23,10 @@
         </div>
         <header class="book-item-title">
           <h4>
-            <%= link(book.title, to: Routes.book_path(@conn, :show, Bookify.Book.slug_with_id(book)), class: "book-item-title-link") %>
+            <%= link(book.title,
+              to: Routes.book_path(@conn, :show, Bookify.Book.slug_with_id(book)),
+              class: "book-item-title-link"
+            ) %>
           </h4>
           <p class="book-item-author">
             <span class="book-item-author-by"><%= gettext("by") %></span>
@@ -43,9 +46,10 @@
               to: Routes.book_path(@conn, :delete, book.id),
               method: :delete,
               data: [confirm: gettext("Are you sure?")],
-              class: "button") %>
+              class: "button"
+            ) %>
           </div>
-        <%= end %>
+        <% end %>
       </li>
     <% end %>
   </ul>
