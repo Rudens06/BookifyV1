@@ -9,13 +9,15 @@
     <h2><%= @book.title %></h2>
     <p class="book-author">
       <span class="book-author-by"><%= gettext("by") %></span>
-      <%= link(@book.author.name, to: Routes.author_path(@conn, :show, Bookify.Author.slug_with_id(@book.author))) %>
+      <%= link(@book.author.name,
+        to: Routes.author_path(@conn, :show, Bookify.Author.slug_with_id(@book.author))
+      ) %>
     </p>
   </header>
 
   <section class="book-details">
     <article class="book-annotation formatted">
-      <%= raw Earmark.as_html!(@book.anotation) %>
+      <%= raw(Earmark.as_html!(@book.anotation)) %>
     </article>
     <dl class="book-facts">
       <dt><%= gettext("Year:") %></dt>
@@ -102,7 +104,10 @@
                 <%= error_tag(f, :title) %>
               </div>
               <div class="input-field">
-                <%= text_input(f, :review, placeholder: gettext("Review"), class: "white gray-text") %>
+                <%= text_input(f, :review,
+                  placeholder: gettext("Review"),
+                  class: "white gray-text"
+                ) %>
                 <%= error_tag(f, :review) %>
               </div>
               <div class="input-field">
@@ -129,76 +134,70 @@
     <% else %>
       <%!-- NOT LOGGED IN MODAL FOR LOGIN --%>
       <!-- Modal Trigger -->
-      <a class={"modal-trigger " <> review_btn() } href="#sign-in">
-        <%= gettext("Write a Review") %>
-      </a>
-      <!-- Modal Structure -->
-      <div id="sign-in" class="modal">
-        <div class="modal-content">
-          <h4>
-            <%= gettext("You have to be signed in to write a review") %>
-          </h4>
-          <%= link(gettext("Sign In"),
+      <ul class="book-actions-list">
+        <li class="book-actions-must-authenticate">
+          <p><%= gettext("Welcome, guest!") %></p>
+          <p><%= raw(gettext("Sign in to log, rate<br>and review books!")) %></p>
+        </li>
+        <li class="book-actions-sign-in">
+          <%= link(gettext("Sign in"),
             to: Routes.auth_path(@conn, :new),
-            class: default_btn()
+            class: "book-actions-button"
           ) %>
-
+        </li>
+        <li class="book-actions-register">
           <%= link(gettext("Register"),
             to: Routes.user_path(@conn, :new),
-            class: default_btn()
+            class: "book-actions-button"
           ) %>
-
-          <a href="#!" class="modal-close waves-effect waves-green btn-flat right">
-            <%= gettext("Close") %>
-          </a>
-        </div>
-      </div>
+        </li>
+      </ul>
     <% end %>
   </section>
 
   <section class="book-reviews">
     <h3 class="section-title"><%= gettext("Reviews") %></h3>
 
-    <%= if @book.reviews == [] do %>
-      <p><%= gettext("No reviews yet") %></p>
-    <% end %>
-
-    <ul class="reviews-list">
-      <%= for review <- @book.reviews do %>
-        <%= if review.approved do %>
-          <li class="review-item">
-            <div class="review-item-avatar">
-              <img
-                src={Bookify.Avatar.url({review.user.avatar, review.user}, signed: true)}
-                alt={gettext("%{name} profile picture", name: review.user.name)}
-              />
-            </div>
-            <header class="review-item-title">
-              <h4><%= review.title %></h4>
-              <p class="review-item-author">
-                <span class="review-item-author-by"><%= gettext("by") %></span>
-                <%= review.user.name %>
-              </p>
-              <p class="review-item-rating">
-                <%= raw(rating_stars(review.rating)) %>
-              </p>
-            </header>
-            <article class="review-item-content formatted">
-              <%= raw Earmark.as_html!(review.review) %>
-            </article>
-            <%= if current_user(@conn) && current_user(@conn).id == review.user_id do %>
-              <div class="review-item-actions">
-                <%= link(gettext("Delete"),
-                  to: Routes.review_path(@conn, :delete, @book.id, review.id),
-                  method: :delete,
-                  data: [confirm: gettext("Are you sure?")],
-                  class: "button"
-                ) %>
+    <%= if Enum.empty?(@book.reviews) do %>
+      <p class="empty"><%= gettext("No reviews yet") %></p>
+    <% else %>
+      <ul class="reviews-list">
+        <%= for review <- @book.reviews do %>
+          <%= if review.approved do %>
+            <li class="review-item">
+              <div class="review-item-avatar">
+                <img
+                  src={Bookify.Avatar.url({review.user.avatar, review.user}, signed: true)}
+                  alt={gettext("%{name} profile picture", name: review.user.name)}
+                />
               </div>
-            <% end %>
-          </li>
+              <header class="review-item-title">
+                <h4><%= review.title %></h4>
+                <p class="review-item-author">
+                  <span class="review-item-author-by"><%= gettext("by") %></span>
+                  <%= review.user.name %>
+                </p>
+                <p class="review-item-rating">
+                  <%= raw(rating_stars(review.rating)) %>
+                </p>
+              </header>
+              <article class="review-item-content formatted">
+                <%= raw(Earmark.as_html!(review.review)) %>
+              </article>
+              <%= if current_user(@conn) && current_user(@conn).id == review.user_id do %>
+                <div class="review-item-actions">
+                  <%= link(gettext("Delete"),
+                    to: Routes.review_path(@conn, :delete, @book.id, review.id),
+                    method: :delete,
+                    data: [confirm: gettext("Are you sure?")],
+                    class: "button"
+                  ) %>
+                </div>
+              <% end %>
+            </li>
+          <% end %>
         <% end %>
-      <% end %>
-    </ul>
+      </ul>
+    <% end %>
   </section>
 </section>
