@@ -3,9 +3,12 @@
 }
 
 .book-sticky {
-  margin-left: -240px;
   float: left;
+  margin-left: -240px;
+  margin-top: -20px;
+  padding-top: 20px;
   position: sticky;
+  top: 0;
   width: 220px;
 }
 
