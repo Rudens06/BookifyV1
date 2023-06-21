@@ -36,7 +36,9 @@
                 <%= if book.avg_rating do %>
                   <p class="book-item-rating">
                     <%= raw(rating_stars(book.avg_rating)) %>
-                    <%= book.avg_rating %>
+                    <span class="book-item-rating-average">
+                      <%= round_to_two_decimal_places(book.avg_rating) %>
+                    </span>
                   </p>
                 <% end %>
                 <div class="book-item-actions">
@@ -93,7 +95,9 @@
                 <%= if book.avg_rating do %>
                   <p class="book-item-rating">
                     <%= raw(rating_stars(book.avg_rating)) %>
-                    <%= book.avg_rating %>
+                    <span class="book-item-rating-average">
+                      <%= round_to_two_decimal_places(book.avg_rating) %>
+                    </span>
                   </p>
                 <% end %>
                 <div class="book-item-actions">
@@ -150,7 +154,9 @@
                 <%= if book.avg_rating do %>
                   <p class="book-item-rating">
                     <%= raw(rating_stars(book.avg_rating)) %>
-                    <%= book.avg_rating %>
+                    <span class="book-item-rating-average">
+                      <%= round_to_two_decimal_places(book.avg_rating) %>
+                    </span>
                   </p>
                 <% end %>
                 <div class="book-item-actions">

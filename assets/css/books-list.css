@@ -54,6 +54,21 @@
   margin-bottom: 8px;
 }
 
+.book-item-rating {
+  display: flex;
+  flex-direction: row;
+}
+
+.book-item-rating .icon {
+  display: block;
+  margin: -2px;
+}
+
+.book-item-rating-average {
+  display: block;
+  margin-left: 8px;
+}
+
 .book-item-author-by {
   color: var(--paper-5);
   font-family: var(--title-font);
