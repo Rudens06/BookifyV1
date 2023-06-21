@@ -1,18 +1,29 @@
 <%= if @conn.assigns[:current_user] do %>
-  <h4><%= gettext("Hi, %{name}", name: @current_user.name) %></h4>
-  <%= if @current_user.avatar do %>
-    <div class="row">
-      <div class="col s3">
-        <img class="circle" src={@current_user_pic} />
-      </div>
+  <section class="account-profile">
+    <div class="account-avatar">
+      <img
+        src={@current_user_pic}
+        alt={gettext("%{name} profile picture", name: @current_user.name)}
+      />
     </div>
-  <% end %>
-  <%= link(gettext("Edit Profile"),
-    to: Routes.account_path(@conn, :edit_profile),
-    class: default_btn()
-  ) %>
-  <%= link(gettext("Change Password"),
-    to: Routes.account_path(@conn, :edit_password),
-    class: default_btn()
-  ) %>
+
+    <h2 class="section-title">
+      <%= gettext("Hi, %{name}", name: @current_user.name) %>
+    </h2>
+
+    <ul class="account-links">
+      <li>
+        <%= link(gettext("Edit Profile"),
+          to: Routes.account_path(@conn, :edit_profile),
+          class: default_btn()
+        ) %>
+      </li>
+      <li>
+        <%= link(gettext("Change Password"),
+          to: Routes.account_path(@conn, :edit_password),
+          class: default_btn()
+        ) %>
+      </li>
+    </ul>
+  </section>
 <% end %>
