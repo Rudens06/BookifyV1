@@ -687,12 +687,12 @@ msgstr "Tev vēl nav konta?"
 #: lib/bookify_web/controllers/book_html/index.html.heex:5
 #, elixir-autogen, elixir-format
 msgid "Find a Book"
-msgstr "Atrast grāmatu"
+msgstr "Meklēt grāmatu"
 
 #: lib/bookify_web/controllers/author_html/index.html.heex:3
 #, elixir-autogen, elixir-format
 msgid "Find an Author"
-msgstr "Atrast autoru"
+msgstr "Meklēt autoru"
 
 #: lib/bookify_web/controllers/admin_html/show.html.heex:11
 #, elixir-autogen, elixir-format, fuzzy
