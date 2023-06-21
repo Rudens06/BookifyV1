@@ -21,7 +21,7 @@
           </p>
         </header>
         <article class="review-item-content formatted">
-          <%= raw(Earmark.as_html!(review.review)) %>
+          <%= raw(Earmark.as_html!(review.review || "")) %>
         </article>
         <div class="review-item-actions">
           <%= link(gettext("Delete"),
