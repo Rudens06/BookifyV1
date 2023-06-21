@@ -7,7 +7,7 @@
     <p class="author-birth-year"><%= @author.birth_year %></p>
   </header>
   <article class="author-bio">
-    <%= raw(Earmark.as_html!(@author.bio)) %>
+    <%= raw(Earmark.as_html!(@author.bio || "")) %>
   </article>
   <p class="author-wikipedia-link">
     <a href={@author.wikipedia_url}><%= gettext("Wikipedia Page") %></a>

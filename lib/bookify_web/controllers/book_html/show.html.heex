@@ -17,7 +17,7 @@
 
   <section class="book-details">
     <article class="book-annotation formatted">
-      <%= raw(Earmark.as_html!(@book.anotation)) %>
+      <%= raw(Earmark.as_html!(@book.anotation || "")) %>
     </article>
     <dl class="book-facts">
       <dt><%= gettext("Year:") %></dt>
@@ -193,7 +193,7 @@
                 </p>
               </header>
               <article class="review-item-content formatted">
-                <%= raw(Earmark.as_html!(review.review)) %>
+                <%= raw(Earmark.as_html!(review.review || "")) %>
               </article>
               <%= if current_user(@conn) && current_user(@conn).id == review.user_id do %>
                 <div class="review-item-actions">
