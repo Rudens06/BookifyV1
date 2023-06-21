@@ -28,9 +28,11 @@
       <dd><%= if @book.genre == nil, do: '', else: Enum.join(@book.genre, ", ") %></dd>
       <%= if @book.avg_rating do %>
         <dt><%= gettext("Rating:") %></dt>
-        <dd>
+        <dd class="book-item-rating">
           <%= raw(rating_stars(@book.avg_rating)) %>
-          <%= round_to_two_decimal_places(@book.avg_rating) %>
+          <span class="book-item-rating-average">
+            <%= round_to_two_decimal_places(@book.avg_rating) %>
+          </span>
         </dd>
       <% end %>
     </dl>
@@ -188,8 +190,11 @@
                   <span class="review-item-author-by"><%= gettext("by") %></span>
                   <%= review.user.name %>
                 </p>
-                <p class="review-item-rating">
-                  <%= raw(rating_stars(review.rating)) %>
+                <p class="review-item-rating book-item-rating">
+                  <%= raw(rating_stars(@book.avg_rating)) %>
+                  <span class="book-item-rating-average">
+                    <%= round_to_two_decimal_places(@book.avg_rating) %>
+                  </span>
                 </p>
               </header>
               <article class="review-item-content formatted">
