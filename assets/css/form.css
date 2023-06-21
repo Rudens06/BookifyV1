@@ -14,7 +14,8 @@
 .form-row input[type=email],
 .form-row input[type=password],
 .form-row input[type=number],
-.form-row textarea {
+.form-row textarea,
+.form-row select {
   background: var(--white);
   border: 1px solid var(--paper-2);
   border-radius: 2px;
