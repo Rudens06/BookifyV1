@@ -1,43 +1,47 @@
-<%= form_for @changeset, Routes.book_path(@conn, :create), fn f -> %>
-  <div class="form-group">
-    <div class="input-field">
-      <%= text_input(f, :title, placeholder: gettext("Title"), class: "form-control") %>
+<section class="update-book">
+  <h2 class="section-title"><%= gettext("Add a Book") %></h2>
+
+  <%= form_for @changeset, Routes.book_path(@conn, :create), [class: "form book-form"], fn f -> %>
+    <div class="form-row">
+      <%= label(f, :title, gettext("Title")) %>
+      <%= text_input(f, :title) %>
       <%= error_tag(f, :title) %>
     </div>
-    <div class="input-field">
-      <%= select(f, :author_id, Enum.map(@authors, &{&1.name, &1.id}), class: "form-select") %>
+    <div class="form-row">
+      <%= label(f, :author_id, gettext("Author")) %>
+      <%= select(f, :author_id, Enum.map(@authors, &{&1.name, &1.id})) %>
       <%= error_tag(f, :author_id) %>
     </div>
-    <div class="input-field">
-      <%= number_input(f, :publish_year,
-        placeholder: gettext("Year Published"),
-        class: "form-control"
-      ) %>
+    <div class="form-row">
+      <%= label(f, :publish_year, gettext("Year Published")) %>
+      <%= number_input(f, :publish_year) %>
       <%= error_tag(f, :publish_year) %>
     </div>
-    <div class="input-field">
-      <%= number_input(f, :page_count, placeholder: gettext("Page Count"), class: "form-control") %>
+    <div class="form-row">
+      <%= label(f, :page_count, gettext("Page Count")) %>
+      <%= number_input(f, :page_count) %>
       <%= error_tag(f, :page_count) %>
     </div>
-    <div class="input-field">
-      <%= text_input(f, :genre, placeholder: gettext("Genre"), class: "form-control") %>
+    <div class="form-row">
+      <%= label(f, :genre, gettext("Genre")) %>
+      <%= text_input(f, :genre) %>
       <%= error_tag(f, :genre) %>
-      <span class="helper-text">
-        Format: Detective, Drama, Crime, ...
-      </span>
+      <div class="form-field-notes">
+        <%= gettext("Format: Detective, Drama, Crime, …") %>
+      </div>
     </div>
-    <div class="input-field">
-      <%= text_input(f, :cover_pic_url,
-        placeholder: gettext("Cover picture URL"),
-        class: "form-control"
-      ) %>
+    <div class="form-row">
+      <%= label(f, :cover_pic_url, gettext("Cover picture URL")) %>
+      <%= text_input(f, :cover_pic_url) %>
       <%= error_tag(f, :cover_pic_url) %>
     </div>
-    <div class="input-field">
-      <%= text_input(f, :anotation, placeholder: gettext("Annotation"), class: "form-control") %>
+    <div class="form-row">
+      <%= label(f, :anotation, gettext("Annotation")) %>
+      <%= textarea(f, :anotation) %>
       <%= error_tag(f, :anotation) %>
     </div>
-  </div>
-
-  <%= submit(gettext("Save Book"), class: default_btn()) %>
-<% end %>
+    <div class="form-actions">
+      <%= submit(gettext("Save Book"), class: "button") %>
+    </div>
+  <% end %>
+</section>

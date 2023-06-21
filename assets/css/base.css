@@ -1,0 +1,46 @@
+body {
+  background: var(--body-background);
+  color: var(--body-text-color);
+  font-family: var(--content-font);
+  font-size: var(--body-font-size)
+}
+
+a {
+  color: var(--blue-4);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--blue-3);
+}
+
+a:active {
+  color: var(--blue-5);
+}
+
+#header,
+#main,
+#footer {
+  margin: 0 auto;
+  width: var(--content-width);
+}
+
+.section-title {
+  color: var(--paper-8);
+  font-size: var(--title-2-font-size);
+  line-height: var(--title-2-leading);
+  margin-bottom: 12px;
+}
+
+.admin-actions {
+  border-bottom: 1px solid var(--paper-1);
+  border-top: 1px solid var(--paper-1);
+  padding: 12px 0;
+  margin-bottom: 12px;
+}
+
+/* TODO: Fix these */
+#disconnected,
+#flash {
+  display: none;
+}

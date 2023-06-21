@@ -1,0 +1,50 @@
+.form-row {
+  margin-bottom: 12px;
+}
+
+.form-row label {
+  display: block;
+  color: var(--paper-5);
+  font-size: var(--subhead-font-size);
+  line-height: var(--subhead-leading);
+  margin-bottom: 4px;
+}
+
+.form-row input[type=text],
+.form-row input[type=email],
+.form-row input[type=password],
+.form-row input[type=number],
+.form-row textarea,
+.form-row select {
+  background: var(--white);
+  border: 1px solid var(--paper-2);
+  border-radius: 2px;
+  box-sizing: border-box;
+  color: var(--paper-8);
+  display: block;
+  flex-grow: 1;
+  font-family: var(--content-font);
+  font-size: var(--body-font-size);
+  line-height: var(--body-leading);
+  padding: 4px 8px;
+  margin: 0;
+}
+
+.form-inline-error {
+  color: var(--red-5);
+  font-size: var(--subhead-font-size);
+  line-height: var(--subhead-leading);
+  margin: 4px 0;
+}
+
+.form-field-notes {
+  color: var(--paper-4);
+  font-size: var(--caption-1-font-size);
+  line-height: var(--caption-1-leading);
+  margin: 4px 0;
+}
+
+.form-field-notes ul {
+  list-style-type: disc;
+  margin-left: 22px;
+}

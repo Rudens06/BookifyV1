@@ -1,40 +1,53 @@
-<h4><%= gettext("Authors") %></h4>
+<section class="search">
+  <%= form_for @conn, Routes.author_path(@conn, :index), [method: :get, class: "search-form"], fn f -> %>
+    <%= search_input(f, :query, placeholder: gettext("Find an Author"), class: "search-field") %>
+    <%= submit("Search", class: "search-button") %>
+  <% end %>
+</section>
 
-<%= form_for @conn, Routes.author_path(@conn, :index), [method: :get], fn f -> %>
-  <%= search_input(f, :query, placeholder: gettext("Search")) %>
-  <%= submit("Search", class: default_btn()) %>
-<% end %>
+<section>
+  <h2 class="section-title"><%= gettext("Authors") %></h2>
 
-<ul class="collection">
-  <%= for author <- @authors do %>
-    <li class="collection-item avatar">
-      <img
-        src={author.author_pic_url}
-        alt={gettext("%{name} picture", name: author.name)}
-        class="circle"
-      />
-      <span>
+  <ul class="authors-list">
+    <%= for author <- @authors do %>
+      <li class="author-item">
+        <div class="author-item-picture">
+          <%= link(to: Routes.author_path(@conn, :show, Bookify.Author.slug_with_id(author))) do %>
+            <img src={author.author_pic_url} alt={gettext("%{name} picture", name: author.name)} />
+          <% end %>
+        </div>
+        <header class="author-item-name">
+          <h4>
+            <%= link(author.name,
+              to: Routes.author_path(@conn, :show, Bookify.Author.slug_with_id(author)),
+              class: "author-item-name-link"
+            ) %>
+          </h4>
+        </header>
+        <p class="author-item-birth-year">
+          <%= author.birth_year %>
+        </p>
         <%= if RequireAdmin.user_is_admin?(current_user(@conn)) do %>
-          <div class="right">
-            <%= link(gettext("Edit"), to: Routes.author_path(@conn, :edit, author.id)) %>
+          <div class="author-item-actions">
+            <%= link(gettext("Edit"),
+              to: Routes.author_path(@conn, :edit, author.id),
+              class: "button"
+            ) %>
             <%= link(gettext("Delete"),
               to: Routes.author_path(@conn, :delete, author.id),
               method: :delete,
-              data: [confirm: gettext("Are you sure?")]
+              data: [confirm: gettext("Are you sure?")],
+              class: "button"
             ) %>
           </div>
         <% end %>
-        <%= link(author.name, to: Routes.author_path(@conn, :show, Bookify.Author.slug_with_id(author)), class: "title") %>
-      </span>
-      <p>
-        <%= author.birth_year %>
-      </p>
-    </li>
-  <% end %>
-</ul>
+      </li>
+    <% end %>
+  </ul>
 
-<%= if RequireAdmin.user_is_admin?(current_user(@conn)) do %>
-  <div class="right">
-    <%= link(gettext("Add author"), to: Routes.author_path(@conn, :new), class: default_btn()) %>
-  </div>
-<% end %>
+  <%= if RequireAdmin.user_is_admin?(current_user(@conn)) do %>
+    <div class="admin-actions">
+      <%= link(gettext("Add author"), to: Routes.author_path(@conn, :new), class: "button") %>
+    </div>
+  <% end %>
+</section>

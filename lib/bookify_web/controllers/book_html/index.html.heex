@@ -1,51 +1,68 @@
 <link rel="alternate" type="application/rss+xml" title={gettext("RSS for books")} href={~p"/rss"} />
 
-<h4><%= gettext("Books") %></h4>
-
-<%= form_for @conn, Routes.book_path(@conn, :index), [method: :get], fn f -> %>
-  <%= search_input(f, :query, placeholder: gettext("Search")) %>
-  <%= submit(gettext("Search"), class: default_btn()) %>
-<% end %>
-
-<ul class="collection">
-  <%= for book <- @books do %>
-    <li class="collection-item avatar">
-      <img
-        src={book.cover_pic_url}
-        alt={gettext("%{title} cover picture", title: book.title)}
-        class="circle"
-      />
-      <span>
-        <%= link(book.title, to: Routes.book_path(@conn, :show, Bookify.Book.slug_with_id(book)), class: "title") %>
-      </span>
-      <%= if RequireAdmin.user_is_admin?(current_user(@conn)) do %>
-        <div class="right">
-          <%= link(gettext("Edit"), to: Routes.book_path(@conn, :edit, book.id)) %>
-          <%= link(gettext("Delete"),
-            to: Routes.book_path(@conn, :delete, book.id),
-            method: :delete,
-            data: [confirm: gettext("Are you sure?")]
-          ) %>
-        </div>
-      <% end %>
-      <p>
-        <%= book.author.name %>
-      </p>
-      <p>
-        <%= gettext("Published: %{year}", year: book.publish_year) %>
-      </p>
-      <p>
-        <%= gettext("Pages: %{count}", count: book.page_count) %>
-      </p>
-      <%= raw(rating_stars(book.avg_rating)) %>
-    </li>
+<section class="search">
+  <%= form_for @conn, Routes.book_path(@conn, :index), [method: :get, class: "search-form"], fn f -> %>
+    <%= search_input(f, :query, placeholder: gettext("Find a Book"), class: "search-field") %>
+    <%= submit(gettext("Search"), class: "search-button") %>
   <% end %>
-</ul>
+</section>
 
-<%= if RequireAdmin.user_is_admin?(current_user(@conn)) do %>
-  <div class="right">
-    <%= link(gettext("Add book"), to: Routes.book_path(@conn, :new), class: default_btn()) %>
+<section>
+  <h2 class="section-title"><%= gettext("Books") %></h2>
+
+  <ul class="books-list">
+    <%= for book <- @books do %>
+      <li class="book-item">
+        <div class="book-item-cover">
+          <%= link(to: Routes.book_path(@conn, :show, Bookify.Book.slug_with_id(book))) do %>
+            <img
+              src={book.cover_pic_url}
+              alt={gettext("%{title} cover picture", title: book.title)}
+            />
+          <% end %>
+        </div>
+        <header class="book-item-title">
+          <h4>
+            <%= link(book.title,
+              to: Routes.book_path(@conn, :show, Bookify.Book.slug_with_id(book)),
+              class: "book-item-title-link"
+            ) %>
+          </h4>
+          <p class="book-item-author">
+            <span class="book-item-author-by"><%= gettext("by") %></span>
+            <%= book.author.name %>
+          </p>
+        </header>
+        <%= if book.avg_rating do %>
+          <p class="book-item-rating">
+            <%= raw(rating_stars(book.avg_rating)) %>
+            <span class="book-item-rating-average">
+              <%= round_to_two_decimal_places(book.avg_rating) %>
+            </span>
+          </p>
+        <% end %>
+        <%= if RequireAdmin.user_is_admin?(current_user(@conn)) do %>
+          <div class="book-item-actions">
+            <%= link(gettext("Edit"), to: Routes.book_path(@conn, :edit, book.id), class: "button") %>
+            <%= link(gettext("Delete"),
+              to: Routes.book_path(@conn, :delete, book.id),
+              method: :delete,
+              data: [confirm: gettext("Are you sure?")],
+              class: "button"
+            ) %>
+          </div>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+
+  <%= if RequireAdmin.user_is_admin?(current_user(@conn)) do %>
+    <div class="admin-actions">
+      <%= link(gettext("Add book"), to: Routes.book_path(@conn, :new), class: "button") %>
+    </div>
+  <% end %>
+
+  <div class="books-list-actions">
+    <a href={~p"/rss"}><%= gettext("RSS feed") %></a>
   </div>
-<% end %>
-
-<a href={~p"/rss"}><%= gettext("RSS feed") %></a>
+</section>

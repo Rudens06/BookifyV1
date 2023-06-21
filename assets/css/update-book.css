@@ -1,0 +1,17 @@
+.update-book {
+  margin: 0 auto;
+  width: 460px;
+}
+
+.book-form .form-row input[type=text] {
+  width: 100%;
+}
+
+.book-form .form-row input[type=number] {
+  width: 100px;
+}
+
+.book-form .form-row textarea {
+  height: 200px;
+  width: 100%;
+}

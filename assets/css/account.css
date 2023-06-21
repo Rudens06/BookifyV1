@@ -1,0 +1,42 @@
+.account-profile,
+.account-edit {
+  margin: 0 auto;
+  width: 460px;
+}
+
+.account-profile::after {
+  clear: both;
+  content: " ";
+  display: block;
+}
+
+.account-avatar {
+  background: var(--paper-1);
+  border-radius: 30px;
+  float: left;
+  height: 60px;
+  margin-left: -80px;
+  overflow: hidden;
+  width: 60px;
+}
+
+.account-avatar img {
+  display: block;
+  height: 60px;
+  width: 60px;
+}
+
+.account-links li {
+  line-height: var(--body-leading);
+  margin-bottom: 8px;
+}
+
+.account-profile-form,
+.account-avatar-form {
+  margin-bottom: 24px;
+}
+
+.account-profile-form .form-row input,
+.account-password-form .form-row input {
+  width: 300px;
+}

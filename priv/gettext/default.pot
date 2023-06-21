@@ -11,14 +11,17 @@
 msgid ""
 msgstr ""
 
-#: lib/bookify_web/controllers/admin_html/show.html.heex:30
-#: lib/bookify_web/controllers/author_html/show.html.heex:19
-#: lib/bookify_web/controllers/book_html/index.html.heex:15
+#: lib/bookify_web/controllers/author_html/show.html.heex:27
+#: lib/bookify_web/controllers/book_html/index.html.heex:20
+#: lib/bookify_web/controllers/book_html/top_books.html.heex:11
+#: lib/bookify_web/controllers/list_html/index.html.heex:20
+#: lib/bookify_web/controllers/list_html/index.html.heex:79
+#: lib/bookify_web/controllers/list_html/index.html.heex:138
 #, elixir-autogen, elixir-format
 msgid "%{title} cover picture"
 msgstr ""
 
-#: lib/bookify_web/components/core_components.ex:490
+#: lib/bookify_web/components/core_components.ex:483
 #, elixir-autogen, elixir-format
 msgid "Actions"
 msgstr ""
@@ -28,35 +31,29 @@ msgstr ""
 msgid "Add Book"
 msgstr ""
 
-#: lib/bookify_web/controllers/book_html/index.html.heex:47
+#: lib/bookify_web/controllers/book_html/index.html.heex:61
 #, elixir-autogen, elixir-format
 msgid "Add book"
 msgstr ""
 
-#: lib/bookify_web/components/layouts/admin.html.heex:3
-#, elixir-autogen, elixir-format
-msgid "Admin Panel"
-msgstr ""
-
-#: lib/bookify_web/controllers/admin_html/reviews.html.heex:37
-#: lib/bookify_web/controllers/admin_html/show.html.heex:56
-#: lib/bookify_web/controllers/author_html/index.html.heex:23
-#: lib/bookify_web/controllers/author_html/show.html.heex:31
-#: lib/bookify_web/controllers/book_html/index.html.heex:27
-#: lib/bookify_web/controllers/book_html/show.html.heex:184
-#: lib/bookify_web/controllers/book_html/top_books.html.heex:19
-#: lib/bookify_web/controllers/list_html/index.html.heex:16
-#: lib/bookify_web/controllers/list_html/index.html.heex:35
-#: lib/bookify_web/controllers/list_html/index.html.heex:54
+#: lib/bookify_web/controllers/admin_html/reviews.html.heex:30
+#: lib/bookify_web/controllers/admin_html/show.html.heex:47
+#: lib/bookify_web/controllers/author_html/index.html.heex:39
+#: lib/bookify_web/controllers/author_html/show.html.heex:56
+#: lib/bookify_web/controllers/book_html/index.html.heex:50
+#: lib/bookify_web/controllers/book_html/show.html.heex:203
+#: lib/bookify_web/controllers/book_html/top_books.html.heex:41
+#: lib/bookify_web/controllers/list_html/index.html.heex:53
+#: lib/bookify_web/controllers/list_html/index.html.heex:112
+#: lib/bookify_web/controllers/list_html/index.html.heex:171
 #, elixir-autogen, elixir-format
 msgid "Are you sure?"
 msgstr ""
 
-#: lib/bookify_web/components/layouts/app.html.heex:15
-#: lib/bookify_web/components/layouts/app.html.heex:47
+#: lib/bookify_web/components/layouts/app.html.heex:12
 #: lib/bookify_web/controllers/author_controller.ex:14
 #: lib/bookify_web/controllers/author_controller.ex:27
-#: lib/bookify_web/controllers/author_html/index.html.heex:1
+#: lib/bookify_web/controllers/author_html/index.html.heex:9
 #, elixir-autogen, elixir-format
 msgid "Authors"
 msgstr ""
@@ -71,32 +68,28 @@ msgstr ""
 msgid "Book Updated Successfully"
 msgstr ""
 
-#: lib/bookify_web/components/layouts/app.html.heex:3
+#: lib/bookify_web/components/layouts/app.html.heex:2
 #: lib/bookify_web/components/layouts/root.html.heex:8
 #, elixir-autogen, elixir-format
 msgid "Bookify"
 msgstr ""
 
-#: lib/bookify_web/components/layouts/app.html.heex:12
-#: lib/bookify_web/components/layouts/app.html.heex:44
+#: lib/bookify_web/components/layouts/app.html.heex:9
 #: lib/bookify_web/controllers/book_controller.ex:21
 #: lib/bookify_web/controllers/book_controller.ex:33
-#: lib/bookify_web/controllers/book_html/index.html.heex:3
+#: lib/bookify_web/controllers/book_html/index.html.heex:11
 #: lib/bookify_web/controllers/list_controller.ex:33
 #, elixir-autogen, elixir-format
 msgid "Books"
 msgstr ""
 
-#: lib/bookify_web/controllers/admin_html/reviews.html.heex:34
-#: lib/bookify_web/controllers/admin_html/show.html.heex:53
-#: lib/bookify_web/controllers/author_html/index.html.heex:20
-#: lib/bookify_web/controllers/author_html/show.html.heex:28
-#: lib/bookify_web/controllers/book_html/index.html.heex:24
-#: lib/bookify_web/controllers/book_html/show.html.heex:181
-#: lib/bookify_web/controllers/book_html/top_books.html.heex:16
-#: lib/bookify_web/controllers/list_html/index.html.heex:13
-#: lib/bookify_web/controllers/list_html/index.html.heex:33
-#: lib/bookify_web/controllers/list_html/index.html.heex:52
+#: lib/bookify_web/controllers/admin_html/reviews.html.heex:27
+#: lib/bookify_web/controllers/admin_html/show.html.heex:44
+#: lib/bookify_web/controllers/author_html/index.html.heex:36
+#: lib/bookify_web/controllers/author_html/show.html.heex:53
+#: lib/bookify_web/controllers/book_html/index.html.heex:47
+#: lib/bookify_web/controllers/book_html/show.html.heex:200
+#: lib/bookify_web/controllers/book_html/top_books.html.heex:38
 #, elixir-autogen, elixir-format
 msgid "Delete"
 msgstr ""
@@ -109,52 +102,31 @@ msgstr ""
 msgid "Deleted Successfully"
 msgstr ""
 
-#: lib/bookify_web/controllers/author_html/index.html.heex:19
-#: lib/bookify_web/controllers/author_html/show.html.heex:27
-#: lib/bookify_web/controllers/book_html/index.html.heex:23
-#: lib/bookify_web/controllers/book_html/top_books.html.heex:15
+#: lib/bookify_web/controllers/author_html/index.html.heex:32
+#: lib/bookify_web/controllers/author_html/show.html.heex:49
+#: lib/bookify_web/controllers/book_html/index.html.heex:46
+#: lib/bookify_web/controllers/book_html/top_books.html.heex:37
 #, elixir-autogen, elixir-format
 msgid "Edit"
 msgstr ""
 
 #: lib/bookify_web/controllers/book_controller.ex:77
+#: lib/bookify_web/controllers/book_html/edit.html.heex:2
 #, elixir-autogen, elixir-format
 msgid "Edit Book"
 msgstr ""
 
-#: lib/bookify_web/components/layouts/app.html.heex:9
-#: lib/bookify_web/components/layouts/app.html.heex:41
+#: lib/bookify_web/components/layouts/app.html.heex:6
 #, elixir-autogen, elixir-format
 msgid "Featured"
 msgstr ""
 
-#: lib/bookify_web/components/layouts/app.html.heex:19
-#: lib/bookify_web/components/layouts/app.html.heex:51
-#, elixir-autogen, elixir-format
-msgid "Lists"
-msgstr ""
-
-#: lib/bookify_web/components/layouts/app.html.heex:22
-#: lib/bookify_web/components/layouts/app.html.heex:54
+#: lib/bookify_web/components/layouts/app.html.heex:21
 #, elixir-autogen, elixir-format
 msgid "My Account"
 msgstr ""
 
-#: lib/bookify_web/controllers/author_html/show.html.heex:42
-#: lib/bookify_web/controllers/book_html/index.html.heex:38
-#: lib/bookify_web/controllers/book_html/top_books.html.heex:30
-#, elixir-autogen, elixir-format
-msgid "Pages: %{count}"
-msgstr ""
-
-#: lib/bookify_web/controllers/author_html/show.html.heex:39
-#: lib/bookify_web/controllers/book_html/index.html.heex:35
-#: lib/bookify_web/controllers/book_html/top_books.html.heex:27
-#, elixir-autogen, elixir-format
-msgid "Published: %{year}"
-msgstr ""
-
-#: lib/bookify_web/controllers/book_html/index.html.heex:51
+#: lib/bookify_web/controllers/book_html/index.html.heex:66
 #, elixir-autogen, elixir-format
 msgid "RSS feed"
 msgstr ""
@@ -164,58 +136,52 @@ msgstr ""
 msgid "RSS for books"
 msgstr ""
 
-#: lib/bookify_web/components/layouts/app.html.heex:32
-#: lib/bookify_web/components/layouts/app.html.heex:64
+#: lib/bookify_web/components/layouts/app.html.heex:31
 #: lib/bookify_web/controllers/account_controller.ex:13
-#: lib/bookify_web/controllers/book_html/show.html.heex:128
+#: lib/bookify_web/controllers/book_html/show.html.heex:160
 #: lib/bookify_web/controllers/user_controller.ex:15
-#: lib/bookify_web/controllers/user_html/new.html.heex:1
-#: lib/bookify_web/controllers/user_html/new.html.heex:38
+#: lib/bookify_web/controllers/user_html/new.html.heex:2
+#: lib/bookify_web/controllers/user_html/new.html.heex:40
 #, elixir-autogen, elixir-format
 msgid "Register"
 msgstr ""
 
-#: lib/bookify_web/components/layouts/admin.html.heex:9
-#: lib/bookify_web/components/layouts/admin.html.heex:23
-#: lib/bookify_web/controllers/admin_html/show.html.heex:23
-#: lib/bookify_web/controllers/book_html/show.html.heex:143
+#: lib/bookify_web/components/layouts/admin.html.heex:6
+#: lib/bookify_web/controllers/admin_html/reviews.html.heex:2
+#: lib/bookify_web/controllers/admin_html/show.html.heex:20
+#: lib/bookify_web/controllers/book_html/show.html.heex:170
 #, elixir-autogen, elixir-format
 msgid "Reviews"
 msgstr ""
 
-#: lib/bookify_web/controllers/author_html/index.html.heex:4
 #: lib/bookify_web/controllers/book_html/index.html.heex:6
-#: lib/bookify_web/controllers/book_html/index.html.heex:7
 #, elixir-autogen, elixir-format
 msgid "Search"
 msgstr ""
 
-#: lib/bookify_web/components/layouts/app.html.heex:29
-#: lib/bookify_web/components/layouts/app.html.heex:61
+#: lib/bookify_web/components/layouts/app.html.heex:28
 #: lib/bookify_web/controllers/auth_controller.ex:12
-#: lib/bookify_web/controllers/auth_html/new.html.heex:1
-#: lib/bookify_web/controllers/auth_html/new.html.heex:13
-#: lib/bookify_web/controllers/book_html/show.html.heex:123
+#: lib/bookify_web/controllers/auth_html/new.html.heex:2
+#: lib/bookify_web/controllers/auth_html/new.html.heex:16
 #, elixir-autogen, elixir-format
 msgid "Sign In"
 msgstr ""
 
-#: lib/bookify_web/components/layouts/admin.html.heex:15
-#: lib/bookify_web/components/layouts/admin.html.heex:29
-#: lib/bookify_web/components/layouts/app.html.heex:25
-#: lib/bookify_web/components/layouts/app.html.heex:57
+#: lib/bookify_web/components/layouts/admin.html.heex:14
+#: lib/bookify_web/components/layouts/app.html.heex:24
 #, elixir-autogen, elixir-format
 msgid "Sign Out"
 msgstr ""
 
-#: lib/bookify_web/components/layouts/admin.html.heex:12
-#: lib/bookify_web/components/layouts/admin.html.heex:26
+#: lib/bookify_web/components/layouts/admin.html.heex:9
+#: lib/bookify_web/controllers/admin_html/users.html.heex:2
 #, elixir-autogen, elixir-format
 msgid "Users"
 msgstr ""
 
 #: lib/bookify_web/components/core_components.ex:80
-#: lib/bookify_web/components/core_components.ex:169
+#: lib/bookify_web/components/core_components.ex:163
+#: lib/bookify_web/controllers/book_html/show.html.heex:115
 #, elixir-autogen, elixir-format
 msgid "close"
 msgstr ""
@@ -235,14 +201,19 @@ msgstr ""
 msgid "%{minutes} minutes ago"
 msgstr ""
 
-#: lib/bookify_web/controllers/author_html/index.html.heex:13
+#: lib/bookify_web/controllers/author_html/index.html.heex:16
+#: lib/bookify_web/controllers/author_html/show.html.heex:3
 #, elixir-autogen, elixir-format
 msgid "%{name} picture"
 msgstr ""
 
-#: lib/bookify_web/controllers/admin_html/reviews.html.heex:6
-#: lib/bookify_web/controllers/admin_html/users.html.heex:6
-#: lib/bookify_web/controllers/book_html/show.html.heex:156
+#: lib/bookify_web/controllers/account_html/edit_password.html.heex:5
+#: lib/bookify_web/controllers/account_html/edit_profile.html.heex:5
+#: lib/bookify_web/controllers/account_html/index.html.heex:6
+#: lib/bookify_web/controllers/admin_html/reviews.html.heex:10
+#: lib/bookify_web/controllers/admin_html/show.html.heex:27
+#: lib/bookify_web/controllers/admin_html/users.html.heex:10
+#: lib/bookify_web/controllers/book_html/show.html.heex:182
 #, elixir-autogen, elixir-format
 msgid "%{name} profile picture"
 msgstr ""
@@ -257,48 +228,49 @@ msgstr ""
 msgid "Add Author"
 msgstr ""
 
-#: lib/bookify_web/controllers/author_html/index.html.heex:38
+#: lib/bookify_web/controllers/author_html/index.html.heex:50
 #, elixir-autogen, elixir-format
 msgid "Add author"
 msgstr ""
 
-#: lib/bookify_web/controllers/book_html/edit.html.heex:37
-#: lib/bookify_web/controllers/book_html/new.html.heex:37
+#: lib/bookify_web/controllers/book_html/edit.html.heex:39
+#: lib/bookify_web/controllers/book_html/new.html.heex:39
 #, elixir-autogen, elixir-format
 msgid "Annotation"
 msgstr ""
 
-#: lib/bookify_web/controllers/admin_html/reviews.html.heex:43
+#: lib/bookify_web/controllers/admin_html/reviews.html.heex:36
+#: lib/bookify_web/controllers/admin_html/show.html.heex:53
 #, elixir-autogen, elixir-format
 msgid "Approve"
 msgstr ""
 
-#: lib/bookify_web/controllers/account_html/edit_password.html.heex:18
-#: lib/bookify_web/controllers/user_html/new.html.heex:19
+#: lib/bookify_web/controllers/account_html/edit_password.html.heex:24
+#: lib/bookify_web/controllers/user_html/new.html.heex:22
 #, elixir-autogen, elixir-format
 msgid "At least 8 characters long"
 msgstr ""
 
-#: lib/bookify_web/controllers/account_html/edit_password.html.heex:20
-#: lib/bookify_web/controllers/user_html/new.html.heex:21
+#: lib/bookify_web/controllers/account_html/edit_password.html.heex:26
+#: lib/bookify_web/controllers/user_html/new.html.heex:24
 #, elixir-autogen, elixir-format
 msgid "At least one UPPER case character"
 msgstr ""
 
-#: lib/bookify_web/controllers/account_html/edit_password.html.heex:19
-#: lib/bookify_web/controllers/user_html/new.html.heex:20
+#: lib/bookify_web/controllers/account_html/edit_password.html.heex:25
+#: lib/bookify_web/controllers/user_html/new.html.heex:23
 #, elixir-autogen, elixir-format
 msgid "At least one lower case character"
 msgstr ""
 
-#: lib/bookify_web/controllers/account_html/edit_password.html.heex:21
-#: lib/bookify_web/controllers/user_html/new.html.heex:22
+#: lib/bookify_web/controllers/account_html/edit_password.html.heex:27
+#: lib/bookify_web/controllers/user_html/new.html.heex:25
 #, elixir-autogen, elixir-format
 msgid "At least one number"
 msgstr ""
 
-#: lib/bookify_web/controllers/account_html/edit_password.html.heex:23
-#: lib/bookify_web/controllers/user_html/new.html.heex:24
+#: lib/bookify_web/controllers/account_html/edit_password.html.heex:29
+#: lib/bookify_web/controllers/user_html/new.html.heex:27
 #, elixir-autogen, elixir-format
 msgid "At least one symbol %{symbols}"
 msgstr ""
@@ -319,11 +291,6 @@ msgstr ""
 msgid "Author picture URL"
 msgstr ""
 
-#: lib/bookify_web/controllers/book_html/show.html.heex:4
-#, elixir-autogen, elixir-format
-msgid "Author:"
-msgstr ""
-
 #: lib/bookify_web/controllers/account_controller.ex:93
 #, elixir-autogen, elixir-format
 msgid "Avatar updated successfully."
@@ -333,11 +300,6 @@ msgstr ""
 #: lib/bookify_web/controllers/author_html/new.html.heex:12
 #, elixir-autogen, elixir-format
 msgid "Biography"
-msgstr ""
-
-#: lib/bookify_web/controllers/author_html/show.html.heex:4
-#, elixir-autogen, elixir-format
-msgid "Biography:"
 msgstr ""
 
 #: lib/bookify_web/controllers/author_html/edit.html.heex:8
@@ -356,60 +318,44 @@ msgstr ""
 msgid "Book deleted from %{list}"
 msgstr ""
 
-#: lib/bookify_web/controllers/author_html/show.html.heex:11
+#: lib/bookify_web/controllers/author_html/show.html.heex:18
 #, elixir-autogen, elixir-format
 msgid "Books:"
 msgstr ""
 
-#: lib/bookify_web/controllers/account_html/edit_profile.html.heex:44
-#: lib/bookify_web/controllers/book_html/show.html.heex:107
-#, elixir-autogen, elixir-format
-msgid "Cancel"
-msgstr ""
-
-#: lib/bookify_web/controllers/account_html/edit_profile.html.heex:25
+#: lib/bookify_web/controllers/account_html/edit_profile.html.heex:27
 #, elixir-autogen, elixir-format
 msgid "Change Avatar"
 msgstr ""
 
 #: lib/bookify_web/controllers/account_controller.ex:39
-#: lib/bookify_web/controllers/account_html/edit_password.html.heex:1
-#: lib/bookify_web/controllers/account_html/edit_password.html.heex:37
-#: lib/bookify_web/controllers/account_html/index.html.heex:14
+#: lib/bookify_web/controllers/account_html/edit_password.html.heex:9
+#: lib/bookify_web/controllers/account_html/edit_password.html.heex:42
+#: lib/bookify_web/controllers/account_html/index.html.heex:22
 #, elixir-autogen, elixir-format
 msgid "Change Password"
 msgstr ""
 
-#: lib/bookify_web/controllers/book_html/show.html.heex:134
-#, elixir-autogen, elixir-format
-msgid "Close"
-msgstr ""
-
-#: lib/bookify_web/controllers/account_html/edit_password.html.heex:32
-#: lib/bookify_web/controllers/user_html/new.html.heex:33
+#: lib/bookify_web/controllers/account_html/edit_password.html.heex:37
+#: lib/bookify_web/controllers/user_html/new.html.heex:35
 #, elixir-autogen, elixir-format
 msgid "Confirm password"
 msgstr ""
 
-#: lib/bookify_web/controllers/book_html/edit.html.heex:31
-#: lib/bookify_web/controllers/book_html/new.html.heex:31
+#: lib/bookify_web/controllers/book_html/edit.html.heex:34
+#: lib/bookify_web/controllers/book_html/new.html.heex:34
 #, elixir-autogen, elixir-format
 msgid "Cover picture URL"
 msgstr ""
 
-#: lib/bookify_web/controllers/admin_html/users.html.heex:12
+#: lib/bookify_web/controllers/admin_html/users.html.heex:24
 #, elixir-autogen, elixir-format
 msgid "Created: %{date}"
 msgstr ""
 
-#: lib/bookify_web/controllers/account_html/edit_password.html.heex:7
+#: lib/bookify_web/controllers/account_html/edit_password.html.heex:13
 #, elixir-autogen, elixir-format
 msgid "Current Password"
-msgstr ""
-
-#: lib/bookify_web/controllers/book_html/show.html.heex:16
-#, elixir-autogen, elixir-format
-msgid "Description:"
 msgstr ""
 
 #: lib/bookify_web/controllers/author_controller.ex:62
@@ -419,15 +365,15 @@ msgstr ""
 
 #: lib/bookify_web/controllers/account_controller.ex:29
 #: lib/bookify_web/controllers/account_controller.ex:110
-#: lib/bookify_web/controllers/account_html/edit_profile.html.heex:1
-#: lib/bookify_web/controllers/account_html/index.html.heex:10
+#: lib/bookify_web/controllers/account_html/edit_profile.html.heex:9
+#: lib/bookify_web/controllers/account_html/index.html.heex:16
 #, elixir-autogen, elixir-format
 msgid "Edit Profile"
 msgstr ""
 
 #: lib/bookify_web/controllers/account_html/edit_profile.html.heex:18
 #: lib/bookify_web/controllers/auth_html/new.html.heex:6
-#: lib/bookify_web/controllers/user_html/new.html.heex:10
+#: lib/bookify_web/controllers/user_html/new.html.heex:11
 #, elixir-autogen, elixir-format
 msgid "Email"
 msgstr ""
@@ -437,56 +383,47 @@ msgstr ""
 msgid "Error occured"
 msgstr ""
 
-#: lib/bookify_web/controllers/admin_html/reviews.html.heex:10
-#: lib/bookify_web/controllers/admin_html/show.html.heex:34
-#, elixir-autogen, elixir-format
-msgid "For: %{title}"
-msgstr ""
-
-#: lib/bookify_web/controllers/book_html/edit.html.heex:26
+#: lib/bookify_web/controllers/book_html/edit.html.heex:30
+#: lib/bookify_web/controllers/book_html/new.html.heex:30
 #, elixir-autogen, elixir-format
 msgid "Format: Detective, Drama, Crime, …"
 msgstr ""
 
-#: lib/bookify_web/controllers/book_html/edit.html.heex:23
-#: lib/bookify_web/controllers/book_html/new.html.heex:23
+#: lib/bookify_web/controllers/book_html/edit.html.heex:26
+#: lib/bookify_web/controllers/book_html/new.html.heex:26
 #, elixir-autogen, elixir-format
 msgid "Genre"
 msgstr ""
 
-#: lib/bookify_web/controllers/book_html/show.html.heex:12
+#: lib/bookify_web/controllers/book_html/show.html.heex:27
 #, elixir-autogen, elixir-format
 msgid "Genres:"
 msgstr ""
 
-#: lib/bookify_web/controllers/book_html/show.html.heex:63
-#: lib/bookify_web/controllers/list_html/index.html.heex:45
+#: lib/bookify_web/controllers/book_html/show.html.heex:93
+#: lib/bookify_web/controllers/list_html/index.html.heex:125
 #, elixir-autogen, elixir-format
 msgid "Have Read"
 msgstr ""
 
-#: lib/bookify_web/controllers/account_html/index.html.heex:2
+#: lib/bookify_web/controllers/account_html/index.html.heex:11
 #: lib/bookify_web/controllers/review_html/index.html.heex:1
 #, elixir-autogen, elixir-format
 msgid "Hi, %{name}"
 msgstr ""
 
-#: lib/bookify_web/controllers/admin_html/users.html.heex:10
+#: lib/bookify_web/controllers/admin_html/users.html.heex:22
 #, elixir-autogen, elixir-format
 msgid "Last Log-in: %{date}"
 msgstr ""
 
-#: lib/bookify_web/controllers/admin_html/show.html.heex:16
-#, elixir-autogen, elixir-format
-msgid "Last log-in: %{date}"
-msgstr ""
-
-#: lib/bookify_web/controllers/list_html/index.html.heex:1
+#: lib/bookify_web/components/layouts/app.html.heex:18
+#: lib/bookify_web/controllers/list_html/index.html.heex:2
 #, elixir-autogen, elixir-format
 msgid "My Lists"
 msgstr ""
 
-#: lib/bookify_web/controllers/account_html/edit_profile.html.heex:14
+#: lib/bookify_web/controllers/account_html/edit_profile.html.heex:13
 #: lib/bookify_web/controllers/author_html/edit.html.heex:4
 #: lib/bookify_web/controllers/author_html/new.html.heex:4
 #: lib/bookify_web/controllers/user_html/new.html.heex:6
@@ -494,7 +431,7 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-#: lib/bookify_web/controllers/book_html/show.html.heex:147
+#: lib/bookify_web/controllers/book_html/show.html.heex:173
 #, elixir-autogen, elixir-format
 msgid "No reviews yet"
 msgstr ""
@@ -505,31 +442,31 @@ msgstr ""
 msgid "Not Allowed"
 msgstr ""
 
-#: lib/bookify_web/controllers/account_html/edit_profile.html.heex:30
+#: lib/bookify_web/controllers/account_html/edit_profile.html.heex:32
 #, elixir-autogen, elixir-format
 msgid "Oops, something went wrong! Please check the errors below."
 msgstr ""
 
-#: lib/bookify_web/controllers/book_html/edit.html.heex:19
-#: lib/bookify_web/controllers/book_html/new.html.heex:19
+#: lib/bookify_web/controllers/book_html/edit.html.heex:21
+#: lib/bookify_web/controllers/book_html/new.html.heex:21
 #, elixir-autogen, elixir-format
 msgid "Page Count"
 msgstr ""
 
-#: lib/bookify_web/controllers/book_html/show.html.heex:10
+#: lib/bookify_web/controllers/book_html/show.html.heex:25
 #, elixir-autogen, elixir-format
 msgid "Pages:"
 msgstr ""
 
-#: lib/bookify_web/controllers/account_html/edit_password.html.heex:13
-#: lib/bookify_web/controllers/auth_html/new.html.heex:10
-#: lib/bookify_web/controllers/user_html/new.html.heex:14
+#: lib/bookify_web/controllers/account_html/edit_password.html.heex:18
+#: lib/bookify_web/controllers/auth_html/new.html.heex:11
+#: lib/bookify_web/controllers/user_html/new.html.heex:16
 #, elixir-autogen, elixir-format
 msgid "Password"
 msgstr ""
 
-#: lib/bookify_web/controllers/account_html/edit_password.html.heex:16
-#: lib/bookify_web/controllers/user_html/new.html.heex:17
+#: lib/bookify_web/controllers/account_html/edit_password.html.heex:22
+#: lib/bookify_web/controllers/user_html/new.html.heex:20
 #, elixir-autogen, elixir-format
 msgid "Password format:"
 msgstr ""
@@ -539,7 +476,7 @@ msgstr ""
 msgid "Password updated successfully!"
 msgstr ""
 
-#: lib/bookify_web/controllers/book_html/show.html.heex:101
+#: lib/bookify_web/controllers/book_html/show.html.heex:141
 #, elixir-autogen, elixir-format
 msgid "Post Review"
 msgstr ""
@@ -549,12 +486,12 @@ msgstr ""
 msgid "Profile updated Successfully"
 msgstr ""
 
-#: lib/bookify_web/controllers/book_html/show.html.heex:93
+#: lib/bookify_web/controllers/book_html/show.html.heex:133
 #, elixir-autogen, elixir-format
 msgid "Rating"
 msgstr ""
 
-#: lib/bookify_web/controllers/book_html/show.html.heex:99
+#: lib/bookify_web/controllers/book_html/show.html.heex:137
 #, elixir-autogen, elixir-format
 msgid "Rating format: 1 - 5"
 msgstr ""
@@ -564,8 +501,8 @@ msgstr ""
 msgid "Read Books list"
 msgstr ""
 
-#: lib/bookify_web/controllers/book_html/show.html.heex:47
-#: lib/bookify_web/controllers/list_html/index.html.heex:26
+#: lib/bookify_web/controllers/book_html/show.html.heex:76
+#: lib/bookify_web/controllers/list_html/index.html.heex:66
 #, elixir-autogen, elixir-format
 msgid "Reading"
 msgstr ""
@@ -575,37 +512,27 @@ msgstr ""
 msgid "Reading list"
 msgstr ""
 
-#: lib/bookify_web/controllers/auth_html/new.html.heex:16
+#: lib/bookify_web/controllers/auth_html/new.html.heex:23
 #, elixir-autogen, elixir-format
 msgid "Register an Account"
 msgstr ""
 
-#: lib/bookify_web/controllers/admin_html/show.html.heex:11
-#, elixir-autogen, elixir-format
-msgid "Registered: %{date}"
-msgstr ""
-
-#: lib/bookify_web/controllers/book_html/show.html.heex:58
+#: lib/bookify_web/controllers/book_html/show.html.heex:88
 #, elixir-autogen, elixir-format
 msgid "Remove from Have Read"
 msgstr ""
 
-#: lib/bookify_web/controllers/book_html/show.html.heex:42
+#: lib/bookify_web/controllers/book_html/show.html.heex:71
 #, elixir-autogen, elixir-format
 msgid "Remove from Reading"
 msgstr ""
 
-#: lib/bookify_web/controllers/book_html/show.html.heex:26
-#, elixir-autogen, elixir-format
-msgid "Remove from wishlist"
-msgstr ""
-
-#: lib/bookify_web/controllers/book_html/show.html.heex:87
+#: lib/bookify_web/controllers/book_html/show.html.heex:128
 #, elixir-autogen, elixir-format
 msgid "Review"
 msgstr ""
 
-#: lib/bookify_web/controllers/book_html/show.html.heex:78
+#: lib/bookify_web/controllers/book_html/show.html.heex:110
 #, elixir-autogen, elixir-format
 msgid "Review for %{title}"
 msgstr ""
@@ -621,18 +548,19 @@ msgstr ""
 msgid "Save Author"
 msgstr ""
 
-#: lib/bookify_web/controllers/book_html/edit.html.heex:42
-#: lib/bookify_web/controllers/book_html/new.html.heex:42
+#: lib/bookify_web/controllers/book_html/edit.html.heex:44
+#: lib/bookify_web/controllers/book_html/new.html.heex:44
 #, elixir-autogen, elixir-format
 msgid "Save Book"
 msgstr ""
 
-#: lib/bookify_web/controllers/account_html/edit_profile.html.heex:21
+#: lib/bookify_web/controllers/account_html/edit_profile.html.heex:23
 #, elixir-autogen, elixir-format
 msgid "Save Changes"
 msgstr ""
 
-#: lib/bookify_web/components/layouts/app.html.heex:77
+#: lib/bookify_web/components/layouts/admin.html.heex:27
+#: lib/bookify_web/components/layouts/app.html.heex:45
 #, elixir-autogen, elixir-format
 msgid "Set language:"
 msgstr ""
@@ -654,44 +582,34 @@ msgstr ""
 msgid "Something went wrong"
 msgstr ""
 
-#: lib/bookify_web/controllers/admin_html/show.html.heex:6
-#, elixir-autogen, elixir-format
-msgid "Stats"
-msgstr ""
-
 #: lib/bookify_web/controllers/auth_controller.ex:34
 #, elixir-autogen, elixir-format
 msgid "There was a problem with your email/password"
 msgstr ""
 
-#: lib/bookify_web/controllers/book_html/edit.html.heex:4
-#: lib/bookify_web/controllers/book_html/new.html.heex:4
-#: lib/bookify_web/controllers/book_html/show.html.heex:83
+#: lib/bookify_web/controllers/book_html/edit.html.heex:6
+#: lib/bookify_web/controllers/book_html/new.html.heex:6
+#: lib/bookify_web/controllers/book_html/show.html.heex:123
 #, elixir-autogen, elixir-format
 msgid "Title"
 msgstr ""
 
-#: lib/bookify_web/controllers/book_html/top_books.html.heex:1
+#: lib/bookify_web/controllers/book_html/top_books.html.heex:2
 #, elixir-autogen, elixir-format
 msgid "Top 10 books"
 msgstr ""
 
-#: lib/bookify_web/controllers/account_html/edit_profile.html.heex:40
+#: lib/bookify_web/controllers/account_html/edit_profile.html.heex:42
 #, elixir-autogen, elixir-format
 msgid "Upload avatar"
 msgstr ""
 
-#: lib/bookify_web/controllers/admin_html/show.html.heex:2
-#, elixir-autogen, elixir-format
-msgid "User: %{name}"
-msgstr ""
-
-#: lib/bookify_web/controllers/list_html/index.html.heex:6
+#: lib/bookify_web/controllers/list_html/index.html.heex:7
 #, elixir-autogen, elixir-format
 msgid "Want To Read"
 msgstr ""
 
-#: lib/bookify_web/controllers/book_html/show.html.heex:31
+#: lib/bookify_web/controllers/book_html/show.html.heex:59
 #, elixir-autogen, elixir-format
 msgid "Want to Read"
 msgstr ""
@@ -701,7 +619,7 @@ msgstr ""
 msgid "Want to Read list"
 msgstr ""
 
-#: lib/bookify_web/controllers/author_html/show.html.heex:8
+#: lib/bookify_web/controllers/author_html/show.html.heex:13
 #, elixir-autogen, elixir-format
 msgid "Wikipedia Page"
 msgstr ""
@@ -712,8 +630,7 @@ msgstr ""
 msgid "Wikipedia URL"
 msgstr ""
 
-#: lib/bookify_web/controllers/book_html/show.html.heex:72
-#: lib/bookify_web/controllers/book_html/show.html.heex:115
+#: lib/bookify_web/controllers/book_html/show.html.heex:101
 #, elixir-autogen, elixir-format
 msgid "Write a Review"
 msgstr ""
@@ -723,20 +640,15 @@ msgstr ""
 msgid "Wrong current password"
 msgstr ""
 
-#: lib/bookify_web/controllers/book_html/edit.html.heex:13
-#: lib/bookify_web/controllers/book_html/new.html.heex:13
+#: lib/bookify_web/controllers/book_html/edit.html.heex:16
+#: lib/bookify_web/controllers/book_html/new.html.heex:16
 #, elixir-autogen, elixir-format
 msgid "Year Published"
 msgstr ""
 
-#: lib/bookify_web/controllers/book_html/show.html.heex:8
+#: lib/bookify_web/controllers/book_html/show.html.heex:23
 #, elixir-autogen, elixir-format
 msgid "Year:"
-msgstr ""
-
-#: lib/bookify_web/controllers/book_html/show.html.heex:121
-#, elixir-autogen, elixir-format
-msgid "You have to be signed in to write a review"
 msgstr ""
 
 #: lib/bookify_web/controllers/plugs/require_auth.ex:16
@@ -749,12 +661,161 @@ msgstr ""
 msgid "Signed in successfully!"
 msgstr ""
 
-#: lib/bookify_web/components/core_components.ex:189
+#: lib/bookify_web/components/core_components.ex:182
 #, elixir-autogen, elixir-format
 msgid "Error!"
 msgstr ""
 
-#: lib/bookify_web/components/core_components.ex:188
+#: lib/bookify_web/components/core_components.ex:181
 #, elixir-autogen, elixir-format
 msgid "Success!"
+msgstr ""
+
+#: lib/bookify_web/components/layouts/admin.html.heex:2
+#, elixir-autogen, elixir-format
+msgid "Adminify"
+msgstr ""
+
+#: lib/bookify_web/controllers/user_html/new.html.heex:46
+#, elixir-autogen, elixir-format
+msgid "Already have an account?"
+msgstr ""
+
+#: lib/bookify_web/controllers/auth_html/new.html.heex:22
+#, elixir-autogen, elixir-format
+msgid "Don't have an account yet?"
+msgstr ""
+
+#: lib/bookify_web/controllers/book_html/index.html.heex:5
+#, elixir-autogen, elixir-format
+msgid "Find a Book"
+msgstr ""
+
+#: lib/bookify_web/controllers/author_html/index.html.heex:3
+#, elixir-autogen, elixir-format
+msgid "Find an Author"
+msgstr ""
+
+#: lib/bookify_web/controllers/admin_html/show.html.heex:11
+#, elixir-autogen, elixir-format
+msgid "Last log-in:"
+msgstr ""
+
+#: lib/bookify_web/controllers/book_html/show.html.heex:30
+#, elixir-autogen, elixir-format
+msgid "Rating:"
+msgstr ""
+
+#: lib/bookify_web/controllers/admin_html/show.html.heex:5
+#, elixir-autogen, elixir-format
+msgid "Registered:"
+msgstr ""
+
+#: lib/bookify_web/controllers/list_html/index.html.heex:45
+#: lib/bookify_web/controllers/list_html/index.html.heex:104
+#: lib/bookify_web/controllers/list_html/index.html.heex:163
+#, elixir-autogen, elixir-format
+msgid "Remove from List"
+msgstr ""
+
+#: lib/bookify_web/controllers/book_html/show.html.heex:48
+#, elixir-autogen, elixir-format
+msgid "Remove from Wishlist"
+msgstr ""
+
+#: lib/bookify_web/controllers/book_html/show.html.heex:154
+#, elixir-autogen, elixir-format
+msgid "Sign in"
+msgstr ""
+
+#: lib/bookify_web/controllers/book_html/show.html.heex:151
+#, elixir-autogen, elixir-format
+msgid "Sign in to log, rate<br>and review books!"
+msgstr ""
+
+#: lib/bookify_web/controllers/user_html/new.html.heex:47
+#, elixir-autogen, elixir-format
+msgid "Sing In"
+msgstr ""
+
+#: lib/bookify_web/controllers/list_html/index.html.heex:10
+#: lib/bookify_web/controllers/list_html/index.html.heex:69
+#: lib/bookify_web/controllers/list_html/index.html.heex:128
+#, elixir-autogen, elixir-format
+msgid "This list is empty"
+msgstr ""
+
+#: lib/bookify_web/controllers/book_html/show.html.heex:150
+#, elixir-autogen, elixir-format
+msgid "Welcome, guest!"
+msgstr ""
+
+#: lib/bookify_web/controllers/admin_html/reviews.html.heex:16
+#: lib/bookify_web/controllers/admin_html/show.html.heex:33
+#: lib/bookify_web/controllers/book_html/index.html.heex:32
+#: lib/bookify_web/controllers/book_html/show.html.heex:11
+#: lib/bookify_web/controllers/book_html/show.html.heex:188
+#: lib/bookify_web/controllers/book_html/top_books.html.heex:23
+#: lib/bookify_web/controllers/list_html/index.html.heex:32
+#: lib/bookify_web/controllers/list_html/index.html.heex:91
+#: lib/bookify_web/controllers/list_html/index.html.heex:150
+#, elixir-autogen, elixir-format
+msgid "by"
+msgstr ""
+
+#: lib/bookify_web/controllers/book_html/new.html.heex:2
+#, elixir-autogen, elixir-format
+msgid "Add a Book"
+msgstr ""
+
+#: lib/bookify_web/controllers/book_html/edit.html.heex:11
+#: lib/bookify_web/controllers/book_html/new.html.heex:11
+#, elixir-autogen, elixir-format
+msgid "Author"
+msgstr ""
+
+#: lib/bookify/schemas/user.ex:100
+#, elixir-autogen, elixir-format
+msgid "Must be at least 8 characters"
+msgstr ""
+
+#: lib/bookify/schemas/user.ex:113
+#, elixir-autogen, elixir-format
+msgid "Must contain at least one digit"
+msgstr ""
+
+#: lib/bookify/schemas/user.ex:108
+#, elixir-autogen, elixir-format
+msgid "Must contain at least one lower case character"
+msgstr ""
+
+#: lib/bookify/schemas/user.ex:115
+#, elixir-autogen, elixir-format
+msgid "Must contain at least one symbol"
+msgstr ""
+
+#: lib/bookify/schemas/user.ex:111
+#, elixir-autogen, elixir-format
+msgid "Must contain at least one upper case character"
+msgstr ""
+
+#: lib/bookify/schemas/user.ex:105
+#, elixir-autogen, elixir-format
+msgid "Must not be longer than 72 characters"
+msgstr ""
+
+#: lib/bookify/schemas/user.ex:52
+#: lib/bookify/schemas/user.ex:79
+#, elixir-autogen, elixir-format
+msgid "Passwords do not match"
+msgstr ""
+
+#: lib/bookify/schemas/user.ex:124
+#, elixir-autogen, elixir-format
+msgid "must have the @ sign and no spaces"
+msgstr ""
+
+#: lib/bookify/schemas/user.ex:129
+#, elixir-autogen, elixir-format
+msgid "should be at most 160 characters long"
 msgstr ""

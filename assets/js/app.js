@@ -23,10 +23,10 @@ import { LiveSocket } from "phoenix_live_view"
 import topbar from "../vendor/topbar"
 
 let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
-let liveSocket = new LiveSocket("/live", Socket, {params: {_csrf_token: csrfToken}})
+let liveSocket = new LiveSocket("/live", Socket, { params: { _csrf_token: csrfToken } })
 
 // Show progress bar on live navigation and form submits
-topbar.config({barColors: {0: "#29d"}, shadowColor: "rgba(0, 0, 0, .3)"})
+topbar.config({ barColors: { 0: "#29d" }, shadowColor: "rgba(0, 0, 0, .3)" })
 window.addEventListener("phx:page-loading-start", _info => topbar.show(300))
 window.addEventListener("phx:page-loading-stop", _info => topbar.hide())
 
@@ -39,12 +39,19 @@ liveSocket.connect()
 // >> liveSocket.disableLatencySim()
 window.liveSocket = liveSocket
 
-$(document).ready(function(){
-  $('.sidenav').sidenav();
-  $('.modal').modal();
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-  var elems = document.querySelectorAll('.sidenav');
-  var instances = M.Sidenav.init(elems, options);
-});
+// Snippet for opening new review modal
+document.addEventListener("DOMContentLoaded", e => {
+  let reviewButton = document.getElementById("book-actions-review-button")
+  let reviewModal = document.getElementById("new-review-modal")
+  let closeButton = document.getElementById("new-review-modal-close")
+  if (reviewButton && reviewModal) {
+    reviewButton.addEventListener("click", e => {
+      reviewModal.showModal()
+    })
+  }
+  if (closeButton && reviewModal) {
+    closeButton.addEventListener("click", e => {
+      reviewModal.close()
+    })
+  }
+})

@@ -1,0 +1,11 @@
+.formatted p {
+  margin-bottom: 8px;
+}
+
+.formatted em {
+  font-style: italic;
+}
+
+.formatted strong {
+  font-weight: bold;
+}

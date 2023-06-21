@@ -1,0 +1,58 @@
+#header {
+  height: 80px;
+  margin-bottom: 40px;
+}
+
+#header-logo {
+  color: var(--paper-7);
+  font-family: var(--title-font);
+  float: left;
+  font-size: var(--title-1-font-size);
+  font-weight: bold;
+  letter-spacing: 8px;
+  line-height: 80px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+#header-logo:hover {
+  color: var(--paper-6);
+}
+
+#navigation {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  float: right;
+  gap: 24px;
+  height: 100%;
+}
+
+#navigation ul {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+#navigation a {
+  color: var(--gray-8);
+  display: block;
+  font-size: var(--footnote-font-size);
+  font-weight: 500;
+  line-height: var(--footnote-leading);
+  letter-spacing: 1px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 150ms;
+}
+
+#navigation a:hover {
+  color: var(--blue-5);
+}
+
+.navigation-personal::before {
+  content: "❦";
+  color: var(--paper-4);
+  display: block;
+  margin-right: 8px;
+}

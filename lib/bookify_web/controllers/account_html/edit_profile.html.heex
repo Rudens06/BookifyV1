@@ -1,44 +1,45 @@
-<h2><%= gettext("Edit Profile") %></h2>
-
-<%= if @current_user.avatar do %>
-  <div class="row">
-    <div class="col s3">
-      <img class="circle" src={@current_user_pic} />
-    </div>
+<section class="account-edit">
+  <div class="account-avatar">
+    <img
+      src={@current_user_pic}
+      alt={gettext("%{name} profile picture", name: @current_user.name)}
+    />
   </div>
-<% end %>
 
-<div class="form-group">
-  <%= form_for @changeset, Routes.account_path(@conn, :update_profile), fn f -> %>
-    <div class="input-field">
-      <%= text_input(f, :name, placeholder: gettext("Name"), class: "white gray-text") %>
+  <h2 class="section-title"><%= gettext("Edit Profile") %></h2>
+
+  <%= form_for @changeset, Routes.account_path(@conn, :update_profile), [class: "form account-profile-form"], fn f -> %>
+    <div class="form-row">
+      <%= label(f, :name, gettext("Name")) %>
+      <%= text_input(f, :name) %>
       <%= error_tag(f, :name) %>
     </div>
-    <div class="input-field">
-      <%= text_input(f, :email, placeholder: gettext("Email"), class: "form-control") %>
+    <div class="form-row">
+      <%= label(f, :email, gettext("Email")) %>
+      <%= text_input(f, :email) %>
       <%= error_tag(f, :email) %>
     </div>
-    <%= submit(gettext("Save Changes"), class: default_btn()) %>
-  <% end %>
-</div>
-
-<h4><%= gettext("Change Avatar") %></h4>
-
-<%= form_for @avatar_changeset, Routes.account_path(@conn, :update_avatar), [multipart: true], fn f -> %>
-  <%= if @avatar_changeset.action do %>
-    <div class="alert alert-danger">
-      <p><%= gettext("Oops, something went wrong! Please check the errors below.") %></p>
+    <div class="form-actions">
+      <%= submit(gettext("Save Changes"), class: "button") %>
     </div>
   <% end %>
 
-  <div class="form-group">
-    <%= file_input(f, :avatar) %>
-    <%= error_tag(f, :avatar) %>
-  </div>
+  <h3 class="section-title"><%= gettext("Change Avatar") %></h3>
 
-  <div>
-    <%= submit(gettext("Upload avatar"), class: default_btn()) %>
-  </div>
-<% end %>
-<br />
-<%= link(gettext("Cancel"), to: Routes.account_path(@conn, :index), class: cancel_btn()) %>
+  <%= form_for @avatar_changeset, Routes.account_path(@conn, :update_avatar), [multipart: true, class: "form account-avatar-form"], fn f -> %>
+    <%= if @avatar_changeset.action do %>
+      <div class="alert alert-danger">
+        <p><%= gettext("Oops, something went wrong! Please check the errors below.") %></p>
+      </div>
+    <% end %>
+
+    <div class="form-row">
+      <%= file_input(f, :avatar) %>
+      <%= error_tag(f, :avatar) %>
+    </div>
+
+    <div class="form-actions">
+      <%= submit(gettext("Upload avatar"), class: "button") %>
+    </div>
+  <% end %>
+</section>

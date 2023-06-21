@@ -1,51 +1,46 @@
-<ul class="collection">
-  <%= for review <- @reviews do %>
-    <li class="collection-item avatar">
-      <img
-        src={Bookify.Avatar.url({review.user.avatar, review.user}, signed: true)}
-        alt={gettext("%{name} profile picture", name: review.user.name)}
-        class="circle"
-      />
-      <h6>
-        <%= link(gettext("For: %{title}", title: review.book.title),
-          to: Routes.book_path(@conn, :show, Bookify.Book.slug_with_id(review.book))
-        ) %>
-      </h6>
-      <p class="right">
-        <%= from_now(review.inserted_at) %>
-        <br />
-        <%= display_date(review.inserted_at) %>
-        <br />
-        <%= display_time(review.inserted_at) %>
-      </p>
-      <h6>
-        <%= review.user.name %>
-      </h6>
-      <h6>
-        <%= review.title %>
-      </h6>
-      <p>
-        <%= review.review %>
-      </p>
-      <p>
-        <%= raw(rating_stars(review.rating)) %>
-      </p>
-      <br />
-      <%= link(gettext("Delete"),
-        to: Routes.review_path(@conn, :delete, review.id),
-        method: :delete,
-        data: [confirm: gettext("Are you sure?")],
-        class: "right"
-      ) %>
-      <br />
-      <%= unless review.approved do %>
-        <br />
-        <%= link(gettext("Approve"),
-          to: Routes.admin_path(@conn, :approve_review, review.id),
-          class: "right"
-        ) %>
-        <br />
-      <% end %>
-    </li>
-  <% end %>
-</ul>
+<section>
+  <h2 class="section-title"><%= gettext("Reviews") %></h2>
+
+  <ul class="reviews-list">
+    <%= for review <- @reviews do %>
+      <li class="review-item">
+        <div class="review-item-avatar">
+          <img
+            src={Bookify.Avatar.url({review.user.avatar, review.user}, signed: true)}
+            alt={gettext("%{name} profile picture", name: review.user.name)}
+          />
+        </div>
+        <header class="review-item-title">
+          <h4><%= review.title %></h4>
+          <p class="review-item-author">
+            <span class="review-item-author-by"><%= gettext("by") %></span>
+            <%= review.user.name %>
+          </p>
+          <p class="review-item-rating">
+            <%= raw(rating_stars(review.rating)) %>
+          </p>
+        </header>
+        <article class="review-item-content formatted">
+          <%= raw(Earmark.as_html!(review.review || "")) %>
+        </article>
+        <div class="review-item-actions">
+          <%= link(gettext("Delete"),
+            to: Routes.review_path(@conn, :delete, review.id),
+            method: :delete,
+            data: [confirm: gettext("Are you sure?")],
+            class: "button"
+          ) %>
+          <br />
+          <%= unless review.approved do %>
+            <br />
+            <%= link(gettext("Approve"),
+              to: Routes.admin_path(@conn, :approve_review, review.id),
+              class: "button"
+            ) %>
+            <br />
+          <% end %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</section>

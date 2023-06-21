@@ -7,27 +7,12 @@
     <.live_title suffix=" · Bookify">
       <%= assigns[:page_title] || gettext("Bookify") %>
     </.live_title>
+    <link rel="icon" type="image/x-icon" href="./assets/images/icon.png ">
     <link phx-track-static rel="stylesheet" href={~p"/assets/app.css"} />
-    <script defer phx-track-static type="text/javascript" src={~p"/assets/app.js"}>
-      <link rel="icon" type="image/x-icon" href="./assets/images/icon.png ">
-    </script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js">
-    </script>
-
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css"
-    />
-
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"
-    >
-    </script>
-
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <script defer phx-track-static type="text/javascript" src={~p"/assets/app.js"}></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
-  <body class="bg-white antialiased">
+  <body>
     <%= @inner_content %>
   </body>
 </html>

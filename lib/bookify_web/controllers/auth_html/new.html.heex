@@ -1,16 +1,26 @@
-<h2><%= gettext("Sign In") %></h2>
+<section class="auth">
+  <h2 class="section-title"><%= gettext("Sign In") %></h2>
 
-<%= form_for @conn, Routes.auth_path(@conn, :signin), [as: :session], fn f -> %>
-  <div class="form-group">
-    <div class="input-field">
-      <%= text_input(f, :email, placeholder: gettext("Email"), class: "form-control") %>
+  <%= form_for @conn, Routes.auth_path(@conn, :signin), [as: :session, class: "form auth-form"], fn f -> %>
+    <div class="form-row">
+      <%= label(f, :email, gettext("Email")) %>
+      <%= email_input(f, :email, autofocus: true) %>
       <%= error_tag(f, :email) %>
     </div>
-    <div class="input-field">
-      <%= password_input(f, :password, placeholder: gettext("Password"), class: "form-control") %>
+    <div class="form-row">
+      <%= label(f, :password, gettext("Password")) %>
+      <%= password_input(f, :password) %>
       <%= error_tag(f, :password) %>
     </div>
-    <%= submit(gettext("Sign In"), class: default_btn()) %>
-  </div>
-<% end %>
-<%= link(gettext("Register an Account"), to: Routes.user_path(@conn, :new)) %>
+    <div class="form-actions">
+      <%= submit(gettext("Sign In"), class: "button") %>
+    </div>
+  <% end %>
+
+  <ul class="auth-actions">
+    <li>
+      <p><%= gettext("Don't have an account yet?") %></p>
+      <p><%= link(gettext("Register an Account"), to: Routes.user_path(@conn, :new)) %></p>
+    </li>
+  </ul>
+</section>

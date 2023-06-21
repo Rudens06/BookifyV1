@@ -3,6 +3,7 @@ defmodule Bookify.User do
   use Waffle.Ecto.Schema
 
   import Ecto.Changeset
+  import BookifyWeb.Gettext
 
   alias Bookify.GenId
   alias Bookify.Avatar
@@ -48,7 +49,7 @@ defmodule Bookify.User do
     |> cast(params, [:password, :password_confirmation, :current_password])
     |> validate_required([:password, :password_confirmation, :current_password])
     |> validate_password()
-    |> validate_confirmation(:password, message: "Passwords do not match")
+    |> validate_confirmation(:password, message: gettext("Passwords do not match"))
     |> hash_password()
   end
 
@@ -66,7 +67,6 @@ defmodule Bookify.User do
     |> change(last_login: now)
   end
 
-
   def registration_changeset(user, params \\ %{}) do
     now = DateTime.utc_now() |> DateTime.truncate(:second)
 
@@ -76,13 +76,14 @@ defmodule Bookify.User do
     |> unique_constraint([:email])
     |> validate_email()
     |> validate_password()
-    |> validate_confirmation(:password, message: "Passwords do not match")
+    |> validate_confirmation(:password, message: gettext("Passwords do not match"))
     |> change(last_login: now)
     |> hash_password()
   end
 
   defp hash_password(changeset) do
     password = get_change(changeset, :password)
+
     if password && changeset.valid? do
       changeset
       |> put_change(:hashed_password, Bcrypt.hash_pwd_salt(password))
@@ -96,17 +97,23 @@ defmodule Bookify.User do
     |> validate_length(
       :password,
       min: 8,
-      message: "Must be at least 8 characters"
+      message: gettext("Must be at least 8 characters")
     )
     |> validate_length(
       :password,
       max: 72,
-      message: "Must not be longer than 72 characters"
+      message: gettext("Must not be longer than 72 characters")
     )
-    |> validate_format(:password, ~r/[a-z]/, message: "Must contain at least one lower case character")
-    |> validate_format(:password, ~r/[A-Z]/, message: "Must contain at least one upper case character")
-    |> validate_format(:password, ~r/[0-9]/, message: "Must contain at least one digit")
-    |> validate_format(:password, ~r/[*.!@#$%^&(){}[:;<>,.?]/, message: "Must contain at least one symbol")
+    |> validate_format(:password, ~r/[a-z]/,
+      message: gettext("Must contain at least one lower case character")
+    )
+    |> validate_format(:password, ~r/[A-Z]/,
+      message: gettext("Must contain at least one upper case character")
+    )
+    |> validate_format(:password, ~r/[0-9]/, message: gettext("Must contain at least one digit"))
+    |> validate_format(:password, ~r/[*.!@#$%^&(){}[:;<>,.?]/,
+      message: gettext("Must contain at least one symbol")
+    )
   end
 
   def validate_email(changeset) do
@@ -114,12 +121,12 @@ defmodule Bookify.User do
     |> validate_format(
       :email,
       ~r/^[^\s]+@[^\s]+$/,
-      message: "must have the @ sign and no spaces"
+      message: gettext("must have the @ sign and no spaces")
     )
     |> validate_length(
       :email,
       max: 160,
-      message: "should be at most 160 characters long"
+      message: gettext("should be at most 160 characters long")
     )
   end
 

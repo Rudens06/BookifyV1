@@ -1,0 +1,14 @@
+#footer {
+  font-size: var(--footnote-font-size);
+  line-height: var(--footnote-leading);
+  margin-bottom: 40px;
+  margin-top: 40px;
+}
+
+.languages,
+.languages ul {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+  flex-direction: row;
+}

@@ -1,0 +1,27 @@
+.auth {
+  margin: 100px auto;
+  width: 340px;
+}
+
+.auth .section-title {
+  text-align: center;
+}
+
+.auth-form {
+  border: 1px solid var(--paper-1);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 24px;
+}
+
+.auth-form .form-row input {
+  width: 100%;
+}
+
+.auth-actions {
+  text-align: center;
+}
+
+.auth-actions p {
+  margin-bottom: 8px;
+}

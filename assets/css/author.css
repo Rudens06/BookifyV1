@@ -1,0 +1,58 @@
+.author {
+  padding-left: 240px;
+  margin-bottom: 24px;
+}
+
+.author::after {
+  display: block;
+  content: " ";
+  clear: both;
+}
+
+.author-photo {
+  margin-left: -240px;
+  float: left;
+  position: sticky;
+  width: 220px;
+}
+
+.author-photo img {
+  border-radius: 2px;
+  box-shadow: 0 0.5px 0.5px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.2);
+  display: block;
+  max-width: 220px;
+}
+
+.author-name h2 {
+  color: var(--paper-8);
+  font-family: var(--title-font);
+  font-size: var(--title-1-font-size);
+  line-height: var(--title-1-leading);
+  margin-bottom: 8px;
+}
+
+.author-name {
+  margin-bottom: 24px;
+}
+
+.author-bio {
+  font-size: var(--body-font-size);
+  line-height: var(--body-leading);
+  margin-bottom: 24px;
+  width: 460px;
+}
+
+.author-wikipedia-link a {
+  color: var(--paper-7);
+  font-size: var(--subhead-font-size);
+  line-height: var(--subhead-font-size);
+  margin-bottom: 8px;
+}
+
+.author-wikipedia-link a:hover {
+  color: var(--paper-6);
+}
+
+.author-books {
+  clear: both;
+}

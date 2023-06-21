@@ -1,0 +1,53 @@
+.authors-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.author-item {
+  padding-left: 112px;
+  width: 188px;
+}
+
+.author-item::after {
+  clear: both;
+  content: " ";
+  display: block;
+}
+
+.author-item-picture {
+  float: left;
+  margin-left: -112px;
+  width: 100px;
+}
+
+.author-item-picture img {
+  border-radius: 2px;
+  box-shadow: 0 0.5px 0.5px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.2);
+  max-width: 100px;
+}
+
+.author-item-name h4 {
+  margin-bottom: 4px;
+}
+
+.author-item-name-link {
+  color: var(--paper-8);
+  font-family: var(--title-font);
+  font-size: var(--title-3-font-size);
+  line-height: var(--title-3-leading);
+  text-decoration: none;
+}
+
+.author-item-name-link:hover {
+  color: var(--paper-7);
+}
+
+.author-item-birth-year {
+  color: var(--paper-6);
+  font-size: var(--subhead-font-size);
+  line-height: var(--subhead-leading);
+  margin-bottom: 8px;
+}

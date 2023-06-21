@@ -1,0 +1,42 @@
+.modal {
+  border: 0;
+  border-radius: 10px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 20px 40px rgba(0, 0, 0, 0.2);
+  padding: 16px;
+}
+
+.modal-title {
+  padding-right: 40px;
+  margin-bottom: 12px;
+}
+
+.modal-close {
+  align-items: center;
+  background: rgba(0, 0, 0, 0.1);
+  border: 0;
+  border-radius: 20px;
+  color: var(--white);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  height: 24px;
+  padding: 0;
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  width: 24px;
+}
+
+.modal-close:hover {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.modal-close:active {
+  background: rgba(0, 0, 0, 0.20);
+}
+
+.modal-close .icon {
+  color: rgba(0, 0, 0, 0.4);
+  height: 16px;
+  width: 16px;
+}

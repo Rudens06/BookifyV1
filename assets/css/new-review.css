@@ -1,0 +1,16 @@
+.new-review {
+  width: 460px;
+}
+
+.new-review .form-row input {
+  width: 100%;
+}
+
+.new-review .form-row textarea {
+  height: 200px;
+  width: 100%;
+}
+
+.new-review #review_rating {
+  width: 100px;
+}

@@ -1,0 +1,12 @@
+.list {
+  margin-bottom: 24px;
+}
+
+.list-title {
+  border-bottom: 1px solid var(--paper-1);
+  color: var(--paper-8);
+  font-size: var(--title-3-font-size);
+  line-height: var(--title-3-leading);
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+}

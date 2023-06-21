@@ -1,19 +1,29 @@
-<ul class="collection">
-  <%= for user <- @users do %>
-    <li class="collection-item avatar">
-      <img
-        src={Bookify.Avatar.url({user.avatar, user}, signed: true)}
-        alt={gettext("%{name} profile picture", name: user.name)}
-        class="circle"
-      />
-      <p class="right">
-        <%= gettext("Last Log-in: %{date}", date: user.last_login) %>
-        <br />
-        <%= gettext("Created: %{date}", date: user.inserted_at) %>
-      </p>
-      <h6>
-        <%= link(user.name, to: Routes.admin_path(@conn, :show, user.id)) %>
-      </h6>
-    </li>
-  <% end %>
-</ul>
+<section>
+  <h2 class="section-title"><%= gettext("Users") %></h2>
+
+  <ul class="users-list">
+    <%= for user <- @users do %>
+      <li class="user-item">
+        <div class="user-item-avatar">
+          <img
+            src={Bookify.Avatar.url({user.avatar, user}, signed: true)}
+            alt={gettext("%{name} profile picture", name: user.name)}
+          />
+        </div>
+        <header class="user-item-name">
+          <h4>
+            <%= link(user.name,
+              to: Routes.admin_path(@conn, :show, user.id),
+              class: "user-item-name-link"
+            ) %>
+          </h4>
+        </header>
+        <p class="user-item-notes">
+          <%= gettext("Last Log-in: %{date}", date: user.last_login) %>
+          <br />
+          <%= gettext("Created: %{date}", date: user.inserted_at) %>
+        </p>
+      </li>
+    <% end %>
+  </ul>
+</section>

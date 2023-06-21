@@ -1,47 +1,64 @@
-<img src={@author.author_pic_url} />
-<h4><%= @author.name %></h4>
-<h5><%= @author.birth_year %></h5>
-<h6><%= gettext("Biography:") %></h6>
-<%= @author.bio %>
-<br />
-<br />
-<a href={@author.wikipedia_url}><%= gettext("Wikipedia Page") %></a>
+<section class="author">
+  <div class="author-photo">
+    <img src={@author.author_pic_url} alt={gettext("%{name} picture", name: @author.name)} />
+  </div>
+  <header class="author-name">
+    <h2><%= @author.name %></h2>
+    <p class="author-birth-year"><%= @author.birth_year %></p>
+  </header>
+  <article class="author-bio">
+    <%= raw(Earmark.as_html!(@author.bio || "")) %>
+  </article>
+  <p class="author-wikipedia-link">
+    <a href={@author.wikipedia_url}><%= gettext("Wikipedia Page") %></a>
+  </p>
+</section>
 
-<h5>
-  <%= gettext("Books:") %>
-</h5>
+<section class="author-books">
+  <h3 class="section-title"><%= gettext("Books:") %></h3>
 
-<ul class="collection">
-  <%= for book <- @author.books do %>
-    <li class="collection-item avatar">
-      <img
-        src={book.cover_pic_url}
-        alt={gettext("%{title} cover picture", title: book.title)}
-        class="circle"
-      />
-      <span>
-        <%= link(book.title, to: Routes.book_path(@conn, :show, Bookify.Book.slug_with_id(book)), class: "title") %>
-      </span>
-      <%= if RequireAdmin.user_is_admin?(current_user(@conn)) do %>
-        <div class="right">
-          <%= link(gettext("Edit"), to: Routes.book_path(@conn, :edit, book.id)) %>
-          <%= link(gettext("Delete"),
-            to: Routes.book_path(@conn, :delete, book.id),
-            method: :delete,
-            data: [confirm: gettext("Are you sure?")]
-          ) %>
+  <ul class="books-list">
+    <%= for book <- @author.books do %>
+      <li class="book-item">
+        <div class="book-item-cover">
+          <%= link(to: Routes.book_path(@conn, :show, Bookify.Book.slug_with_id(book))) do %>
+            <img
+              src={book.cover_pic_url}
+              alt={gettext("%{title} cover picture", title: book.title)}
+            />
+          <% end %>
         </div>
-      <% end %>
-      <p>
-        <%= @author.name %>
-      </p>
-      <p>
-        <%= gettext("Published: %{year}", year: book.publish_year) %>
-      </p>
-      <p>
-        <%= gettext("Pages: %{count}", count: book.page_count) %>
-      </p>
-      <%= raw(rating_stars(book.avg_rating)) %>
-    </li>
-  <% end %>
-</ul>
+        <header class="book-item-title">
+          <h4>
+            <%= link(book.title,
+              to: Routes.book_path(@conn, :show, Bookify.Book.slug_with_id(book)),
+              class: "book-item-title-link"
+            ) %>
+          </h4>
+        </header>
+        <%= if book.avg_rating do %>
+          <p class="book-item-rating">
+            <%= raw(rating_stars(book.avg_rating)) %>
+            <span class="book-item-rating-average">
+              <%= round_to_two_decimal_places(book.avg_rating) %>
+            </span>
+          </p>
+        <% end %>
+        <%= if RequireAdmin.user_is_admin?(current_user(@conn)) do %>
+          <div class="book-item-actions">
+            <%= link(gettext("Edit"),
+              to: Routes.book_path(@conn, :edit, book.id),
+              class: "button"
+            ) %>
+            <%= link(gettext("Delete"),
+              to: Routes.book_path(@conn, :delete, book.id),
+              method: :delete,
+              data: [confirm: gettext("Are you sure?")],
+              class: "button"
+            ) %>
+          </div>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</section>
