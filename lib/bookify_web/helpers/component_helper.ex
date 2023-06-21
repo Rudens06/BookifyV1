@@ -26,11 +26,11 @@ defmodule BookifyWeb.Helpers.Component do
   defp render_stars(full_stars, half_star?) do
     cond do
       full_stars > 0 ->
-        "<i class=\"icon-star-full\">★</i>" <>
+        "<i class=\"material-icons\">star</i>" <>
           render_stars(full_stars - 1, half_star?)
 
       half_star? ->
-        "<i class=\"icon-star-half\">½</i>" <> render_stars(full_stars, false)
+        "<i class=\"material-icons\">star_half</i>" <> render_stars(full_stars, false)
 
       true ->
         ""
