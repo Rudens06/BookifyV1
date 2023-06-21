@@ -36,7 +36,7 @@
         <%= if book.avg_rating do %>
           <p class="book-item-rating">
             <%= raw(rating_stars(book.avg_rating)) %>
-            <%= book.avg_rating %>
+            <%= round_to_two_decimal_places(book.avg_rating) %>
           </p>
         <% end %>
         <%= if RequireAdmin.user_is_admin?(current_user(@conn)) do %>

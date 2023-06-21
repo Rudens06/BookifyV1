@@ -30,7 +30,7 @@
         <dt><%= gettext("Rating:") %></dt>
         <dd>
           <%= raw(rating_stars(@book.avg_rating)) %>
-          <%= @book.avg_rating %>
+          <%= round_to_two_decimal_places(@book.avg_rating) %>
         </dd>
       <% end %>
     </dl>

@@ -6,6 +6,7 @@ defmodule BookifyWeb.BookHTML do
   import BookifyWeb.Helpers.User
   import BookifyWeb.Helpers.List
   import BookifyWeb.Helpers.Component
+  import BookifyWeb.Helpers.Numbers
   import BookifyWeb.Helpers.Time
   alias Bookify.Lists
   alias BookifyWeb.Plugs.RequireAdmin
