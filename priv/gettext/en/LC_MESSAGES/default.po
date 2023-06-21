@@ -15,8 +15,8 @@ msgstr ""
 #: lib/bookify_web/controllers/book_html/index.html.heex:20
 #: lib/bookify_web/controllers/book_html/top_books.html.heex:11
 #: lib/bookify_web/controllers/list_html/index.html.heex:20
-#: lib/bookify_web/controllers/list_html/index.html.heex:77
-#: lib/bookify_web/controllers/list_html/index.html.heex:134
+#: lib/bookify_web/controllers/list_html/index.html.heex:79
+#: lib/bookify_web/controllers/list_html/index.html.heex:138
 #, elixir-autogen, elixir-format
 msgid "%{title} cover picture"
 msgstr ""
@@ -31,7 +31,7 @@ msgstr ""
 msgid "Add Book"
 msgstr ""
 
-#: lib/bookify_web/controllers/book_html/index.html.heex:59
+#: lib/bookify_web/controllers/book_html/index.html.heex:61
 #, elixir-autogen, elixir-format
 msgid "Add book"
 msgstr ""
@@ -39,13 +39,13 @@ msgstr ""
 #: lib/bookify_web/controllers/admin_html/reviews.html.heex:30
 #: lib/bookify_web/controllers/admin_html/show.html.heex:47
 #: lib/bookify_web/controllers/author_html/index.html.heex:39
-#: lib/bookify_web/controllers/author_html/show.html.heex:54
-#: lib/bookify_web/controllers/book_html/index.html.heex:48
+#: lib/bookify_web/controllers/author_html/show.html.heex:56
+#: lib/bookify_web/controllers/book_html/index.html.heex:50
 #: lib/bookify_web/controllers/book_html/show.html.heex:203
-#: lib/bookify_web/controllers/book_html/top_books.html.heex:39
-#: lib/bookify_web/controllers/list_html/index.html.heex:51
-#: lib/bookify_web/controllers/list_html/index.html.heex:108
-#: lib/bookify_web/controllers/list_html/index.html.heex:165
+#: lib/bookify_web/controllers/book_html/top_books.html.heex:41
+#: lib/bookify_web/controllers/list_html/index.html.heex:53
+#: lib/bookify_web/controllers/list_html/index.html.heex:112
+#: lib/bookify_web/controllers/list_html/index.html.heex:171
 #, elixir-autogen, elixir-format
 msgid "Are you sure?"
 msgstr ""
@@ -86,10 +86,10 @@ msgstr ""
 #: lib/bookify_web/controllers/admin_html/reviews.html.heex:27
 #: lib/bookify_web/controllers/admin_html/show.html.heex:44
 #: lib/bookify_web/controllers/author_html/index.html.heex:36
-#: lib/bookify_web/controllers/author_html/show.html.heex:51
-#: lib/bookify_web/controllers/book_html/index.html.heex:45
+#: lib/bookify_web/controllers/author_html/show.html.heex:53
+#: lib/bookify_web/controllers/book_html/index.html.heex:47
 #: lib/bookify_web/controllers/book_html/show.html.heex:200
-#: lib/bookify_web/controllers/book_html/top_books.html.heex:36
+#: lib/bookify_web/controllers/book_html/top_books.html.heex:38
 #, elixir-autogen, elixir-format
 msgid "Delete"
 msgstr ""
@@ -103,9 +103,9 @@ msgid "Deleted Successfully"
 msgstr ""
 
 #: lib/bookify_web/controllers/author_html/index.html.heex:32
-#: lib/bookify_web/controllers/author_html/show.html.heex:47
-#: lib/bookify_web/controllers/book_html/index.html.heex:44
-#: lib/bookify_web/controllers/book_html/top_books.html.heex:35
+#: lib/bookify_web/controllers/author_html/show.html.heex:49
+#: lib/bookify_web/controllers/book_html/index.html.heex:46
+#: lib/bookify_web/controllers/book_html/top_books.html.heex:37
 #, elixir-autogen, elixir-format
 msgid "Edit"
 msgstr ""
@@ -126,7 +126,7 @@ msgstr ""
 msgid "My Account"
 msgstr ""
 
-#: lib/bookify_web/controllers/book_html/index.html.heex:64
+#: lib/bookify_web/controllers/book_html/index.html.heex:66
 #, elixir-autogen, elixir-format
 msgid "RSS feed"
 msgstr ""
@@ -401,7 +401,7 @@ msgid "Genres:"
 msgstr ""
 
 #: lib/bookify_web/controllers/book_html/show.html.heex:93
-#: lib/bookify_web/controllers/list_html/index.html.heex:121
+#: lib/bookify_web/controllers/list_html/index.html.heex:125
 #, elixir-autogen, elixir-format
 msgid "Have Read"
 msgstr ""
@@ -502,7 +502,7 @@ msgid "Read Books list"
 msgstr ""
 
 #: lib/bookify_web/controllers/book_html/show.html.heex:76
-#: lib/bookify_web/controllers/list_html/index.html.heex:64
+#: lib/bookify_web/controllers/list_html/index.html.heex:66
 #, elixir-autogen, elixir-format
 msgid "Reading"
 msgstr ""
@@ -711,9 +711,9 @@ msgstr ""
 msgid "Registered:"
 msgstr ""
 
-#: lib/bookify_web/controllers/list_html/index.html.heex:43
-#: lib/bookify_web/controllers/list_html/index.html.heex:100
-#: lib/bookify_web/controllers/list_html/index.html.heex:157
+#: lib/bookify_web/controllers/list_html/index.html.heex:45
+#: lib/bookify_web/controllers/list_html/index.html.heex:104
+#: lib/bookify_web/controllers/list_html/index.html.heex:163
 #, elixir-autogen, elixir-format, fuzzy
 msgid "Remove from List"
 msgstr ""
@@ -739,8 +739,8 @@ msgid "Sing In"
 msgstr ""
 
 #: lib/bookify_web/controllers/list_html/index.html.heex:10
-#: lib/bookify_web/controllers/list_html/index.html.heex:67
-#: lib/bookify_web/controllers/list_html/index.html.heex:124
+#: lib/bookify_web/controllers/list_html/index.html.heex:69
+#: lib/bookify_web/controllers/list_html/index.html.heex:128
 #, elixir-autogen, elixir-format
 msgid "This list is empty"
 msgstr ""
@@ -757,8 +757,8 @@ msgstr ""
 #: lib/bookify_web/controllers/book_html/show.html.heex:188
 #: lib/bookify_web/controllers/book_html/top_books.html.heex:23
 #: lib/bookify_web/controllers/list_html/index.html.heex:32
-#: lib/bookify_web/controllers/list_html/index.html.heex:89
-#: lib/bookify_web/controllers/list_html/index.html.heex:146
+#: lib/bookify_web/controllers/list_html/index.html.heex:91
+#: lib/bookify_web/controllers/list_html/index.html.heex:150
 #, elixir-autogen, elixir-format
 msgid "by"
 msgstr ""
@@ -772,4 +772,50 @@ msgstr ""
 #: lib/bookify_web/controllers/book_html/new.html.heex:11
 #, elixir-autogen, elixir-format, fuzzy
 msgid "Author"
+msgstr ""
+
+#: lib/bookify/schemas/user.ex:100
+#, elixir-autogen, elixir-format
+msgid "Must be at least 8 characters"
+msgstr ""
+
+#: lib/bookify/schemas/user.ex:113
+#, elixir-autogen, elixir-format
+msgid "Must contain at least one digit"
+msgstr ""
+
+#: lib/bookify/schemas/user.ex:108
+#, elixir-autogen, elixir-format
+msgid "Must contain at least one lower case character"
+msgstr ""
+
+#: lib/bookify/schemas/user.ex:115
+#, elixir-autogen, elixir-format
+msgid "Must contain at least one symbol"
+msgstr ""
+
+#: lib/bookify/schemas/user.ex:111
+#, elixir-autogen, elixir-format
+msgid "Must contain at least one upper case character"
+msgstr ""
+
+#: lib/bookify/schemas/user.ex:105
+#, elixir-autogen, elixir-format
+msgid "Must not be longer than 72 characters"
+msgstr ""
+
+#: lib/bookify/schemas/user.ex:52
+#: lib/bookify/schemas/user.ex:79
+#, elixir-autogen, elixir-format
+msgid "Passwords do not match"
+msgstr ""
+
+#: lib/bookify/schemas/user.ex:124
+#, elixir-autogen, elixir-format
+msgid "must have the @ sign and no spaces"
+msgstr ""
+
+#: lib/bookify/schemas/user.ex:129
+#, elixir-autogen, elixir-format
+msgid "should be at most 160 characters long"
 msgstr ""
