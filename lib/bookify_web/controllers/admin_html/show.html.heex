@@ -23,7 +23,7 @@
         <li class="review-item">
           <div class="review-item-avatar">
             <img
-              src={Bookify.Avatar.url({@user.avatar, review.user}, signed: true)}
+              src={Bookify.Avatar.url({@user.avatar, @user}, signed: true)}
               alt={gettext("%{name} profile picture", name: @user.name)}
             />
           </div>

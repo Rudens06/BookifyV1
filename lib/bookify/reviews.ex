@@ -3,12 +3,11 @@ defmodule Bookify.Reviews do
   alias Bookify.Repo
   alias Bookify.Review
 
-  def list_reviews() do
+  def list_reviews(preloads \\ []) do
     Review
     |> order_by(desc: :inserted_at)
     |> Repo.all()
-    |> Repo.preload(:user)
-    |> Repo.preload(:book)
+    |> Repo.preload(preloads)
   end
 
   def get_by_id!(user_id) do
@@ -25,6 +24,6 @@ defmodule Bookify.Reviews do
 
   def delete_review_by_id!(user_id) do
     Repo.get(Review, user_id)
-    |> Repo.delete!
+    |> Repo.delete!()
   end
 end
