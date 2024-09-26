@@ -25,8 +25,7 @@ config :bookify, BookifyWeb.Endpoint,
   debug_errors: true,
   secret_key_base: "IRx7+dKMKgI5VicB5cFmUYhzF+pfDfzru1FkuzwZ7FrLA/JTX2OgLcsYlLjKCqPw",
   watchers: [
-    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]},
-    tailwind: {Tailwind, :install_and_run, [:default, ~w(--watch)]}
+    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]}
   ]
 
 # ## SSL Support
