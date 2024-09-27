@@ -13,7 +13,7 @@
       <li class="author-item">
         <div class="author-item-picture">
           <%= link(to: Routes.author_path(@conn, :show, Bookify.Author.slug_with_id(author))) do %>
-            <img src={author.author_pic_url} alt={gettext("%{name} picture", name: author.name)} />
+            <img src={author.image_url} alt={gettext("%{name} picture", name: author.name)} />
           <% end %>
         </div>
         <header class="author-item-name">
