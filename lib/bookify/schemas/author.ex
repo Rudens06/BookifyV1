@@ -1,5 +1,4 @@
 defmodule Bookify.Author do
-
   use Ecto.Schema
   import Ecto.Changeset
   alias Bookify.GenId
@@ -11,15 +10,14 @@ defmodule Bookify.Author do
     field :name, :string
     field :birth_year, :integer
     field :bio, :string
-    field :author_pic_url, :string
+    field :image_url, :string
     field :wikipedia_url, :string
     has_many :books, Book
-
   end
 
   def changeset(author, params \\ %{}) do
     author
-    |> cast(params, [:name, :birth_year, :bio, :author_pic_url, :wikipedia_url])
+    |> cast(params, [:name, :birth_year, :bio, :image_url, :wikipedia_url])
     |> validate_required([:name, :birth_year])
   end
 
