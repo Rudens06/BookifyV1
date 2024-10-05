@@ -9,7 +9,7 @@ config :bookify, Bookify.Repo,
   username: "postgres",
   password: "postgres",
   hostname: "localhost",
-  database: "bookify_test#{System.get_env("MIX_TEST_PARTITION")}",
+  database: "bookify_v1_test#{System.get_env("MIX_TEST_PARTITION")}",
   pool: Ecto.Adapters.SQL.Sandbox,
   pool_size: 10
 

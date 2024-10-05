@@ -5,7 +5,7 @@ config :bookify, Bookify.Repo,
   username: "postgres",
   password: "postgres",
   hostname: "localhost",
-  database: "bookify_dev",
+  database: "bookify_v1_dev",
   stacktrace: true,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
